@@ -74,11 +74,11 @@ export default function Home() {
                     {formatDate(post.date)}
                   </p>
                 )}
-                <Link href={post.url} className="text-sm ">
-                  <Button className="text-white font-bold font-sans bg-primary-500 py-4 px-8">
-                    View Article
-                  </Button>
-                </Link>
+                <div>
+                  <Link href={post.url} className="text-sm " legacyBehavior>
+                    <Button variant={"ghost"}>View Article</Button>
+                  </Link>
+                </div>
               </article>
             ))}
           </div>

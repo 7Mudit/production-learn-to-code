@@ -94,7 +94,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
   return (
-    <article className="container relative max-w-3xl py-6 lg:py-10">
+    <article className="container  relative max-w-3xl py-6 lg:py-10">
       <Link
         href="/nptel-notes"
         className={cn(
@@ -163,6 +163,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       <div className="flex justify-center py-6 lg:py-10">
         <Link
           href="/nptel-notes"
+          target="_blank"
           className={cn(buttonVariants({ variant: "ghost" }))}
         >
           <Icons.chevronLeft className="mr-2 h-4 w-4" />

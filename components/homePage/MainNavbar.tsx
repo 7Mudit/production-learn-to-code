@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 
 import { Inter, Noto_Sans } from "next/font/google";
 // import { Lenis } from "@studio-freight/react-lenis/types";
-import Lenis from "@studio-freight/lenis";
+// import Lenis from "@studio-freight/lenis";
 
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const inter = Inter({ weight: "600", subsets: ["latin"] });
@@ -19,27 +19,27 @@ const navbarLinks = [
 ];
 
 const MainNavbar = () => {
-  const lenis = useRef(null);
-  let animationFrameId;
+  // const lenis = useRef(null);
+  // let animationFrameId;
 
-  useEffect(() => {
-    lenis.current = new Lenis({
-      lerp: 0.1,
-      smooth: true,
-      // other Lenis options
-    });
+  // useEffect(() => {
+  //   lenis.current = new Lenis({
+  //     lerp: 0.1,
+  //     smooth: true,
+  //     // other Lenis options
+  //   });
 
-    function raf(time) {
-      lenis.current.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
-    }
+  //   function raf(time) {
+  //     lenis.current.raf(time);
+  //     animationFrameId = requestAnimationFrame(raf);
+  //   }
 
-    animationFrameId = requestAnimationFrame(raf);
+  //   animationFrameId = requestAnimationFrame(raf);
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
+  //   return () => {
+  //     cancelAnimationFrame(animationFrameId);
+  //   };
+  // }, []);
 
   const handleLinkClick = (e, href) => {
     e.preventDefault();

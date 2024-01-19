@@ -1,5 +1,3 @@
-//@ts-nocheck
-"use client";
 import * as React from "react";
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -160,9 +158,5 @@ interface MdxProps {
 
 export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
-  return (
-    <div className="mdx">
-      <Component components={components} />
-    </div>
-  );
+  return <Component components={components} />;
 }

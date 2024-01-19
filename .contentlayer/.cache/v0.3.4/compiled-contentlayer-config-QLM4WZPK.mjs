@@ -1,6 +1,5 @@
 // contentlayer.config.js
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
@@ -55,4 +54,4 @@ var contentlayer_config_default = makeSource({
 export {
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-BVCF2ZHL.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-QLM4WZPK.mjs.map

@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url("../styles/theme.css");
 
+body {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

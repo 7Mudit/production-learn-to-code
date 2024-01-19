@@ -2,8 +2,7 @@
 import styles from "./page.module.scss";
 import Card from "./Card/index";
 import { useScroll } from "framer-motion";
-import { useEffect, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
+import { useRef } from "react";
 
 import { Inter } from "next/font/google";
 import { Noto_Sans } from "next/font/google";
@@ -19,22 +18,6 @@ export default function Home() {
     target: container,
     offset: ["start start", "end end"],
   });
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    let animationFrameId: any;
-
-    function raf(time: any) {
-      lenis.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
-    }
-
-    animationFrameId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
 
   return (
     <section id="works">
