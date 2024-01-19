@@ -29,6 +29,7 @@ const VideoSection = () => {
 
     return () => {
       if (videoRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(videoRef.current);
       }
     };

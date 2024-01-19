@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { type Options } from "rehype-pretty-code";
 import vercel from "./vercel.json";
 export const rehypePrettyCodeOptions: Partial<Options> = {

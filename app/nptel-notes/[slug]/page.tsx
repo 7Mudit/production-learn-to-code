@@ -25,6 +25,7 @@ const authors = [
     avatar: "/profile.jpeg",
     title: "Mudit Kapoor",
     linkedin: "7_Mudit",
+    linkedinLink: "www.linkedin.com/in/mudit-kapoor-1b7582227",
   },
 ];
 
@@ -105,7 +106,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         See all posts
       </Link>
       <div>
-        {post.date && (
+        {post?.date && (
           <time
             dateTime={post.date}
             className="block text-sm text-muted-foreground"
@@ -114,7 +115,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </time>
         )}
         <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
-          {post.title}
+          {post?.title}
         </h1>
         {authors?.length ? (
           <div className="mt-4 flex space-x-4">
@@ -122,7 +123,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               author ? (
                 <Link
                   key={author.id}
-                  href={`https://twitter.com/${author.twitter}`}
+                  href={`${author.linkedinLink}`}
                   className="flex items-center space-x-2 text-sm"
                 >
                   <Image
@@ -144,7 +145,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </div>
         ) : null}
       </div>
-      {post.image && (
+      {post?.image && (
         <Image
           src={post.image}
           alt={post.title}
@@ -155,7 +156,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         />
       )}
       <div className="pt-10">
-        <Mdx code={post.body.code} />
+        <Mdx code={post!.body.code} />
       </div>
 
       <hr className="mt-12" />

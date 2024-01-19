@@ -32,6 +32,7 @@ const YtViewsGraph = () => {
 
     return () => {
       if (chartRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(chartRef.current);
       }
     };

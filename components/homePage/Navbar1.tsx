@@ -142,7 +142,7 @@ const Navbar1 = () => {
             <div className="" key={link.id}>
               <Link
                 href={`/${link.href}`}
-                className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer decoration-emerald-600"
+                className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer dark:text-white text-black decoration-emerald-600"
               >
                 {link.title}
               </Link>

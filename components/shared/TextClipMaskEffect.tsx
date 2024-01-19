@@ -31,6 +31,7 @@ export default function TextClipMaskEffect() {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // const animate = () => {
