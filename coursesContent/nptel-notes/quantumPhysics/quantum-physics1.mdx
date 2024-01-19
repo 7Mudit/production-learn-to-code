@@ -1,0 +1,148 @@
+---
+title: Quantum Physics Lecture 1
+description: In this lecture we will talk about first lecture notes only.
+date: 2024-01-19
+---
+
+# Decorators
+
+They provide a way to add both annotations and a meta-programming syntax for class declarations and members. Decorators are a stage 2 proposal for JavaScript and are available as an experimental feature of TypeScript.
+
+To enable experimental support for decorators , you must enable the `experimentalDecorators` compiler option either on the command line or in your `tsconfig.json` :
+
+```tsx
+{
+	"compilerOptions" : {
+		"target" : "ES5",
+		"experimentalDecorators" : true
+	}
+}
+```
+
+## Class Decorators
+
+A class decorator is declared just before a class declaration and can be used to observe , modify or replace a class definition.
+
+```tsx
+function sealed(constructor: Function) {
+  Object.seal(constructor);
+  Object.seal(constructor.prototype);
+}
+
+@sealed
+class Greeter {
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+}
+```
+
+In this example , the `@sealed` decorator will seal both the constructor and its prototype so that new properties can be added to it.
+
+## Method Decorators
+
+A method decorator can be used to observe , modify or replace a method definition.
+
+```tsx
+fucntion enumerable(value : boolean){
+	return function (target : any , propertyKey : string , descriptor : PropertyDescriptor){
+		descriptor.enumerable = value;
+	};
+}
+class Greeter{
+	greeting : string;
+	constructor(message : string){
+		this.greeting = message;
+	}
+	@enumerable(false)
+	greet(){
+		return "Hello, " + this.greeting;
+	}
+}
+```
+
+The `@enumerable(false)` decorator here is used to modify the `enumerable` property of `greet` method.
+
+## Property Decorators
+
+They are used to observe and modify the definition of a property.
+
+```tsx
+function formate(formatString: string) {
+  return function (target: any, propertyKey: string) {
+    let value: string;
+
+    const getter = function () {
+      return value;
+    };
+
+    const setter = function (newVal: string) {
+      value = formatString.replace("%s", newVal);
+    };
+
+    //replace the property with a new one with getter and setter
+    Object.defineProperty(target, propertyKey, {
+      get: getter,
+      set: setter,
+      enumerable: true,
+      configurable: true,
+    });
+  };
+}
+
+class Greeter {
+  @format("Hello , %s")
+  greeting: string;
+
+  constructor(message: string) {
+    this.greeting = message;
+  }
+}
+```
+
+The @format("Hello, %s") decorator will modify how the greeting property is set and retrieved.
+
+## Parameter Decorators
+
+Parameter Decorators are declared just before a parameter declaration. The parameter decorator is applied to the function for a class constructor or method declaration.
+
+```tsx
+function required(
+  target: Object,
+  propertyKey: string | symbol,
+  parameterIndex: number
+) {
+  console.log(
+    `Making parameter at index ${parameterIndex} required for method ${propertyKey.toString()}`
+  );
+}
+
+class Greeter {
+  greeting: string;
+
+  constructor(message: string) {
+    this.greeting = message;
+  }
+
+  greet(@required name: string) {
+    return "Hello " + name + ", " + this.greeting;
+  }
+}
+```
+
+The @required decorator here will log a message when the greet method's name parameter is defined.
+
+Decorators are advanced feature, and their functionality can be complex because they can modify the runtime behaviour of the class , method , accessor , property or parameter they are used on.
+
+Keep in mind -
+
+- Decorators are executed at runtime , but their composition can be quite intricate , as they can be used to modify the shape of the class at definition time.
+- Decorators are not fully standardised and might change as ECMAscript proposals evolve.
+
+# This is an MDX file
+
+You can write **Markdown** here and also use JSX components:

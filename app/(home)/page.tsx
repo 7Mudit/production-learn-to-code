@@ -20,7 +20,7 @@ export default function Home() {
         className="flex h-full bg-black text-white gap-[50px] 
                     sm:gap-[100px] flex-col"
       >
-        <Navbar1 />
+        <Navbar1 active={true} />
         <Hero1 />
         <MainNavbar />
         <TextClipMaskEffect />

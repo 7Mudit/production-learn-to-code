@@ -5,6 +5,7 @@ import Heading from "./Heading";
 import { Noto_Sans } from "next/font/google";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { FaBookReader } from "react-icons/fa";
 
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ const courses = [
       },
     ],
     image: img1,
-    source_code_link: "https://github.com/",
+    course_link: "/youtube-tutorials",
   },
   {
     name: "NPTEL Notes",
@@ -49,7 +50,7 @@ const courses = [
       },
     ],
     image: img1,
-    source_code_link: "https://github.com/",
+    course_link: "/nptel-notes",
   },
   {
     name: "Semester Notes",
@@ -70,7 +71,7 @@ const courses = [
       },
     ],
     image: img1,
-    source_code_link: "https://github.com/",
+    course_link: "/semester-notes",
   },
 ];
 
@@ -80,7 +81,7 @@ const CourseCard = ({
   description,
   tags,
   image,
-  source_code_link,
+  course_link,
 }: any) => {
   return (
     <div
@@ -95,23 +96,19 @@ const CourseCard = ({
           className="w-full h-full object-cover rounded-2xl"
         />
 
-        <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+        {/* <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
           <div
-            onClick={() => window.open(source_code_link, "_blank")}
+            onClick={() => window.open(course_link, "_blank")}
             className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
           >
-            {/* <img
-              src={github}
-              alt="source code"
-              className="w-1/2 h-1/2 object-contain"
-            /> */}
+            <FaBookReader className="w-1/2 h-1/2 object-contain" />
           </div>
-        </div>
+        </div> */}
       </div>
       {/* second section */}
       <div className="mt-5">
         <h3 className="text-white font-bold text-[24px]">{name}</h3>
-        <p className="mt-2 text-justify text-pure-greys-200  text-secondary text-[14px]">
+        <p className="mt-2 text-justify dark:text-light-800 text-pure-greys-200  text-secondary text-[14px]">
           {description}
         </p>
       </div>
@@ -123,7 +120,7 @@ const CourseCard = ({
           </p>
         ))}
       </div>
-      <Link href="/course" className=" py-5">
+      <Link href={`${course_link}`} className=" py-5">
         <Button
           className={`py-4 px-8 bg-white ${noto_sans2.className} text-black w-full mt-2`}
         >

@@ -81,7 +81,9 @@ const Footer = () => {
       <div className="flex flex-row items-center justify-start gap-[10px]">
         <div className="flex flex-col items-start justify-start sm:flex-row text-pure-greys-200 sm:items-center sm:justify-center gap-5">
           <Link href="/" className="font-sans">
-            <h1 className="text-xl text-white ">Learn To Code</h1>
+            <h1 className="text-xl text-black dark:text-white ">
+              Learn To Code
+            </h1>
           </Link>
           {navbarLinks.map((link) => (
             <div className="text-pure-greys-200" key={link.id}>

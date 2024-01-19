@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Theme from "../shared/Theme";
 
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
@@ -69,7 +70,7 @@ const NavContent = () => {
               href={item.route}
               className={`${
                 isActive
-                  ? "primary-gradient text-light-900 rounded-lg"
+                  ? "primary-gradient rounded-lg text-light-900"
                   : "text-dark300_light900"
               } flex items-center justify-start gap-4 bg-transparent p-4`}
             >
@@ -80,11 +81,7 @@ const NavContent = () => {
                 height={20}
                 className={`${isActive ? "" : "invert-colors"}`}
               />
-              <p
-                className={`${
-                  isActive ? "base-bold" : "base-medium"
-                } text-white`}
-              >
+              <p className={`${isActive ? "base-bold" : "base-medium"}`}>
                 {item.label}
               </p>
             </Link>
@@ -97,74 +94,64 @@ const NavContent = () => {
 
 const Navbar1 = () => {
   return (
-    <header className="min-h-[64px] sticky sm:relative top-0 z-10 bg-black border-b-[1px] border-opacity-30 border-white sm:border-none p-5 flex flex-row items-center   gap-10">
+    <header
+      className={`min-h-[64px] sticky sm:relative top-0 z-10 dark:bg-black bg-white border-b-[1px] border-opacity-30 border-white sm:border-none p-5 flex flex-row items-center justify-between`}
+    >
       {/* Mobile Nav */}
-      <div className="block sm:hidden ">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Image
-              src="/assets/icons/hamburger.svg"
-              width={36}
-              height={36}
-              alt="Menu"
-              className="invert-colors sm:hidden"
-            />
-          </SheetTrigger>
-          <SheetContent side="left" className="bg-black border-none">
-            <Link href="/" className="flex items-center gap-1">
-              {/* <Image
+      <div className="flex flex-row items-center gap-5 sm:gap-10">
+        <div className="block sm:hidden ">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Image
+                src="/assets/icons/hamburger.svg"
+                width={36}
+                height={36}
+                alt="Menu"
+                className={`dark:text-white text-black invert-colors sm:hidden`}
+              />
+            </SheetTrigger>
+            <SheetContent
+              side="left"
+              className="dark:text-white dark:bg-black text-black bg-white
+               border-none"
+            >
+              <Link href="/" className="flex items-center gap-1">
+                {/* <Image
                 src="/assets/images/site-logo.svg"
                 width={23}
                 height={23}
                 alt="Learn To Code"
               /> */}
-              <h1 className="text-xl text-white  ">
-                <span className="font-bold tracking-wide">Learn</span> To Code
-              </h1>
-            </Link>
-            <div>
-              <SheetClose asChild className="text-white">
-                <NavContent />
-              </SheetClose>
-              {/* <SignedOut>
-                <div className="flex flex-col gap-3">
-                  <SheetClose asChild>
-                    <Link href="/sign-in">
-                      <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-                        <span className="primary-text-gradient">Log In</span>
-                      </Button>
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link href="/sign-up">
-                      <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-                        Sign Up
-                      </Button>
-                    </Link>
-                  </SheetClose>
-                </div>
-              </SignedOut> */}
+                <h1 className="text-xl font-extrabold ">Learn To Code</h1>
+              </Link>
+              <div>
+                <SheetClose asChild>
+                  <NavContent />
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+        <Link href="/">
+          <h1 className="text-xl dark:text-white text-black tracking-wide  font-extrabold ">
+            Learn To Code
+          </h1>
+        </Link>
+        <div className="hidden sm:flex  flex-row items-center justify-center gap-5">
+          {navbarLinks.map((link) => (
+            <div className="" key={link.id}>
+              <Link
+                href={`/${link.href}`}
+                className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer decoration-emerald-600"
+              >
+                {link.title}
+              </Link>
             </div>
-          </SheetContent>
-        </Sheet>
+          ))}
+        </div>
       </div>
-      <Link href="/">
-        <h1 className="text-xl text-white  ">
-          <span className="font-bold tracking-wide">Learn</span> To Code
-        </h1>
-      </Link>
-      <div className="hidden sm:flex  flex-row text-white items-center justify-center gap-5">
-        {navbarLinks.map((link) => (
-          <div className="text-white" key={link.id}>
-            <Link
-              href={`/${link.href}`}
-              className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer decoration-emerald-300"
-            >
-              {link.title}
-            </Link>
-          </div>
-        ))}
-      </div>
+
+      <Theme />
     </header>
   );
 };
