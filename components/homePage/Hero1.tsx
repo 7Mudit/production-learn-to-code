@@ -7,7 +7,7 @@ const inter = Inter({ weight: "500", subsets: ["latin"] });
 
 const Hero1 = () => {
   return (
-    <div className="dark:text-white text-black  flex px-2 sm:p-24 pt-48 flex-col w-full items-center justify-center relative  ">
+    <div className="dark:text-white text-black  flex px-2 sm:p-24 py-48 flex-col w-full items-center justify-center relative  ">
       {/* <div className="bg-gemini-style-gradient custom-hover-effect hidden sm:block animated-background"></div> */}
       <div className="bg-muted-foreground dark:bg-gray-500 custom-hover-effect opacity-[0.15] dark:opacity-[0.35]"></div>
       <h1
