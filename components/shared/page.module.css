@@ -5,7 +5,6 @@
 .container {
   position: relative;
   height: 300vh;
-  background-color: black;
 }
 
 @media screen and (max-width : 480px) {
@@ -16,7 +15,7 @@
 
 .stickyMask {
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: sticky;
   height: 100vh;
   top: 0;

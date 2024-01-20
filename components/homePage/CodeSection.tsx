@@ -27,7 +27,7 @@ const CodeSection = () => {
           link: "/algorithms",
           active: false,
         }}
-        codeColor={"text-yellow-25"}
+        codeColor={"dark:text-yellow-25"}
         codeblock={`def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n\n    while left <= right:\n        mid = (left + right)\n        if arr[mid] == target:\n            return mid  # Target found\n        elif arr[mid] < target:\n            left = mid + 1  # Search in the right half\n        else:\n            right = mid - 1  # Search in the left half\n\n    return -1  # Target not found\n\n`}
         backgroundGradient={<div className="codeblock1 absolute"></div>}
       />
@@ -54,7 +54,7 @@ const CodeSection = () => {
           link: "/projects",
           active: false,
         }}
-        codeColor={"text-white"}
+        codeColor={"dark:text-white"}
         codeblock={`// Simple React Component\nimport React from 'react';\n\nconst WelcomeMessage = () => {\n  return (\n    <div>\n      <h1>Welcome to Our Website!</h1>\n      <p>Explore our tutorials and start your coding journey today.</p>\n    </div>\n  );\n};\n\nexport default WelcomeMessage;`}
         backgroundGradient={<div className="codeblock2 absolute"></div>}
       />

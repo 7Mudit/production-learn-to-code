@@ -1,6 +1,6 @@
 // @ts-nocheck
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import styles from "./page.module.css";
 
 export default function TextClipMaskEffect() {
@@ -11,9 +11,10 @@ export default function TextClipMaskEffect() {
   const targetMaskSize = 30;
   const easing = 0.15;
   let easedScrollProgress = 0;
-
+  const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
     let animationFrameId;
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
 
     const animate = () => {
       if (!stickyMask.current || !container.current) {
@@ -52,6 +53,9 @@ export default function TextClipMaskEffect() {
     easedScrollProgress += delta * easing;
     return easedScrollProgress;
   };
+  if (isSafari) {
+    return null; // Don't render the component in Safari
+  }
 
   return (
     <main className={styles.main}>

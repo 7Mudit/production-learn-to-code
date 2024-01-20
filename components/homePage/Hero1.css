@@ -1,10 +1,48 @@
 .custom-hover-effect {
     position: absolute;
-    width: 320px;
-    height: 60%;
-    left: 10%;
-    top: 15%;
-    opacity: 0.35;
+    width: 80%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     filter: blur(64px);
-    border-radius: 50%;
+    border-radius: 100%;
+
+    background-size: 200% 200%;
+}
+
+@media screen and (max-width : 640px) {
+    .custom-hover-effect {
+        width: 100%;
+        transform: translate(-50%, -20%);
+    }
+
+}
+
+@-webkit-keyframes background-slide {
+    0% {
+        left: 10%;
+    }
+
+    100% {
+        left: 70%;
+    }
+}
+
+@keyframes background-slide {
+    0% {
+        left: 10%;
+    }
+
+    100% {
+        left: 70%;
+    }
+}
+
+.animated-background {
+    background-size: 200% 200%;
+    /* background-clip: padding-box; */
+    /* -webkit-background-clip: padding-box; */
+    -webkit-animation: background-slide 10s ease-in-out alternate infinite;
+    animation: background-slide 10s ease-in-out alternate infinite;
 }

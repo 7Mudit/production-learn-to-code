@@ -50,6 +50,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        customGradient: "radial-gradient(circle, #5190ea, #d5cac4, #ffddb7)",
         white: "#fff",
         black: "#000",
         transparent: "#ffffff00",
@@ -221,6 +222,11 @@ module.exports = {
           "linear-gradient(135deg, #ffffff 0%, #1c202e 50%, black 100%)",
         "custom-gradient":
           "linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%)",
+        "text-light-gradient":
+          "radial-gradient(circle, #5190ea, #d5cac4, #ffddb7)",
+        "text-light-gradient-dark": "radial-gradient(circle, #232526, #414345)",
+        "codeblock-gradient":
+          "linear-gradient(111.93deg,rgba(14, 26, 45, 0.24) -1.4%,rgba(17, 30, 50, 0.38) 104.96%)",
       },
       maxWidth: {
         maxContent: "1260px",

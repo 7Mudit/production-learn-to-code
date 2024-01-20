@@ -41,7 +41,9 @@ const VideoSection = () => {
     <div className="flex flex-col items-center gap-[50px] justify-center">
       {/* heading */}
       <Heading heading="Master Coding with LTC" />
-      <div className={`text-center text-gray-500 ${inter.className}`}>
+      <div
+        className={`text-center text-white dark:text-gray-500 ${inter.className}`}
+      >
         <p className="text-pure-greys-200">
           Explore the new era of coding education,
         </p>

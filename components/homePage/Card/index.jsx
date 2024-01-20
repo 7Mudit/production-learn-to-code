@@ -4,8 +4,8 @@ import styles from "./style.module.scss";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { Noto_Sans } from "next/font/google";
-
-const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+const noto_sans2 = Noto_Sans({ weight: "900", subsets: ["cyrillic"] });
 const Card = ({
   i,
   title,
@@ -36,27 +36,39 @@ const Card = ({
         }}
         className={styles.card}
       >
-        <h2 className={`${noto_sans2.className}`}>{title}</h2>
+        <h2 className={`${noto_sans2.className} text-black dark:text-black`}>
+          {title}
+        </h2>
         <div className={styles.body}>
           <div className={styles.description}>
-            <p>{description}</p>
-            <span>
-              <a href={link} target="_blank">
+            <p className="text-black dark:text-black">{description}</p>
+            <div className="text-black mt-3 dark:text-black ">
+              <a
+                href={link}
+                className="flex flex-row gap-2 items-start justify-start  hover:scale-105 duration-300 transition-all"
+                target="_blank"
+              >
                 See Work
+                <FaArrowUpRightFromSquare
+                  className="dark:text-black text-black"
+                  size={20}
+                />
               </a>
-              <svg
+
+              {/* <svg
                 width="22"
                 height="12"
                 viewBox="0 0 22 12"
-                fill="none"
+                // fill="none"s
+                className="dark:text-black text-white"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
                   fill="black"
                 />
-              </svg>
-            </span>
+              </svg> */}
+            </div>
           </div>
 
           <div className={styles.imageContainer}>

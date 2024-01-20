@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import img1 from "../assets/Images/FoundingStory.png";
 import Heading from "./Heading";
 import { Noto_Sans } from "next/font/google";
 import { Button } from "../ui/button";
@@ -11,7 +10,7 @@ const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 
 const courses = [
   {
-    name: "Youtube Tutorials",
+    name: "For Developers",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
@@ -28,7 +27,7 @@ const courses = [
         color: "pink-text-gradient",
       },
     ],
-    image: img1,
+    image: "/courses/Dev.png",
     course_link: "/youtube-tutorials",
   },
   {
@@ -49,7 +48,7 @@ const courses = [
         color: "pink-text-gradient",
       },
     ],
-    image: img1,
+    image: "/courses/NPTEL.png",
     course_link: "/nptel-notes",
   },
   {
@@ -70,7 +69,7 @@ const courses = [
         color: "pink-text-gradient",
       },
     ],
-    image: img1,
+    image: "/courses/Sem.png",
     course_link: "/semester-notes",
   },
 ];
@@ -85,7 +84,7 @@ const CourseCard = ({
 }: any) => {
   return (
     <div
-      className={`duration-300 shadow-xl hover:scale-[1.05] transition-all bg-black ${noto_sans2.className} border-pure-greys-100 border text-white p-5 rounded-2xl md:w-[360px] w-full`}
+      className={`duration-300 shadow-xl hover:scale-[1.05] transition-all dark:bg-black ${noto_sans2.className} border-pure-greys-100 border hover:cursor-pointer  p-5 rounded-2xl md:w-[360px] w-full`}
     >
       {/* image and github floating icon */}
 
@@ -93,6 +92,8 @@ const CourseCard = ({
         <Image
           src={image}
           alt="project_image"
+          width={"318"}
+          height={"230"}
           className="w-full h-full object-cover rounded-2xl"
         />
 
@@ -107,22 +108,23 @@ const CourseCard = ({
       </div>
       {/* second section */}
       <div className="mt-5">
-        <h3 className="text-white font-bold text-[24px]">{name}</h3>
-        <p className="mt-2 text-justify dark:text-light-800 text-pure-greys-200  text-secondary text-[14px]">
+        <h3 className="dark:text-white font-bold text-[24px]">{name}</h3>
+        <p className="mt-2 text-justify text-pure-greys-200 text-[14px]">
           {description}
         </p>
       </div>
       {/* third section */}
-      <div className="mt-4 flex flex-row flex-wrap gap-2">
+      {/* <div className="mt-4 flex flex-row flex-wrap gap-2">
         {tags.map((tag: any) => (
           <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
             #{tag.name}
           </p>
         ))}
-      </div>
-      <Link href={`${course_link}`} className=" py-5">
+      </div> */}
+      <Link href={`${course_link}`} className="mt-5 py-5">
         <Button
-          className={`py-4 px-8 bg-white ${noto_sans2.className} text-black w-full mt-2`}
+          className={`py-4 px-8 dark:bg-white ${noto_sans2.className} dark:text-black text-white bg-black w-full mt-2`}
+          variant={"outline"}
         >
           Go to Course
         </Button>
@@ -137,7 +139,7 @@ const Works = () => {
       {/* heading */}
       <Heading heading="Courses" />
 
-      <div className="mt-10 p-5 items-center justify-center flex flex-wrap gap-7">
+      <div className="mt-10 p-5 items-center justify-center flex flex-wrap flex-1 gap-7">
         {courses.map((course, index) => (
           <CourseCard key={`project-${index}`} index={index} {...course} />
         ))}

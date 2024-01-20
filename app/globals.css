@@ -73,9 +73,25 @@ body {
 
 
 
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
+
   }
 
   50% {
@@ -107,20 +123,15 @@ body {
   color: transparent;
 }
 
-@keyframes background-slide {
-  0% {
-    left: 10%;
-  }
-
-  100% {
-    left: 70%;
-  }
+.animated-gradient-text-dark {
+  background: radial-gradient(circle, #232526, #414345);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.animated-background {
-  background-size: 200% 200%;
-  animation: background-slide 10s ease-in-out alternate infinite;
-}
+
 
 .combined_gradient {
   background: linear-gradient(180deg, #f4c4f3, rgba(255, 255, 255, 0.6), #214d76);
@@ -152,6 +163,7 @@ body {
   /* Adjust this value to the length of your path */
   stroke-dashoffset: 1000;
   /* Same as stroke-dasharray initially */
+  -webkit-animation: drawPath 10s ease-in-out forwards;
   animation: drawPath 10s ease-in-out forwards;
   /* Adjust duration and easing as needed */
 }
@@ -161,6 +173,12 @@ body {
   /* Adjust this value to the length of your path */
   stroke-dashoffset: 1000;
 
+}
+
+@-webkit-keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes drawPath {
@@ -255,14 +273,18 @@ details>summary::-webkit-details-marker {
 }
 
 .code-border {
-  border: 2px solid;
+  /* border: 2px solid;
   border-image-slice: 1;
   border-width: 2px;
-  border-image-source: linear-gradient(to right bottom, #ffffff38, #ffffff00);
-  background: linear-gradient(111.93deg,
-      rgba(14, 26, 45, 0.24) -1.4%,
-      rgba(17, 30, 50, 0.38) 104.96%);
-  /* backdrop-filter: blur(26px); */
+  border-image-source: linear-gradient(to right bottom, #ffffff38, #ffffff00); */
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+  /* border: 1px solid rgba(255, 255, 255, 0.52); */
 }
 
 .homepage_bg {

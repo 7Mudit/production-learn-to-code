@@ -7,6 +7,7 @@ import { LuLinkedin } from "react-icons/lu";
 import { IoMailOutline } from "react-icons/io5";
 import { Inter } from "next/font/google";
 import { Noto_Sans } from "next/font/google";
+import { Button } from "../ui/button";
 
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const inter = Inter({ weight: "400", subsets: ["latin"] });
@@ -23,29 +24,31 @@ const Footer = () => {
       className={`flex flex-col py-[50px] justify-center gap-[50px] ${noto_sans2.className}`}
     >
       <div className="flex flex-row w-full items-center justify-start gap-[20px]">
-        <p className="text-pure-greys-400 text-lg font-sans">Follow us</p>
+        <p className="text-black dark:text-white text-lg font-sans">
+          Follow me
+        </p>
         <Link href="/">
           <FaInstagram
             size={24}
-            className="text-pure-greys-200 duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
         <Link href="/">
           <FaGithub
             size={24}
-            className="text-pure-greys-200 duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
         <Link href="/">
           <FaYoutube
             size={24}
-            className="text-pure-greys-200 duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
         <Link href="/">
           <LuLinkedin
             size={24}
-            className="text-pure-greys-200 duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
       </div>
@@ -62,12 +65,12 @@ const Footer = () => {
             onChange={(e) => setFeedback(e.target.value)}
             value={feedback}
           />
-          <button
+          <Button
             type="submit"
-            className="py-2 px-8 font-sans font-semibold bg-white text-black rounded-md duration-300 hover:scale-110"
+            className="py-2 px-8 font-sans transition-all font-semibold dark:bg-white dark:text-black rounded-md duration-300 hover:scale-110"
           >
             Submit
-          </button>
+          </Button>
         </form>
         <p className="text-pure-greys-400 text-sm font-sans">
           I accept Learn To Code&apos;s Terms and Conditions and acknowledge

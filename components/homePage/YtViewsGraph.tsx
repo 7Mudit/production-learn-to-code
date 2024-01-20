@@ -46,14 +46,16 @@ const YtViewsGraph = () => {
       >
         <div className="flex flex-row border-b-2  border-dotted border-gray-500 w-full justify-between items-end">
           <div className="flex flex-col gap-5 p-2">
-            <p className="text-gray-500 font-extrabold py-4 text-[32px] sm:text-[48px]  leading-normal sm:leading-[30px]">
+            <p className="text-gray-950 dark:text-gray-600 font-extrabold py-4 text-[32px] sm:text-[48px]  leading-normal sm:leading-[30px]">
               YouTube
             </p>
           </div>
           <div className="flex flex-col gap-5 p-2">
             <p className="text-white text-[14px] sm:text-xl">Learn To Code</p>
             {inView ? (
-              <p className="animated-gradient-text text-[32px] sm:text-[90px]  leading-normal sm:leading-[90px]">
+              <p
+                className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-text-light-gradient-dark  text-transparent text-[32px] sm:text-[90px]  leading-normal sm:leading-[90px]`}
+              >
                 <CountUp end={172} duration={5} />
                 K+
               </p>
@@ -108,12 +110,14 @@ const YtViewsGraph = () => {
         <div className="flex flex-col gap-[20px] sm:gap-0 sm:flex-row w-full justify-between sm:items-end">
           <div className="flex flex-col gap-2">
             {inView ? (
-              <p className="text-white text-[32px] leading-normal sm:text-[50px]">
+              <p
+                className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-text-light-gradient-dark  text-transparent text-[32px] leading-normal sm:text-[50px]`}
+              >
                 <CountUp end={100} duration={5} />+
               </p>
             ) : (
               <p className="animated-gradient-text text-[90px] leading-[90px]">
-                <CountUp end={172} duration={5} />0
+                0
               </p>
             )}
             <div>
@@ -123,12 +127,14 @@ const YtViewsGraph = () => {
               <p className="text-pure-greys-500 text-sm">Real-world projects</p>
             </div>
 
-            <p className="text-white text-sm w-full sm:w-[50%]">
+            <p className=" text-sm w-full sm:w-[50%]">
               *Engage in practical sessions to solidify your coding skills.
             </p>
           </div>
 
-          <p className="animated-gradient-text self-start text-sm xl:text-[24px] leading-normal w-full sm:w-[30%]">
+          <p
+            className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-text-light-gradient-dark  text-transparent self-start text-sm xl:text-[24px] leading-normal w-full sm:w-[30%]`}
+          >
             Join &ldquo;Learn to Code&rdquo; to master programming languages,
             develop problem-solving skills, and build projects that matter
           </p>

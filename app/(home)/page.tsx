@@ -17,13 +17,14 @@ export default function Home() {
   return (
     <div>
       <main
-        className="flex h-full bg-black text-white  gap-[50px] 
+        className="flex h-full dark:bg-black bg-white  gap-[50px] 
                     sm:gap-[100px] flex-col"
       >
         <Navbar1 />
         <Hero1 />
         <MainNavbar />
         <TextClipMaskEffect />
+
         {/* <Character paragraph={paragraph} /> */}
         {/* <div className="h-[50vh]"></div> */}
         <TextSection />

@@ -5,7 +5,7 @@ export const projects = [
       "Online consultancy Services provided by gogibus. One of my clients. This website is his startup.",
     src: "gogibus.png",
     link: "https://gogibus.vercel.app/",
-    color: "#B62429",
+    color: "#fb96b5",
   },
   {
     title: "Skill Jet",
@@ -13,7 +13,7 @@ export const projects = [
       "Made this web app both frontend and backend in three days span at hackathon. Though its not responsive but worth checking it once",
     src: "Skilljet.png",
     link: "https://hackathonfrontend.vercel.app/",
-    color: "#C2491D",
+    color: "#fde97d",
   },
   {
     title: "Aritsan Labs Clone",
@@ -21,14 +21,14 @@ export const projects = [
       "Though this is also not responsive but helped a 4th year student get A+ in his sem's project",
     src: "Artisan-labs.png",
     link: "https://arihant-ten.vercel.app/",
-    color: "#000428",
+    color: "#ff9e22",
   },
   {
     title: "Real Estate Work",
     description: "Have interest in properties ? Get your proposal today.",
     src: "real-estate.png",
     link: "https://real-estate-work.vercel.app/",
-    color: "#654ea3",
+    color: "#d8d8d8",
   },
   // {
   //   title: "Mark Rammers",
