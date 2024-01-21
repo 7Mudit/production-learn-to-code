@@ -20,7 +20,7 @@ const VideoSection = () => {
           setInView(entry.isIntersecting);
         });
       },
-      { threshold: 1 } // Trigger when 50% of the video is in the viewport
+      { threshold: 0.7 } // Trigger when 50% of the video is in the viewport
     );
 
     if (videoRef.current) {
