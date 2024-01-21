@@ -37,6 +37,7 @@ const YtViewsGraph = () => {
       }
     };
   }, []);
+
   return (
     <section id="growth">
       {/* heading */}
@@ -71,6 +72,7 @@ const YtViewsGraph = () => {
           </div>
         </div>
         {/* <div className="h-[2px] w-full " /> */}
+
         <svg
           ref={chartRef}
           id="chart"
@@ -102,11 +104,22 @@ const YtViewsGraph = () => {
               y2="-305.214"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="white"></stop>
-              <stop offset="1" stopColor="#4FABFF"></stop>
+              <stop
+                stopColor="
+                #ffd89b
+
+"
+              ></stop>
+              <stop
+                offset="1"
+                stopColor="
+
+                #19547b"
+              ></stop>
             </linearGradient>
           </defs>
         </svg>
+
         <div className="flex flex-col gap-[20px] sm:gap-0 sm:flex-row w-full justify-between sm:items-end">
           <div className="flex flex-col gap-2">
             {inView ? (
@@ -133,7 +146,7 @@ const YtViewsGraph = () => {
           </div>
 
           <p
-            className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-text-light-gradient-dark  text-transparent self-start text-sm xl:text-[24px] leading-normal w-full sm:w-[30%]`}
+            className={`${noto_sans2.className} bg-clip-text dark:bg-hero-dark bg-hero-light  text-transparent self-start text-sm xl:text-[24px] leading-normal w-full sm:w-[30%]`}
           >
             Join &ldquo;Learn to Code&rdquo; to master programming languages,
             develop problem-solving skills, and build projects that matter

@@ -225,6 +225,9 @@ module.exports = {
         "text-light-gradient":
           "radial-gradient(circle, #5190ea, #d5cac4, #ffddb7)",
         "text-light-gradient-dark": "radial-gradient(circle, #232526, #414345)",
+        standard: "linear-gradient(to right, #136a8a, #267871)",
+        "hero-light": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
+        "hero-dark": "radial-gradient(circle, #5190ea, #d5cac4, #ffddb7)",
         "codeblock-gradient":
           "linear-gradient(111.93deg,rgba(14, 26, 45, 0.24) -1.4%,rgba(17, 30, 50, 0.38) 104.96%)",
       },

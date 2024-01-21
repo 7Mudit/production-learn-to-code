@@ -20,7 +20,7 @@ const VideoSection = () => {
           setInView(entry.isIntersecting);
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the video is in the viewport
+      { threshold: 1 } // Trigger when 50% of the video is in the viewport
     );
 
     if (videoRef.current) {
@@ -62,6 +62,7 @@ const VideoSection = () => {
           className="videoStylings"
           autoPlay
           muted
+          playsInline
           controls={false}
         ></video>
       </div>

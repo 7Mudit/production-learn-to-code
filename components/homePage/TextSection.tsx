@@ -15,8 +15,11 @@ const TextSection = () => {
         </p>
         <p className="sm:text-center">
           <span
-            className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-text-light-gradient-dark  text-transparent`}
+            className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-standard text-transparent`}
           >
+            {/* <span
+            className={`${noto_sans2.className} bg-clip-text dark:bg-text-light-gradient bg-text-light-gradient-dark  text-transparent`}
+          > */}
             coding journey{" "}
           </span>
           bridging knowledge gaps

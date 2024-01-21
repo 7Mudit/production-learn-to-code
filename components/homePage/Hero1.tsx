@@ -9,14 +9,14 @@ const Hero1 = () => {
   return (
     <div className="dark:text-white text-black  flex px-2 sm:p-24 py-48 flex-col w-full items-center justify-center relative  ">
       {/* <div className="bg-gemini-style-gradient custom-hover-effect hidden sm:block animated-background"></div> */}
-      <div className="bg-muted-foreground dark:bg-gray-500 custom-hover-effect opacity-[0.15] dark:opacity-[0.35]"></div>
+      {/* <div className="bg-muted-foreground dark:bg-gray-500 custom-hover-effect opacity-[0.15] dark:opacity-[0.35]"></div> */}
       <h1
         className={`text-[12vw] tracking-tight leading-[12vw]  ${inter.className} text-center relative`}
       >
         Welcome to
       </h1>
       <h1
-        className={`text-[12vw] tracking-tight leading-[12vw]  ${noto_sans2.className}  animated-gradient text-center`}
+        className={`text-[12vw] tracking-tight leading-[12vw]  ${noto_sans2.className} dark:bg-hero-dark bg-hero-light  animated-gradient text-center`}
       >
         <span className={`font-extrabold `}>Learn</span> to code
       </h1>

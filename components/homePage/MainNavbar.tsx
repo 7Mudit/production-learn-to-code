@@ -53,7 +53,7 @@ const MainNavbar = () => {
   return (
     <div
       className={`bg-white border-black border-solid border-[1px]  dark:bg-black dark:border-white
-      w-[640px] px-[26px] h-[52px] rounded-[50px] sm:flex hidden flex-row sticky self-center top-[20px] z-10  dark:text-white items-center justify-between ${inter.className} `}
+      w-[640px] px-[26px] h-[52px] rounded-[50px] sm:flex hidden flex-row sticky self-center top-[20px] z-[100]  dark:text-white items-center justify-between ${inter.className} `}
     >
       {navbarLinks.map((link) => (
         <div key={link.id}>
