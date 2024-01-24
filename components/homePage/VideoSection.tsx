@@ -36,7 +36,7 @@ const VideoSection = () => {
   }, [videoRef]);
 
   // Adjust the scale based on visibility
-  const videoScale = inView ? 1.3 : 1;
+  const videoScale = inView ? 1.2 : 1;
   return (
     <div className="flex flex-col items-center gap-[50px] justify-center">
       {/* heading */}
@@ -58,9 +58,10 @@ const VideoSection = () => {
         {/* YouTube iframe with autoplay and no controls */}
 
         <video
-          src="/medias/banner.mp4"
-          className="videoStylings"
+          src="/banner2.mp4"
+          className="videoStylings rounded-xl"
           autoPlay
+          loop
           muted
           playsInline
           controls={false}

@@ -91,6 +91,7 @@ const PricingCard = ({
         +{revisions} revisions are free
       </p>
       <Button
+        variant={"secondary"}
         onClick={() => {
           toast.error("Not accepting payments online");
         }}

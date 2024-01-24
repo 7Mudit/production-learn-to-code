@@ -35,7 +35,7 @@ export default function Home() {
           {/* <ExploreMore /> */}
           {/*This is my Courses Sections */}
           <Works />
-          <TimelineSection />
+          {/* <TimelineSection /> */}
           {/* Timeline Section - Section 2 */}
         </div>
         {/* This is my works section */}

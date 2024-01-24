@@ -27,25 +27,25 @@ const Footer = () => {
         <p className="text-black dark:text-white text-lg font-sans">
           Follow me
         </p>
-        <Link href="/">
+        <Link href="https://www.instagram.com/learntocode_official/">
           <FaInstagram
             size={24}
             className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
-        <Link href="/">
+        <Link href="https://github.com/7Mudit">
           <FaGithub
             size={24}
             className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
-        <Link href="/">
+        <Link href="https://www.youtube.com/@learn_to_code10">
           <FaYoutube
             size={24}
             className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
-        <Link href="/">
+        <Link href="https://www.linkedin.com/in/mudit-kapoor-1b7582227/">
           <LuLinkedin
             size={24}
             className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
