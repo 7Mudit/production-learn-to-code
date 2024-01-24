@@ -1,0 +1,96 @@
+---
+title: Testing Blog
+description: Sample Description.
+date: 2024-01-24
+---
+
+# Sample Problem
+
+# Introduction
+
+Welcome to our coding blog! Today, we're tackling an interesting problem rated at a difficulty level of 1278, commonly encountered in competitive programming. This problem, titled "ORST", involves sorting operations on suffixes of an array. Let's dive into the specifics of this problem and explore efficient solutions.
+
+## Problem Statement: "ORST”
+
+You are provided with two arrays, `A` and `B`, of sizes `N` and `M` respectively. The task is to sort specific suffixes of array `A` according to the instructions given in array `B`. Each element `B[i]` indicates the length of the suffix in `A` that needs to be sorted. The challenge is to output the final form of array `A` after all the sorting operations have been completed.
+
+# Input Format
+
+- The first line contains an integer `T` the number of test cases.
+- For each test case:
+  - The first line contains two space-separated integers `N` and `M.`
+  - The second line contains `N` space-separated integers, the elements of array `A`.
+  - The third line contains `M` space-separated integers, the elements of array `B`.
+
+## Output Format
+
+For each test case, output `N` space-separated integers, representing the sorted array `A`.
+
+# Sample Input and Output
+
+```python
+Input:
+2
+5 1
+2 3 4 6 1
+2
+6 3
+5 7 12 11 13 10
+1 2 4
+
+Output:
+2 3 4 1 6
+5 7 10 11 12 13
+
+```
+
+# Intuition Behind the Solution
+
+The core idea of solving this problem lies in efficiently sorting the suffixes of array `A` as specified by array `B`. To optimize this, we need to identify the maximum length of the suffix to be sorted, minimizing the number of sorting operations.
+
+# Algorithm and Approach
+
+- Read the number of test cases T.
+- For each test case:
+  - Read the sizes of arrays N and M.
+  - Initialize arrays `A` and `B` of sizes N and M.
+  - Find the maximum suffix length from array `B`.
+  - Sort the suffix of array `A` starting from `(N - maxSuffixLength)` to the end.
+  - Output the sorted array `A`.
+
+# Code Implementation
+
+```python
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        int n , m;
+        cin >> n >> m;
+        vector<int> a(n) , b(m);
+        for(int i = 0 ; i < n ; i++){
+            cin >> a[i];
+        }
+        for(int i = 0 ; i < m ; i++){
+            cin >> b[i];
+        }
+        int maxInt = INT_MIN;
+        for(int i = 0 ; i < m ; i++){
+            maxInt = max(maxInt , b[i]);
+        }
+        sort(a.end() - maxInt , a.end());
+        for(int i = 0 ; i < n ; i++){
+            cout << a[i] << " ";
+        }
+        cout << endl;
+    }
+}
+```
+
+# Time and Space Complexity
+
+- **Time Complexity:** The time complexity of the solution is primarily dictated by the sorting operation. In the worst case, we sort a suffix of the maximum length, leading to a time complexity of `O(N log N)`.
+- **Space Complexity:** Since no additional data structures are used, the space complexity is `O(1)`, excluding the input storage.

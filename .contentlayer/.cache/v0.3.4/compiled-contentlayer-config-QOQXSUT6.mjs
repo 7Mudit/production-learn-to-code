@@ -31,12 +31,12 @@ var Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/nptel-notes/${doc._raw.flattenedPath}`
+      resolve: (doc) => `/${doc._raw.flattenedPath}`
     }
   }
 }));
 var contentlayer_config_default = makeSource({
-  contentDirPath: "./coursesContent/nptel-notes/quantumPhysics",
+  contentDirPath: "./coursesContent",
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
@@ -54,4 +54,4 @@ var contentlayer_config_default = makeSource({
 export {
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-QLM4WZPK.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-QOQXSUT6.mjs.map

@@ -32,7 +32,7 @@ const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/nptel-notes/${doc._raw.flattenedPath}`,
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
     },
   },
 }));
@@ -46,7 +46,7 @@ const Post = defineDocumentType(() => ({
 // });
 
 export default makeSource({
-  contentDirPath: "./coursesContent/nptel-notes/quantumPhysics",
+  contentDirPath: "./coursesContent",
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],

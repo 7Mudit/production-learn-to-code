@@ -30,7 +30,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const filteredPosts = allPosts.filter(
-    (post) => post._raw.sourceFileDir === "nptel-notes/quantumPhysics"
+    (post) => post._raw.sourceFileDir === "upsolving"
   );
   const sortedPosts = filteredPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))

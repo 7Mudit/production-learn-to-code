@@ -91,7 +91,14 @@ async function getPageFromParams(params: any) {
 // }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  const post = allPosts.find((post) => {
+    // Split the flattenedPath into segments
+    const pathSegments = post._raw.flattenedPath.split("/");
+    // Get the last segment of the flattenedPath
+    const lastSegment = pathSegments[pathSegments.length - 1];
+    // Compare the last segment with the slug
+    return lastSegment === params.slug;
+  });
 
   return (
     <article className="container  relative max-w-3xl py-6 lg:py-10">

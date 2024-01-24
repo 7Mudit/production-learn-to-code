@@ -10,9 +10,9 @@ const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 
 const courses = [
   {
-    name: "For Developers",
+    name: "Competitive Programming",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "This course offers a deep dive into competitive programming, focusing on providing detailed solutions and step-by-step editorials from leading platforms like LeetCode, CodeChef, and Codeforces.",
     tags: [
       {
         name: "react",
@@ -28,12 +28,12 @@ const courses = [
       },
     ],
     image: "/courses/Dev.png",
-    course_link: "/youtube-tutorials",
+    course_link: "/upsolving",
   },
   {
     name: "NPTEL Notes",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Dive into comprehensive learning resources compiled from NPTEL lectures. This course offers in-depth knowledge on various engineering and science subjects. Will include additional study materials and insights.",
     tags: [
       {
         name: "react",
@@ -54,7 +54,7 @@ const courses = [
   {
     name: "Semester Notes",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Enhance your academic journey with our Semester Notes course. This course provides detailed study materials for various university subjects. Perfect for students looking to supplement their classroom learning.",
     tags: [
       {
         name: "nextjs",
@@ -137,7 +137,7 @@ const Works = () => {
   return (
     <section id="courses">
       {/* heading */}
-      <Heading heading="Courses" />
+      <Heading heading="Documentation" />
 
       <div className="mt-10 p-5 items-center justify-center flex flex-wrap flex-1 gap-7">
         {courses.map((course, index) => (
