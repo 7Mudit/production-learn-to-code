@@ -195,26 +195,57 @@ body {
   text-fill-color: transparent;
 }
 
+:root {
+  /* Light mode colors */
+  --scrollbar-thumb-light: #020817;
+  /* Light mode thumb color */
+  --scrollbar-track-light: white;
+  /* Light mode track color */
+
+  /* Dark mode colors */
+  --scrollbar-thumb-dark: white;
+  /* Dark mode thumb color */
+  --scrollbar-track-dark: #020817;
+  /* Dark mode track color */
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #afb2bf;
+  /* scrollbar-color: #afb2bf; */
 }
+
+
+
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 5px;
 }
 
-*::-webkit-scrollbar-track {
-  background: white;
+/* Light mode scrollbar styles */
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light);
+  /* Use the variable */
 }
 
-*::-webkit-scrollbar-thumb {
-  background: black;
-  /* border-radius: 10px; */
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-light);
+  /* Use the variable */
 }
+
+/* Dark mode scrollbar styles */
+.dark *::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-dark);
+  /* Use the variable */
+}
+
+.dark *::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-dark);
+  /* Use the variable */
+}
+
 
 *:active::-webkit-scrollbar-thumb,
 *:focus::-webkit-scrollbar-thumb,

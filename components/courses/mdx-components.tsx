@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Callout } from "./callout";
 import { MdxCard } from "./mdx-card";
 
-const components = {
+export const components = {
   h1: ({ className, ...props }) => (
     <h1
       className={cn(
