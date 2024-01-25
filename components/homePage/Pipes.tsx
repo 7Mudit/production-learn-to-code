@@ -7,6 +7,8 @@ import bg from "./bg.png";
 
 import { Noto_Sans } from "next/font/google";
 import Heading from "./Heading";
+import Link from "next/link";
+import { Button } from "../ui/button";
 // import { Check, Copy } from "lucide-react";
 // import { Button } from "../ui/button";
 // import Link from "next/link";
@@ -165,15 +167,16 @@ const Pipes = () => {
       {/* heading */}
       <Heading heading="Gemini Pro"></Heading>
       <div className="line-gradient-title__lottie js-animation relative">
-        {/* <div className="absolute top-[45%] z-10 translate-x-[-50%] left-[50%]">
+        <div className="absolute top-[40%] lg:top-[45%] z-10 translate-x-[-50%] left-[50%]">
           <Link href={"/gemini"}>
             <Button
-              className={`py-6 px-12 text-[16px] bg-white text-black rounded-full duration-300 transition-all hover:scale-105 cursor-pointer ${noto_sans2.className}`}
+              variant={"outline"}
+              className={`sm:py-6 py-2 px-4 sm:px-12 text-[12px] sm:text-[16px] bg-white text-black rounded-2xl hover:cursor-pointer duration-300 transition-all hover:scale-105 cursor-pointer ${noto_sans2.className}`}
             >
               Use Gemini
             </Button>
           </Link>
-        </div> */}
+        </div>
 
         <Image
           src={bg}

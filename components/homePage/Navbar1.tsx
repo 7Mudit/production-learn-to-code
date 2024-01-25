@@ -12,7 +12,7 @@ import Theme from "../shared/Theme";
 
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
-  { href: "/technologies", title: "Technologies", id: "2" },
+  { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/impact", title: "Impact", id: "3" },
   { href: "/discover", title: "Discover", id: "4" },
 ];
@@ -25,8 +25,8 @@ export const sidebarLinks: any = [
   },
   {
     imgURL: "/assets/icons/users.svg",
-    route: "/community",
-    label: "Community",
+    route: "/gemini",
+    label: "Gemini",
   },
   {
     imgURL: "/assets/icons/star.svg",
@@ -141,7 +141,7 @@ const Navbar1 = () => {
           {navbarLinks.map((link) => (
             <div className="" key={link.id}>
               <Link
-                href={`/${link.href}`}
+                href={`${link.href}`}
                 className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer dark:text-white text-black decoration-emerald-600"
               >
                 {link.title}
