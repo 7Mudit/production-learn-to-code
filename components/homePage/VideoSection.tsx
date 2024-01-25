@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Inter } from "next/font/google";
-import { Noto_Sans } from "next/font/google";
 import "./VideoSection.css";
 import Heading from "./Heading";
-
-const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
+import Image from "next/image";
 
 const inter = Inter({ weight: "400", subsets: ["latin"] });
 
@@ -51,21 +49,18 @@ const VideoSection = () => {
       </div>
       <div
         ref={videoRef}
-        className=" w-[50%] flex items-center justify-center mt-[50px]  transition-all duration-500  overflow-hidden shadow-[10px_-5px_50px_-5px] shadow-blue-200"
+        className=" w-[50%] h-full flex items-center justify-center mt-[50px]  transition-all duration-500  overflow-hidden shadow-[10px_-5px_50px_-5px]  dark:bg-white rounded-2xl shadow-blue-200"
         style={{ transform: `scale(${videoScale})` }}
       >
-        {/* <div className="mx-3 my-7 s"></div> */}
-        {/* YouTube iframe with autoplay and no controls */}
-
-        <video
-          src="/banner2.mp4"
-          className="videoStylings rounded-xl"
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-        ></video>
+        <div className="videoStylings rounded-xl">
+          <Image
+            src="/banner4.png" // Path to your fallback image
+            alt="Fallback Image"
+            width={400}
+            height={150}
+            className="object-cover rounded-xl"
+          />
+        </div>
       </div>
     </div>
   );
