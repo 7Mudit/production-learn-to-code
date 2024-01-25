@@ -58,11 +58,12 @@ const VideoSection = () => {
         {/* YouTube iframe with autoplay and no controls */}
 
         <video
-          src="/banner2.mp4"
+          src="/banner.mp4"
           className="videoStylings rounded-xl"
           autoPlay
           loop
           muted
+          preload="auto"
           playsInline
           controls={false}
         ></video>

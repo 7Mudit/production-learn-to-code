@@ -61,8 +61,8 @@ export default function TextClipMaskEffect() {
     <main className={styles.main}>
       <div ref={container} className={styles.container}>
         <div ref={stickyMask} className={styles.stickyMask}>
-          <video autoPlay muted loop>
-            <source src="/medias/banner.mp4" type="video/mp4" />
+          <video autoPlay muted loop preload="auto">
+            <source src="/bannerVideo.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
