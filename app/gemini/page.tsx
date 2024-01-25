@@ -220,9 +220,12 @@ const Page = () => {
       };
       const newMessages = [...messages, userMessage];
       // const response = await axios.post(`${URL}/api/conversation`, {
-      const response = await axios.post(`/api/conversation`, {
-        messages: newMessages,
-      });
+      const response = await axios.post(
+        `https://gemini-backend-ls9c.onrender.com/api/v1/gemini`,
+        {
+          messages: newMessages,
+        }
+      );
       console.log("Response recieved ", response.data);
       const createMessage: ChatCompletionRequestMessage = {
         role: "model",
