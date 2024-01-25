@@ -1,0 +1,111 @@
+---
+title: Literacy Rate
+description: Codechef Contest Starters 118
+date: 2024-01-25
+---
+
+# Literacy Rate
+
+## Introduction
+
+You are given two positive integers *P* and *L* denoting the total population of Chefland and the total number of literate people in Chefland.
+
+Find whether the literacy rate of Chefland is **greater than or equal to** 75%.
+
+Note that the literacy rate is calculated as -
+
+```
+L / P × 100%
+```
+
+## Input Format
+
+- The first line of input will contain a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of two space-separated integers *`P`* and *`L`* — the total population and the total number of literate people in Chefland respectively.
+
+## Output Format
+
+For each test case, output on a new line, `YES`, if the literacy rate of Chefland is **greater than or equal to** 75%. Otherwise, output `NO`.
+
+You may print each character of the string in uppercase or lowercase (for example, the strings `YES`, `yEs`, `yes`, and `yeS` will all be treated as identical).
+
+## Constraints
+
+- 1 ≤ _T_ ≤ 6000
+- 1 ≤ _L_ ≤ _P_ ≤ 100
+
+## Sample Input and Output
+
+```python
+Input :
+4
+100 75
+20 5
+53 51
+50 10
+
+Output :
+YES
+NO
+YES
+NO
+```
+
+## Intuition behind the Solution
+
+The intuition behind the solution is quite straightforward. We are given the total population of Chefland and the number of literate people in Chefland. We need to find out if the literacy rate, which is calculated as the number of literate people divided by the total population times 100%, is `greater than or equal to 75%`. If it is, we output `YES`; otherwise, we output `NO`. This problem simply requires basic mathematical operations and conditional checks. The provided code reads the number of test cases and for each test case, it computes the literacy rate and checks if it's `greater than or equal to 75%`.
+
+## Algorithm and Approach
+
+- Read the number of test cases `T`.
+- For each test case:
+  - Read `P` - total population and `L` - total number of literate people in Chefland.
+  - Compute rate = `( L / P ) * 100`
+  - Have a conditional check if `rate ≥ 75` :
+    - Print `Yes` on the console.
+  - Else :
+    - Print `No` on the console
+
+## Code Implementation
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+
+	while(t--){
+
+		// taking float because if l = 75 and p = 100 now if I divide them I will get
+		// 0.75 hence rate = 75% and will be able to store , if its int then rate = 0
+
+		// uncomment the below line and print rate to check the change in output
+		// int p , l ;
+
+		float p , l;
+
+	    cin >> p >> l;
+
+	    int rate = (l / p ) * 100;
+
+		// uncomment the below line for debugging purposes
+		// cout << rate << endl;
+
+	    if(rate >= 75){
+	        cout << "YES" << endl;
+	    }
+	    else {
+	        cout << "NO"  << endl;
+	    }
+
+	}
+
+}
+```
+
+## Time and Space Complexity
+
+- The time complexity for this code is `O(T)`, where T is the number of test cases. This is because the code performs a constant amount of work for each test case. Anyways if we do not consider the loop for test cases which we usually do for all questions on codechef. Hence Time complexity will be `O(1)`
+- The space complexity for this code is `O(1)`. This is because the space used by the code does not grow with the size of the input. It uses a fixed amount of space to store the variables p, l, and rate.

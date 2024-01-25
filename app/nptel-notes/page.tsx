@@ -79,7 +79,12 @@ export default function Home() {
                 )}
                 <div>
                   <Link href={post.url} className="text-sm " legacyBehavior>
-                    <Button variant={"ghost"}>View Article</Button>
+                    <Button
+                      variant={"ghost"}
+                      className="border-dark-500 dark:border-light-800 border"
+                    >
+                      View Article
+                    </Button>
                   </Link>
                 </div>
               </article>

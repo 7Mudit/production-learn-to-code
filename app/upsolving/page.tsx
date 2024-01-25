@@ -30,7 +30,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const filteredPosts = allPosts.filter(
-    (post) => post._raw.sourceFileDir === "upsolving"
+    (post) => post._raw.sourceFileDir === "upsolving/codechef"
   );
   const sortedPosts = filteredPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
@@ -79,7 +79,12 @@ export default function Home() {
                 )}
                 <div>
                   <Link href={post.url} className="text-sm " legacyBehavior>
-                    <Button variant={"ghost"}>View Article</Button>
+                    <Button
+                      className="border-dark-500 dark:border-light-800 border"
+                      variant={"ghost"}
+                    >
+                      View Article
+                    </Button>
                   </Link>
                 </div>
               </article>
