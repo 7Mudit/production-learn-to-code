@@ -12,8 +12,6 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Empty from "@/components/Empty";
 import { cn } from "@/lib/utils";
-import { UserAvatar } from "@/components/ui/user-avatar";
-import { BotAvatar } from "@/components/ui/bot-avatar";
 import toast from "react-hot-toast";
 import { Input } from "@/components/ui/input";
 import { Loader } from "@/components/Loader";

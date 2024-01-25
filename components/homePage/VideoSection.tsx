@@ -63,7 +63,6 @@ const VideoSection = () => {
           autoPlay
           loop
           muted
-          preload="auto"
           playsInline
           controls={false}
         ></video>
