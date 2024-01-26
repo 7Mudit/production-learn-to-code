@@ -1,0 +1,121 @@
+---
+title: Join States
+description: Codechef Contest Starters 118
+date: 2024-01-26
+---
+
+# Join States
+
+## Introduction
+
+To curb the declining literacy in Chefland, the government has come up with a new plan.
+
+You are given an array *`A`* of size *`N`* denoting the initial count of literate people in each of the *`N`* states of Chefland.
+
+The government wants the count of literate people in each state to be **at least** *`M`*.
+
+To do this, the government can combine two or more **consecutive** states to represent a new state. The number of literate people in the new state will be equal to the sum of literate people in the individual consecutive states that were combined to create this new state.
+
+Find the **maximum** number of states the government can have while maintaining the condition that **at least** *`M`* literate people are present in each state.
+
+Note that it is guaranteed that *`M`* is not more than the sum of _`A[i]`_.
+
+## Input Format
+
+- The first line of input will contain a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of multiple lines of input.
+  - The first line of each test case contains two space-separated integers *N* and *M* — the number of states initially and and the minimum number of literate people required in each state.
+  - The next line consists of *N* space-separated integers denoting the initial count of literate people in each state.
+
+## Output Format
+
+For each test case, output on a new line, the **maximum** number of states the government can have while maintaining the condition of **at least** _`M`_ literate people in each state.
+
+## Constraints
+
+```text
+1 <= T <= 10 ^ 5;
+1 <= N <= 10 ^ 5;
+1 <= M <= 10 ^ 5;
+1 <= A[i] <= 100;
+```
+
+## Sample Input and Output
+
+```text
+Input:
+3
+3 2
+3 2 4
+3 5
+3 2 4
+4 5
+3 7 8 2
+
+Output:
+3
+1
+2
+```
+
+## Intuition behind the Solution
+
+The problem at hand is to increase literacy in Chefland by merging states in such a way that each new state has at least `M` literate people. The merging can only be done with consecutive states. The core idea here is to maximize the number of states while adhering to the minimum literacy requirement.
+
+The intuition behind the solution is a greedy approach. We iterate through the states, continuously summing up the literate people. Once we reach or exceed the threshold `M`, we consider that a viable new state and reset our count for the next potential state. This way, we are able to dynamically create the largest number of states possible with the given constraint.
+
+## Algorithm and Approach
+
+- **Initialize Variables:** We start by initializing two variables - count to keep track of the number of states formed and currentSum to sum the literate people in the current iteration.
+- **Iterate Through the Array:** We loop through the array `A`, which represents the count of literate people in each state.
+- **Sum and Check:** For each state, we add its literate count to `currentSum`. If `currentSum` becomes equal to or exceeds `M`, it means we can form a new state meeting the minimum literacy requirement.
+- **Forming a New State:** Upon reaching the threshold, increment the count (indicating a new state is formed) and reset currentSum to zero for the next iteration.
+- **Repeat:** Continue this process until all states are processed
+
+## Code Implementation
+
+```c++
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int maxStates(vector<int>& A, int M) {
+    int count = 0;
+    int currentSum = 0;
+
+    for (int i = 0; i < A.size(); ++i) {
+        currentSum += A[i];
+
+        // When current sum is equal to or exceeds M, we form a new state
+        if (currentSum >= M) {
+            count++;
+            currentSum = 0;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N, M;
+        cin >> N >> M;
+        vector<int> A(N);
+
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+
+        cout << maxStates(A, M) << endl;
+    }
+
+    return 0;
+}
+```
+
+## Time and Space Complexity
+
+- The time complexity of this algorithm is `O(N)`, where 'N' is the number of states in Chefland. This is because we are iterating through the array of states only once. Each state is visited and processed in constant time, leading to a linear time complexity.
+- The space complexity is `O(1)`. We are using only a fixed number of extra variables (count and currentSum). The space used does not depend on the size of the input array, making it constant space complexity.

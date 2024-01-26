@@ -133,7 +133,7 @@ export const components = {
   pre: ({ className, ...props }) => (
     <pre
       className={cn(
-        "mb-4 mt-6 overflow-x-auto   shadow-xl rounded-lg border  py-4",
+        "mb-4 mt-6 overflow-x-auto px-2  shadow-xl rounded-lg border  py-4",
         className
       )}
       {...props}

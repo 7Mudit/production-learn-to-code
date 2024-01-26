@@ -13,8 +13,8 @@ import Theme from "../shared/Theme";
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
   { href: "/gemini", title: "Gemini", id: "2" },
-  { href: "/impact", title: "Impact", id: "3" },
-  { href: "/discover", title: "Discover", id: "4" },
+  { href: "/upsolving", title: "Upsolving", id: "3" },
+  { href: "/nptel-notes", title: "NPTEL", id: "4" },
 ];
 
 export const sidebarLinks: any = [
@@ -30,29 +30,29 @@ export const sidebarLinks: any = [
   },
   {
     imgURL: "/assets/icons/star.svg",
-    route: "/collection",
-    label: "Collections",
+    route: "/upsolving",
+    label: "Upsolving",
   },
   {
     imgURL: "/assets/icons/suitcase.svg",
-    route: "/jobs",
-    label: "Find Jobs",
+    route: "/nptel-notes",
+    label: "NPTEL Notes",
   },
-  {
-    imgURL: "/assets/icons/tag.svg",
-    route: "/tags",
-    label: "Tags",
-  },
-  {
-    imgURL: "/assets/icons/user.svg",
-    route: "/profile",
-    label: "Profile",
-  },
-  {
-    imgURL: "/assets/icons/question.svg",
-    route: "/ask-question",
-    label: "Ask a question",
-  },
+  // {
+  //   imgURL: "/assets/icons/tag.svg",
+  //   route: "/tags",
+  //   label: "Tags",
+  // },
+  // {
+  //   imgURL: "/assets/icons/user.svg",
+  //   route: "/profile",
+  //   label: "Profile",
+  // },
+  // {
+  //   imgURL: "/assets/icons/question.svg",
+  //   route: "/ask-question",
+  //   label: "Ask a question",
+  // },
 ];
 
 const NavContent = () => {
@@ -141,7 +141,7 @@ const Navbar1 = () => {
           {navbarLinks.map((link) => (
             <div className="" key={link.id}>
               <Link
-                href={`${link.href}`}
+                href={link.href}
                 className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer dark:text-white text-black decoration-emerald-600"
               >
                 {link.title}

@@ -13,9 +13,9 @@ const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const inter = Inter({ weight: "400", subsets: ["latin"] });
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
-  { href: "/technologies", title: "Technologies", id: "2" },
-  { href: "/impact", title: "Impact", id: "3" },
-  { href: "/discover", title: "Discover", id: "4" },
+  { href: "/gemini", title: "Gemini", id: "2" },
+  { href: "/upsolving", title: "Upsolving", id: "3" },
+  { href: "/nptel-notes", title: "NPTEL", id: "4" },
 ];
 const Footer = () => {
   const [feedback, setFeedback] = useState("");
@@ -30,25 +30,25 @@ const Footer = () => {
         <Link href="https://www.instagram.com/learntocode_official/">
           <FaInstagram
             size={24}
-            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 dark:hover:text-white  hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
         <Link href="https://github.com/7Mudit">
           <FaGithub
             size={24}
-            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 dark:hover:text-white hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
         <Link href="https://www.youtube.com/@learn_to_code10">
           <FaYoutube
             size={24}
-            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 dark:hover:text-white  hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
         <Link href="https://www.linkedin.com/in/mudit-kapoor-1b7582227/">
           <LuLinkedin
             size={24}
-            className="text-pure-greys-200 hover:text-black duration-300 hover:scale-110 cursor-pointer"
+            className="text-pure-greys-200 dark:hover:text-white  hover:text-black duration-300 hover:scale-110 cursor-pointer"
           />
         </Link>
       </div>
@@ -91,7 +91,7 @@ const Footer = () => {
           {navbarLinks.map((link) => (
             <div className="text-pure-greys-200" key={link.id}>
               <Link
-                href={`/${link.href}`}
+                href={`${link.href}`}
                 className="hover:underline hover:underline-offset-[20px] hover:cursor-pointer decoration-caribbeangreen-300"
               >
                 {link.title}
