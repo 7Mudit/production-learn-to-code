@@ -78,6 +78,7 @@ const Card = ({
                 className="grayscale"
                 src={`/images/${src}`}
                 alt="image"
+                priority
               />
             </motion.div>
           </div>

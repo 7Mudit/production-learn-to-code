@@ -59,6 +59,7 @@ const VideoSection = () => {
             width={400}
             height={150}
             className="object-cover rounded-xl"
+            priority
           />
         </div>
       </div>
