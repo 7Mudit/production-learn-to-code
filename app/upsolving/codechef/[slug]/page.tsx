@@ -25,7 +25,7 @@ const authors = [
     avatar: "/profile.jpeg",
     title: "Mudit Kapoor",
     linkedin: "7_Mudit",
-    linkedinLink: "www.linkedin.com/in/mudit-kapoor-1b7582227",
+    linkedinLink: "http://linkedin.com/in/mudit-kapoor-1b7582227",
   },
 ];
 
@@ -129,7 +129,9 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               author ? (
                 <Link
                   key={author.id}
-                  href={`${author.linkedinLink}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={author.linkedinLink}
                   className="flex items-center space-x-2 text-sm"
                 >
                   <Image

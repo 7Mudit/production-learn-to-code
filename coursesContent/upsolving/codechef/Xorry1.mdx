@@ -1,0 +1,131 @@
+---
+title: Xorry1
+description: Codechef Contest Starters 118
+date: 2024-01-26
+---
+
+# Xorry 1
+
+## Introduction
+
+You are given an integer *`X`*. Two integers `(A , B)` are said to be an Xorry pair, if the following conditions are satisfied:
+
+- A ⊕ B = X
+- 0 ≤ A ≤ B ≤ X
+- Among all the pairs which satisfy the above two conditions, `(B − A)` is as small as possible
+
+For example, suppose `X = 6`.
+
+Then, the pair `(0,6)` satisfies the first two conditions. But, the pair `(2,4)` also satisfies the first two conditions. And since, `(6 − 0)` is larger than `(4 − 2)`, the pair `(0,6)` does not have the smallest possible difference, and so, it is not an Xorry pair.
+
+You can verify that the pairs `(2,4)` and `(3,5)`  are the only two Xorry pairs for `X = 6`. This is explained further in the sample explanation below.
+
+---
+
+Output any one Xorry pair for a given X.
+
+Note that ⊕ refers to [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).
+
+## Input Format
+
+- The first line of input will contain a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of a single line which contains a single integer, *`X`*.
+
+## Output Format
+
+For each test case, output on a new line, two space separated integers, *`A`* and *`B`*, where `(*A*,*B*)` is an Xorry pair, for that particular *`X`*.
+
+If there are multiple Xorry pairs, output any one of them.
+
+## Constraints
+
+```cpp
+1 ≤ T ≤ 10^5
+1 ≤ X ≤ 10^9
+```
+
+## Sample Input and Output
+
+```cpp
+Input :
+5
+1
+2
+3
+4
+6
+
+Output :
+0 1
+0 2
+1 2
+0 4
+2 4
+```
+
+## Intuition
+
+The intuition behind finding an Xorry pair for a given integer X revolves around understanding how the XOR operation works and how we can leverage it to find two numbers A and B such that `A ⊕ B = X` while ensuring that the difference between A and B is as small as possible.
+
+**XOR Property:** The XOR operation has a unique property where if you XOR two numbers and then XOR the result with one of those numbers, you get the other number. This property is fundamental in ensuring that`A ⊕ B = X` can be solved for either A or B when one of them is known.
+
+**Choosing the Most Significant Bit (MSB) for A:** The choice of setting A to the MSB of X is based on the goal of minimizing `B − A`. The MSB represents the highest power of 2 less than or equal to X. By setting A to this value, we ensure that A is as close as possible to X while still being less than or equal to X. This choice maximizes A while minimizing the difference between A and B.
+
+**Minimizing the Difference:** Since A is chosen to be a power of 2, and specifically the highest power of 2 within X, the difference `B − A` becomes the smallest possible. It leverages the fact that in binary, flipping the MSB changes the number significantly, leading to a close but lower value than X.
+
+## Approach
+
+The approach in the code follows these steps to find the Xorry pair:
+
+- **Finding the MSB in X:** The code uses a while loop to find the position of the MSB in X. It does this by left-shifting 1 until it exceeds X. The final bit position where it exceeds gives the position of the MSB.
+- **Setting A to the MSB:** Once the MSB position is found, A is set to 2 raised to the power of one less than the bit position. This is because the bit positions are zero-indexed. A now holds the value of the MSB of X.
+- **Calculating B:** B is calculated by XORing A with X. Given the XOR property, this guarantees that `A ⊕ B = X.`
+- **Returning the Pair:** The pair `(B,A)` is returned. However, it's crucial to note that depending on how A and B are calculated, one might need to ensure that `A ≤ B` to strictly adhere to the definition of a Xorry pair. The current implementation assumes A will always be less than or equal to B, which holds in most cases due to the choice of A being the MSB.
+
+## Code Implementation
+
+```cpp
+#include <iostream>
+using namespace std;
+
+pair<int, int> findXorryPair(int X) {
+    int A = 0, B = 0;
+    int bitPosition = 0;
+
+    // Find the position of the most significant bit in X
+    while ((1 << bitPosition) <= X) {
+        bitPosition++;
+    }
+
+    // Set A to the value of the most significant bit
+    int MSB = 1 << (bitPosition - 1);
+    A = MSB;
+    B = A ^ X;
+
+    return {B, A};
+}
+
+int main() {
+    int T, X;
+    cin >> T;
+
+    while (T--) {
+        cin >> X;
+        pair<int, int> xorryPair = findXorryPair(X);
+        cout << xorryPair.first << " " << xorryPair.second << endl;
+    }
+
+    return 0;
+}
+```
+
+## Time Complexity
+
+- **Finding the MSB:** The loop runs until `1 << bitPosition` exceeds X. In the worst case, it runs as many times as the number of bits in X. Therefore, the time complexity for finding the MSB is `O(logX)`.
+- **Setting A and B:** This is done in constant time.
+- Overall, the time complexity of the findXorryPair function is`O(logX)`.
+
+## Space Complexity
+
+- The space complexity is determined by the amount of memory used by the variables A, B, bitPosition, and MSB.
+- Since these variables use a fixed amount of space and do not depend on the size of the input, the space complexity is `O(1)` (constant space complexity).

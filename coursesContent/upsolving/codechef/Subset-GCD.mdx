@@ -1,0 +1,126 @@
+---
+title: Subset GCD
+description: Codechef Contest Starters 118
+date: 2024-01-26
+---
+
+# Subset GCD
+
+## Introduction
+
+Given integers *`N`* and *`K`*, find a *`K`*- sized [subset](https://en.wikipedia.org/wiki/Subset) of [1,N] with **maximum** [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor).
+
+If multiple such subsets exist, you may print any.
+
+## **Input Format**
+
+- The first line of input will contain a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of two space-separated integers *`N`* and *`K`* — the number of integers and the size of subset.
+
+## **Output Format**
+
+For each test case, output *`K`* space separated integers, denoting the subset with maximum GCD.
+
+If multiple such subsets exist, you may print any.
+
+Note that the elements of the subset can be printed in any (not necessarily increasing) order.
+
+For example, **1 2 3** and **2 1 3** would be considered identical.
+
+## Constraints
+
+```text
+1 ≤ T ≤ 10^5
+1 ≤ K ≤ N ≤ 10^5
+The sum of N over all test cases won't exceed 2.10^5
+```
+
+## Sample Input and Output
+
+```text
+Input :
+3
+3 2
+3 3
+4 2
+
+Output:
+2 3
+1 2 3
+2 4
+```
+
+## Intuition
+
+When tackling the **"Subset GCD"** problem, the key intuition lies in understanding the nature of the Greatest Common Divisor (GCD). The GCD of a set of numbers is a number that divides each of those numbers without leaving a remainder. This concept leads us to an important realization: if we want a subset of numbers from `[1,N]` to have a high GCD, the numbers in that subset must be multiples of a large common divisor.
+
+Think of it this way: the larger the number that divides a set of numbers, the fewer such numbers you'll find. Therefore, starting from the largest possible divisor (which is `N` itself) and working downwards gives us the best shot at finding the largest GCD for our subset.
+
+## Approach
+
+Now, let's break down the approach to solve this problem:
+
+- **Start with the Largest Divisor:** Begin by considering `N` as the potential GCD. The reason is straightforward: `N` is the largest number in the set and potentially the largest GCD.
+- **Check for Multiples:** For each divisor starting from `N` and decreasing, check if there are enough multiples of this divisor within the set `[1,N]`. We need exactly `K` multiples to form our subset.
+- **Iterative Decrease**: If a particular divisor doesn’t have `K` multiples, decrement the divisor and repeat the check. This step ensures that we are not missing any smaller divisor that could give us the required number of multiples.
+- **Forming the Subset:** As soon as we find `K` multiples for a divisor, we've got our subset. This subset will have the maximum possible GCD because we started from the largest divisor and worked our way down.
+- **Edge Cases**: If `K` is larger than `N`, it’s impossible to find such a subset. Similarly, if `K` is 1, the subset can be any single number from the set `[1,N]`.
+
+By following this approach, we ensure that we are maximizing the GCD of our subset while also fulfilling the condition of the subset size. This method is both logical and efficient, making it an excellent solution for the problem at hand.
+
+## Code Implementation
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> subsetGCD(int N, int K) {
+    // Iterate from N down to 1 to find the largest possible divisor
+    for (int gcd = N; gcd > 0; --gcd) {
+        vector<int> multiples;
+
+        // Check for multiples of 'gcd' up to N
+        for (int i = gcd; i <= N; i += gcd) {
+            multiples.push_back(i);
+            // If we found enough multiples, return them
+            if (multiples.size() == K) {
+                return multiples;
+            }
+        }
+    }
+
+    // In case no subset is found, which is unlikely
+    return vector<int>();
+}
+
+int main() {
+    int T, N, K;
+    cin >> T; // Reading number of test cases
+
+    while (T--) {
+        cin >> N >> K; // Reading N and K for each test case
+
+        vector<int> subset = subsetGCD(N, K);
+
+        // Output the subset
+        for (int num : subset) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+## Time and Space Complexity
+
+- The time complexity of this algorithm can be a bit tricky to analyze due to the nested loops. However, we can approximate it as follows:
+
+  - The outer loop runs at most `N` times (as it starts from `N` and decrements to 1).
+  - The inner loop runs at most `N / gcd` times for each gcd. This is because the step size of the loop is gcd, and it iterates over the range from `gcd` to `N`.
+
+    The worst-case scenario is when K is 1, as the inner loop will run the maximum number of times. In this case, the time complexity is `O(N * logN)`, as the inner loop's iterations decrease logarithmically with increasing gcd.
+
+- The space complexity of the algorithm is `O(K)`. This is because we store at most `K` elements in the multiples vector at any given time.

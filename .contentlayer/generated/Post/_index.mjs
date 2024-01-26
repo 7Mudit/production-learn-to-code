@@ -4,5 +4,7 @@ import nptelNotes__quantumPhysics__quantumPhysics1Mdx from './nptel-notes__quant
 import nptelNotes__quantumPhysics__quantumPhysics2Mdx from './nptel-notes__quantumPhysics__quantum-physics2.mdx.json' assert { type: 'json' }
 import upsolving__codechef__joinStatesMdx from './upsolving__codechef__Join-states.mdx.json' assert { type: 'json' }
 import upsolving__codechef__literacyRateMdx from './upsolving__codechef__Literacy-Rate.mdx.json' assert { type: 'json' }
+import upsolving__codechef__subsetGcdMdx from './upsolving__codechef__Subset-GCD.mdx.json' assert { type: 'json' }
+import upsolving__codechef__xorry1Mdx from './upsolving__codechef__Xorry1.mdx.json' assert { type: 'json' }
 
-export const allPosts = [nptelNotes__quantumPhysics__quantumPhysics1Mdx, nptelNotes__quantumPhysics__quantumPhysics2Mdx, upsolving__codechef__joinStatesMdx, upsolving__codechef__literacyRateMdx]
+export const allPosts = [nptelNotes__quantumPhysics__quantumPhysics1Mdx, nptelNotes__quantumPhysics__quantumPhysics2Mdx, upsolving__codechef__joinStatesMdx, upsolving__codechef__literacyRateMdx, upsolving__codechef__subsetGcdMdx, upsolving__codechef__xorry1Mdx]
