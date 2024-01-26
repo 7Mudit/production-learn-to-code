@@ -1,0 +1,135 @@
+---
+title: Xorry2
+description: Codechef Contest Starters 118
+date: 2024-01-26
+---
+
+# Xorry 2
+
+## Introduction
+
+[This problem is very similar to XORRY1. The only difference is that instead of printing any one Xorry pair, you are now asked to count the number of Xorry pairs]
+
+You are given an integer `X`. Two integers (`A`, `B`) are said to be an Xorry pair, if the following conditions are satisfied:
+
+- A ⊕ B = X
+- 0 ≤ A ≤ B ≤ X
+- Among all the pairs which satisfy the above two conditions, `(B − A)` is as small as possible
+
+For example, suppose `X = 6`.
+
+Then, the pair `(0,6)` satisfies the first two conditions. But, the pair `(2,4)` also satisfies the first two conditions. And since, `(6 − 0)` is larger than `(4 − 2)`, the pair `(0,6)` does not have the smallest possible difference, and so, it is not an Xorry pair.
+
+You can verify that the pairs `(2,4)` and `(3,5)` are the only two Xorry pairs for `X = 6`. This is explained further in the sample explanation below.
+
+---
+
+Output the number of Xorry pairs for a given X.
+
+Note that ⊕ refers to [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).
+
+## Input Format
+
+- The first line of input will contain a single integer `T`, denoting the number of test cases.
+- Each test case consists of a single line which contains a single integer, `X`.
+
+## Output Format
+
+For each test case, output on a new line the number of Xorry pairs, for that particular `X`.
+
+## Constraints
+
+```cpp
+1 ≤ T ≤ 10^5
+1 ≤ X ≤ 10^9
+```
+
+## Sample Input and Output
+
+```cpp
+Input :
+5
+1
+2
+3
+4
+6
+
+Output :
+1
+1
+1
+1
+2
+```
+
+## Intuition
+
+The key intuition here is based on the binary representation of `n`. Once the first set bit is encountered in `n`, every subsequent unset bit effectively doubles the number of ways to form Xorry pairs. This happens because for each unset bit, there are two possible ways to assign values to A and B that would satisfy the XOR condition `A ⊕ B = n`.
+
+The reason behind doubling the count for every unset bit after the first set bit is that each unset bit introduces a binary choice (0 or 1) for A at that bit position, while B will have the opposite value at that bit to maintain the XOR sum as n.
+
+Example:
+
+Consider n = 6 (binary 110). The most significant set bit is at position 2 (1-indexed from the right). The unset bit at position 1 introduces two choices for forming the pairs: (2, 4) and (3, 5). Hence, there are two Xorry pairs for n = 6.
+
+## Approach
+
+- **Find the Highest Power of 2 Less Than or Equal to n:** The code starts by finding the highest power of 2 that is less than or equal to n. This is achieved by repeatedly doubling a variable a until it surpasses n. The variable count keeps track of the number of times a is doubled.
+- **Iterate Over Bit Positions:** The code then iterates over each bit position of n, starting from the most significant set bit (determined by count - 1) to the least significant bit.
+  For each bit position, the code checks if the bit is set in n. If a set bit is found, it sets a flag check to true.
+- **Counting the Xorry Pairs:** For every unset bit that follows the first set bit, the number of Xorry pairs is doubled. This is because each unset bit after encountering a set bit provides two possibilities for forming a valid Xorry pair.
+
+## Code Explanation
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Function to count the number of Xorry pairs for a given integer 'n'
+int countXorryPairs(int n) {
+    int a = 1; // 'a' starts from 1 and is used to find the highest power of 2 <= n
+    int count = 0; // 'count' keeps track of the number of set bits in 'n'
+
+    // Find the highest power of 2 less than or equal to 'n'
+    while (a * 2 <= n) {
+        a = a * 2;
+        count++;
+    }
+
+    int ans = 1; // Initialize the count of Xorry pairs
+    bool check = false; // Flag to check if a set bit is found
+
+    // Iterate over each bit position from 'count - 1' to 0
+    for (int i = count - 1; i >= 0; i--) {
+        if ((n & (1 << i))) { // If the ith bit of 'n' is set
+            check = true; // Set the flag to true
+        } else {
+            // If the ith bit of 'n' is not set and a set bit was found before
+            if (check) ans = ans * 2; // Double the count of Xorry pairs
+        }
+    }
+
+    return ans; // Return the total count of Xorry pairs
+}
+
+int main() {
+    int t, n;
+    cin >> t; // Read the number of test cases
+
+    while (t--) {
+        cin >> n; // Read the integer 'n'
+        cout << countXorryPairs(n) << endl; // Output the count of Xorry pairs
+    }
+
+    return 0;
+}
+```
+
+## Time Complexity
+
+The time complexity of this solution is `O(log n)`. This is because the function iterates over the bits of n, and the number of bits in the binary representation of `n` is proportional to the logarithm of `n`.
+
+## Space Complexity
+
+The space complexity of the solution is `O(1)`. The function uses a fixed number of integer variables, which does not depend on the size of the input `n`.
