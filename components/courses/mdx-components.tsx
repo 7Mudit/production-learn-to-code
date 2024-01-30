@@ -142,7 +142,7 @@ export const components = {
   code: ({ className, ...props }) => (
     <code
       className={cn(
-        "relative rounded text-purple-800 dark:text-yellow-200  px-2 py-[0.2rem] font-mono text-sm",
+        "relative rounded text-teal-600 dark:text-yellow-200  px-2 py-[0.2rem] font-mono text-sm",
         className
       )}
       {...props}

@@ -18,7 +18,7 @@ const Hero1 = () => {
       <h1
         className={`text-[12vw] tracking-tight leading-[12vw]  ${noto_sans2.className} dark:bg-hero-dark bg-hero-light  animated-gradient text-center`}
       >
-        <span className={`font-extrabold `}>Learn</span> to code
+        <span className={`font-extrabold `}>Learn</span> To Code
       </h1>
     </div>
   );

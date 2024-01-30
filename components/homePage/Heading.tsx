@@ -14,16 +14,16 @@ const Heading = ({ heading, noMargin }: Props) => {
     <>
       {/* heading */}
       <div
-        className={`relative text-center  ${
-          noMargin === "false" ? "mt-10" : "mt-[150px]"
+        className={`relative text-center    ${
+          noMargin === "false" ? "mt-[100px]" : "mt-[150px]"
         } `}
       >
         <h1
-          className={`text-[32px] sm:text-[48px] lg:text-[52px] xl:text-[80px] ${noto_sans2.className}  font-extrabold  text-center   leading-normal`}
+          className={`text-[32px]  sm:text-[48px] lg:text-[52px] xl:text-[80px] ${noto_sans2.className}  font-extrabold  text-center   leading-normal`}
         >
           {heading}
         </h1>
-        <div className="bg-red-black headingGradient"></div>
+        <div className="bg-red-black  headingGradient"></div>
       </div>
     </>
   );

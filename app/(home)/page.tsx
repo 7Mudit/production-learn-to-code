@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <main
-        className="flex h-full dark:bg-black bg-white  gap-[50px] 
+        className="flex relative h-full dark:bg-black bg-white  gap-[50px] 
                     sm:gap-[100px] flex-col"
       >
         <Navbar1 />
