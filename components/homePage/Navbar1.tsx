@@ -9,6 +9,8 @@ import {
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Theme from "../shared/Theme";
+import { Urbanist } from "next/font/google";
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
@@ -59,7 +61,9 @@ const NavContent = () => {
   const pathname = usePathname();
 
   return (
-    <section className="flex h-full  flex-col gap-6 pt-16">
+    <section
+      className={`flex h-full ${urbanist.className}  flex-col gap-6 pt-16`}
+    >
       {sidebarLinks.map((item: any) => {
         const isActive =
           (pathname.includes(item.route) && item.route.length > 1) ||

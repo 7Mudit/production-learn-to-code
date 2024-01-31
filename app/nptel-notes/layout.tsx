@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Urbanist } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import Navbar1 from "@/components/homePage/Navbar1";
 import "../globals.css";
 import Footer from "@/components/homePage/Footer";
 
-const inter = Inter({ subsets: ["greek"] });
-// const urbanist = Urbanist({ subsets: ["latin"] });
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Learn To Code",
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${inter.className}`}>
+    <div className={`${urbanist.className}`}>
       <Navbar1 />
       {children}
       <div className="p-5">
