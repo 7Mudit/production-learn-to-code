@@ -16,10 +16,7 @@ import Works from "@/components/homePage/Works";
 export default function Home() {
   return (
     <div>
-      <main
-        className="flex relative h-full dark:bg-black bg-white  gap-[50px] 
-                    sm:gap-[100px] flex-col"
-      >
+      <main className="flex relative h-full dark:bg-black bg-white  gap-[50px] sm:gap-[100px] flex-col">
         <Navbar1 />
         <Hero1 />
         <MainNavbar />

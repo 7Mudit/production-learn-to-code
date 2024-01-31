@@ -43,11 +43,11 @@ export const sidebarLinks: any = [
   //   route: "/tags",
   //   label: "Tags",
   // },
-  // {
-  //   imgURL: "/assets/icons/user.svg",
-  //   route: "/profile",
-  //   label: "Profile",
-  // },
+  {
+    imgURL: "/assets/icons/user.svg",
+    route: "/about",
+    label: "About",
+  },
   // {
   //   imgURL: "/assets/icons/question.svg",
   //   route: "/ask-question",
@@ -70,7 +70,7 @@ const NavContent = () => {
               href={item.route}
               className={`${
                 isActive
-                  ? "primary-gradient rounded-lg text-light-900"
+                  ? "bg-teal-700 rounded-lg text-light-900"
                   : "text-dark300_light900"
               } flex items-center justify-start gap-4 bg-transparent p-4`}
             >

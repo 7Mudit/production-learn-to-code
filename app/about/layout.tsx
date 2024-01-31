@@ -1,29 +1,50 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import clsx from "clsx";
+import { Urbanist } from "next/font/google";
+// import { PrismicPreview } from "@prismicio/next";
+// import { createClient, repositoryName } from "@/prismicio";
+
+// import Footer from "@/components/Footer";
 import Navbar1 from "@/components/homePage/Navbar1";
-import "../globals.css";
+
+const urbanist = Urbanist({ subsets: ["latin"] });
+// import "./theme.css";
 import Footer from "@/components/homePage/Footer";
-import { Noto_Sans } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
-const noto_sans = Noto_Sans({ weight: "500", subsets: ["cyrillic"] });
 
-export const metadata: Metadata = {
-  title: "Learn To Code",
-  description:
-    "A community driven platform for asking and answering programming questions. Get help and share knowledge and collaborate with developers from around the world",
-  // icons: {
-  //   icon: "/assets/images/site-logo.svg",
-  // },
-};
+// export async function generateMetadata(): Promise<Metadata> {
+//   // const client = createClient();
+//   // const settings = await client.getSingle("settings");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+//   return {
+//     // title: settings.data.meta_title,
+//     // description: settings.data.meta_description,
+//     // openGraph: {
+//     //   images: [settings.data.og_image?.url || ""],
+//     // },
+//   };
+// }
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className={`${noto_sans.className}`}>
-      <Navbar1 />
-      {children}
-      <div className="p-5">
-        <Footer />
-      </div>
-    </div>
+    <html lang="en" className="bg-slate-900">
+      <body
+        className={clsx(
+          urbanist.className,
+          "relative   min-h-screen h-full dark:bg-black bg-white  gap-[50px] sm:gap-[100px] flex-col"
+        )}
+      >
+        <Navbar1 />
+        {children}
+        {/* <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
+        <div className="pointer-events-none absolute inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light"></div> */}
+        <div className="w-11/12 relative mx-auto">
+          <Footer />
+        </div>
+        {/* <PrismicPreview repositoryName={repositoryName} /> */}
+      </body>
+    </html>
   );
 }
