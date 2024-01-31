@@ -1,148 +1,120 @@
 ---
 title: Quantum Physics Lecture 1
-description: In this lecture we will talk about first lecture notes only.
-date: 2024-01-19
+description: In this lecture we will talk about first lecture only.
+date: 2024-01-31
 ---
 
-# Decorators
+# Week 1 Lecture 1
 
-They provide a way to add both annotations and a meta-programming syntax for class declarations and members. Decorators are a stage 2 proposal for JavaScript and are available as an experimental feature of TypeScript.
+## Limitations of Classical ideas - need for Quantum theory
 
-To enable experimental support for decorators , you must enable the `experimentalDecorators` compiler option either on the command line or in your `tsconfig.json` :
+Experimental data in the Microscopic world (inside an atom or nucleus) - classical laws are inadequate
 
-```tsx
-{
-	"compilerOptions" : {
-		"target" : "ES5",
-		"experimentalDecorators" : true
-	}
-}
+1. **Black Body Spectrum -** Imagine an object that absorbs all the light that hits it (no light bounces off or passes through it). This kind of ideal object is called a "black body" in physics. Now, when this black body is heated, it doesn't just get hot; it starts to glow and emit its own light. The interesting part is the color of this light changes as the temperature changes. At lower temperatures, the light might be red, and as the temperature increases, it might shift to white or even blue. The "black body spectrum" refers to this range of colors (or more technically, wavelengths) of light that the black body emits at different temperatures. It's like how a metal rod glows red when heated and then turns white-hot at higher temperatures.
+2. **Photo electric effect -** This is a phenomenon where light hitting a metal surface can knock electrons off the surface. Think of it like a game of pool where the light particles (called photons) are like the cue ball. When these photons hit the electrons (which are like the balls on the pool table), they can knock these electrons out of the metal, just like a cue ball would hit and move the pool balls. However, there's a catch: not just any light can do this. The light needs to have enough energy (or be of a specific color) to knock the electrons loose. This effect was crucial in the early days of quantum mechanics because it showed that light behaves like both a wave and a particle, challenging previous ideas about light and leading to the development of modern quantum theory.
+3. **Compton Scattering -** Compton Scattering is another important concept in quantum mechanics, and I'll explain it in simple terms:
+
+   Imagine you're playing tennis and you hit a tennis ball (which is light in this analogy) towards a much heavier bowling ball (which represents an electron). When the tennis ball hits the bowling ball, it bounces back, but with less speed and in a slightly different direction. In this interaction, some of the tennis ball's energy is transferred to the bowling ball.
+
+   Now, let's translate this into physics terms:
+
+   1. **The Tennis Ball (Light Photon):** In Compton Scattering, we're dealing with light, but not just any light – we're talking about light as a stream of particles called photons. Each photon carries a certain amount of energy.
+   2. **The Bowling Ball (Electron):** The photons interact with electrons, which are much smaller parts of an atom.
+   3. **The Collision**: When a photon hits an electron, it's like our tennis ball hitting the bowling ball. The photon gives some of its energy to the electron. As a result, the photon loses energy.
+   4. **The Outcome**: After losing energy, the photon moves away with less energy, which in the world of light means it has a longer wavelength. This change in the photon's wavelength is the core of Compton Scattering.
+
+   In simple terms, Compton Scattering shows us how light (photons) can be scattered by electrons, and in the process, change their energy and wavelength. This phenomenon was crucial in demonstrating that light has particle-like properties, which was a key development in quantum mechanics.
+
+These all three things can only be explained using quantum ideas not classical ideas . So one of the core important thing which went into all the 3 aspects of quantum aspects of photon, what is that? — Is the **Universal Planck constant.**
+
+**Planck's Law:** Describes the electromagnetic radiation emitted by a black body in thermal equilibrium at a definite temperature.
+
+For massless photons -
+
+```
+E = pc = hv
 ```
 
-## Class Decorators
-
-A class decorator is declared just before a class declaration and can be used to observe , modify or replace a class definition.
-
-```tsx
-function sealed(constructor: Function) {
-  Object.seal(constructor);
-  Object.seal(constructor.prototype);
-}
-
-@sealed
-class Greeter {
-  greeting: string;
-  constructor(message: string) {
-    this.greeting = message;
-  }
-  greet() {
-    return "Hello, " + this.greeting;
-  }
-}
+```
+p = hv/c = h/λ
 ```
 
-In this example , the `@sealed` decorator will seal both the constructor and its prototype so that new properties can be added to it.
+where :
 
-## Method Decorators
+p = momentum
 
-A method decorator can be used to observe , modify or replace a method definition.
+h = planck’s constant
 
-```tsx
-fucntion enumerable(value : boolean){
-	return function (target : any , propertyKey : string , descriptor : PropertyDescriptor){
-		descriptor.enumerable = value;
-	};
-}
-class Greeter{
-	greeting : string;
-	constructor(message : string){
-		this.greeting = message;
-	}
-	@enumerable(false)
-	greet(){
-		return "Hello, " + this.greeting;
-	}
-}
-```
+λ = wavelength
 
-The `@enumerable(false)` decorator here is used to modify the `enumerable` property of `greet` method.
+c = speed of light
 
-## Property Decorators
+de-broglie proposed that equation for the wavelength of matter waves must obey same equation of photon momentum.
 
-They are used to observe and modify the definition of a property.
+## Matter waves
 
-```tsx
-function formate(formatString: string) {
-  return function (target: any, propertyKey: string) {
-    let value: string;
+For an electron moving in circular orbit of radius r constructive interference of electron wave with itself in the orbit requires `2πr = nλ`
 
-    const getter = function () {
-      return value;
-    };
+**Bohr's Quantization:** Circular orbit constructive interference leads to quantization of orbital angular momentum.
 
-    const setter = function (newVal: string) {
-      value = formatString.replace("%s", newVal);
-    };
+Usually, when we are given an electron or when are given a photon, we see photon as an electromagnetic light. We see electron as a point particle.But in this course, you should remember that a particle and the wave are part of every object and what we try to tap is what you will get, okay. So it depends on the situation. If you are doing photoelectric effect, you will get only the particle nature of photon. If you are doing interference experiments, you will get wave nature of photon. Similarly, electrons, if you doing collision experiments in your classical physics, it is like a particle nature.But if you are doing dissection experiment, it shows the wavelength, okay. Depending on the experimental setup and its energy, things are going to be different and that is what is happening in the microscopic world. What we see in our day to day life, is the microscopic effect. But what is happening inside an atom or inside a proton, are governed by quantum ideas, okay. You cannot use your classical ideas and say that what I see here should happen in the **microscopic world**. We do see violations, that is why we started introducing the **quantum ideas**
 
-    //replace the property with a new one with getter and setter
-    Object.defineProperty(target, propertyKey, {
-      get: getter,
-      set: setter,
-      enumerable: true,
-      configurable: true,
-    });
-  };
-}
+Example - Like for example tunnelling, I cannot just go over, across this wall outside but you can still get, if it is a wave, a sound wave could cross across, right. That is once it is a wave, things can cross.That information can be there in a region where a particle cannot go out but a wave can go out, okay.
 
-class Greeter {
-  @format("Hello , %s")
-  greeting: string;
+## Wave - Particle Duality
 
-  constructor(message: string) {
-    this.greeting = message;
-  }
-}
-```
+- Fundamental concept of quantum mechanics stating that every particle or quantum entity may be partly described in terms not only of particles but also of waves.
+- **Young’s Double-Slit Experiment:** Demonstrated that light can display characteristics of both waves and particles.
+- **De Broglie Hypothesis:** Extended wave-particle duality to matter, proposing that particles like electrons also have wave-like properties.
 
-The @format("Hello, %s") decorator will modify how the greeting property is set and retrieved.
+Why we do not see wave character ? Because it is very very small which cannot be measured in the present day. But if you take an electron whose mass is nearly small, then the wavelength is a measurable regime. But which is dominant in our case is only the particle character. But wave character needs a measurement of wavelength which is within the experimental regime.
 
-## Parameter Decorators
+| Classical Mechanics                         | Quantum Mechanics                                                                                                                                  |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Both x and p can be simultaneously found    | x, p cannot be determined precisely which is the famous Heisenberg's uncertainty principle that position and momentum cannot be precisely measured |
+| Equation is Newton’s Law determines x and p | Equation is Schrödinger equation which determines probability amplitude 𝚿(x,t)(complex) whose modulus squared gives probability.                   |
 
-Parameter Decorators are declared just before a parameter declaration. The parameter decorator is applied to the function for a class constructor or method declaration.
+<img src="/courseContent/formula.png" width="718" height="404" alt="Image" />
 
-```tsx
-function required(
-  target: Object,
-  propertyKey: string | symbol,
-  parameterIndex: number
-) {
-  console.log(
-    `Making parameter at index ${parameterIndex} required for method ${propertyKey.toString()}`
-  );
-}
+## Summary
 
-class Greeter {
-  greeting: string;
+### **Key Concepts in Quantum Mechanics:**
 
-  constructor(message: string) {
-    this.greeting = message;
-  }
+### **Black-Body Spectrum and Planck's Law:**
 
-  greet(@required name: string) {
-    return "Hello " + name + ", " + this.greeting;
-  }
-}
-```
+- A black body is an idealized physical body that absorbs all incident electromagnetic radiation.
+- **Planck's Law:** Describes the electromagnetic radiation emitted by a black body in thermal equilibrium at a definite temperature.
+- **Significance**: Demonstrated that energy is quantized, leading to the development of quantum theory.
 
-The @required decorator here will log a message when the greet method's name parameter is defined.
+### **Photoelectric Effect:**
 
-Decorators are advanced feature, and their functionality can be complex because they can modify the runtime behaviour of the class , method , accessor , property or parameter they are used on.
+- **Observation:** Light shining on certain materials can emit electrons.
+- **Key Insight:** The effect cannot be explained by classical physics; it indicates that light behaves as both a wave and a particle.
+- **Consequence:** Led to the understanding of light quanta (photons) and the dual nature of light.
 
-Keep in mind -
+### **Compton Scattering:**
 
-- Decorators are executed at runtime , but their composition can be quite intricate , as they can be used to modify the shape of the class at definition time.
-- Decorators are not fully standardised and might change as ECMAscript proposals evolve.
+- Describes the scattering of a photon by a charged particle, usually an electron.
+- **Significance :** Demonstrates the particle nature of light and the change in wavelength due to scattering, supporting the concept of wave-particle duality.
 
-# This is an MDX file
+### **Wave-Particle Duality:**
 
-You can write **Markdown** here and also use JSX components:
+- Fundamental concept of quantum mechanics stating that every particle or quantum entity may be partly described in terms not only of particles but also of waves.
+- **Young’s Double-Slit Experiment:** Demonstrated that light can display characteristics of both waves and particles.
+- **De Broglie Hypothesis:** Extended wave-particle duality to matter, proposing that particles like electrons also have wave-like properties.
+
+### **Bohr's Model and Quantization:**
+
+- **Bohr's model of the hydrogen atom:** Electrons orbit the nucleus in orbits with quantized angular momentum.
+- **Quantization:** Certain physical properties, such as energy, angular momentum, or charge, can only take discrete values.
+- **Connection to Wave-Particle Duality:** Electron orbits correspond to standing wave patterns around the nucleus.
+
+### **Heisenberg's Uncertainty Principle:**
+
+- States that the more precisely the position of some particle is determined, the less precisely its momentum can be known, and vice versa.
+- This principle introduces inherent limitations in measuring certain pairs of complementary properties, like position and momentum.
+
+### **Schrödinger Equation:**
+
+- Fundamental equation of quantum mechanics that provides a way to calculate the wave function of a system, which describes the quantum state of a system.
+- The equation is central in determining how quantum systems evolve over time.
