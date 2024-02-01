@@ -1,0 +1,114 @@
+---
+title: Judged
+description: Codechef Contest Starters 119
+date: 2024-02-01
+---
+
+# Judged
+
+## Introduction
+
+The tech fest of IIT Ropar, *Advitiya*, has a talent show as part of the festivities.
+
+The preliminary round of the talent show has participants being evaluated by 5 judges, and only those participants whose performance was liked by **at least 44** judges will qualify for the next round.
+
+Anuj participated in the talent show, and now wants to know if he'll qualify or not.
+
+You are given the responses of all 5 judges — help Anuj decide whether he qualified!
+
+Each judge's response is given to you as a binary integer, where:
+
+- `0` means the judge didn't like Anuj's performance.
+- `1` means the judge liked Anuj's performance.
+
+## Input Format
+
+- The first line of input contains a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of a single line containing 5 space-separated integers R1 , _R2_ , *R*3, , *R*4 , *R*5 — the responses of the judges.
+
+## Output Format
+
+- For each test case, output a single line containing the string `"YES"` (without quotes) if Anuj qualifies for the next round, and `"NO"` (without quotes) if he doesn't qualify.
+- Each letter of the output may be printed in either uppercase or lowercase, i.e, the strings `NO`, `no`, `No`, and `nO` will all be treated as equivalent.
+
+## Constraints
+
+```cpp
+1 ≤ T ≤ 100
+0 ≤ R1 , R2 , R3 , R4 , R5 ≤ 1
+```
+
+## Sample Input and Output
+
+```txt
+Input :
+3
+1 0 0 0 1
+1 1 0 0 1
+0 1 1 1 1
+
+Output :
+NO
+NO
+YES
+```
+
+## Intuition
+
+The problem is straightforward. We have 5 judges, each giving a binary response (1 for like, 0 for dislike) for Anuj's performance. Anuj qualifies if at least 4 judges liked his performance.
+
+## Approach
+
+- **Read the number of test cases (T) :** We first read the total number of test cases.
+- **Process each test case :** For each test case:
+  - Read the responses from the 5 judges into an array.
+  - Count the number of likes (1's) in the array.
+  - If the count of likes is 4 or more, Anuj qualifies (print "YES"), otherwise, he doesn't (print "NO").
+
+## Code Explanation
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t; // Reading the number of test cases
+
+    while (t--) {
+        int arr[5]; // Array to store judges' responses
+        int count = 0; // Count of likes
+
+        // Read judges' responses
+        for (int i = 0; i < 5; i++) {
+            cin >> arr[i];
+            if (arr[i] == 1) {
+                count++; // Increment count if judge liked the performance
+            }
+        }
+
+        // Check if Anuj qualifies
+        if (count >= 4) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+
+    return 0;
+}
+```
+
+## Time Complexity
+
+- **Reading test cases:** O(1) per test case.
+- **Processing each test case:** O(5) which is O(1) since we are only processing 5 judges' responses per test case.
+- **Overall Time Complexity:** O(T), where T is the number of test cases, as the time for processing each test case is constant.
+
+## Space Complexity
+
+Space for judges' responses: O(5) which is
+
+- O(1) (constant space for storing 5 responses).
+- **Other variables:** O(1) (constant additional space for variables like count, t, etc.)
+- **Overall Space Complexity:** O(1), as the space required does not scale with the input size.
