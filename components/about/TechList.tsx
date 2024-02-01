@@ -44,7 +44,12 @@ const TechList = () => {
         }
       );
     }, component);
-    return () => ctx.revert(); // cleanup!
+    return () => {
+      ctx.revert();
+      // Ensure all GSAP animations and ScrollTrigger instances are properly killed
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+      gsap.killTweensOf(".tech-row");
+    };
   }, []);
 
   const TechList = [

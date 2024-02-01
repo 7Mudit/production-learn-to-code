@@ -70,7 +70,12 @@ export default function Avatar({
           );
       };
     }, component);
-    return () => ctx.revert(); // cleanup!
+    return () => {
+      ctx.revert();
+      // Ensure all GSAP animations and ScrollTrigger instances are properly killed
+      gsap.killTweensOf(".avatar");
+      gsap.killTweensOf(".highlight");
+    };
   }, [prefersReducedMotion]);
 
   return (
