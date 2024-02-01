@@ -50,7 +50,7 @@ const EducationData = [
 const Page = () => {
   return (
     <>
-      <FirstComp />
+      {/* <FirstComp /> */}
       <Bounded
       //   data-slice-type={slice.slice_type}
       //   data-slice-variation={slice.variation}
