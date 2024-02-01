@@ -62,7 +62,7 @@ const NavContent = () => {
 
   return (
     <section
-      className={`flex h-full ${urbanist.className}  flex-col gap-6 pt-16`}
+      className={`flex h-full  ${urbanist.className}  flex-col gap-6 pt-16`}
     >
       {sidebarLinks.map((item: any) => {
         const isActive =
@@ -74,7 +74,7 @@ const NavContent = () => {
               href={item.route}
               className={`${
                 isActive
-                  ? "bg-teal-700 rounded-lg text-light-900"
+                  ? "bg-hero-light    rounded-lg text-light-900"
                   : "text-dark300_light900"
               } flex items-center justify-start gap-4 bg-transparent p-4`}
             >
@@ -83,7 +83,11 @@ const NavContent = () => {
                 alt={item.label}
                 width={20}
                 height={20}
-                className={`${isActive ? "" : "invert-colors"}`}
+                className={`${
+                  isActive
+                    ? "text-light-900 dark:text-zinc-900"
+                    : "invert-colors"
+                }`}
               />
               <p className={`${isActive ? "base-bold" : "base-medium"}`}>
                 {item.label}

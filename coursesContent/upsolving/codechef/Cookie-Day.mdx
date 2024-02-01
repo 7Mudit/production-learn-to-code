@@ -1,0 +1,124 @@
+---
+title: Cookie Day
+description: Codechef Contest Starters 119
+date: 2024-02-01
+---
+
+# Cookie Day
+
+## Introduction
+
+A very caring mother has *`N`* cookie jars with her. Each jar contains a different type of cookie.
+
+There are *A[i]* cookies in the *i*-th jar.
+
+The mother wanted to give some cookies to her *`K`* children, and she decided to only distribute cookies **of a single type**. That is, she'll choose **exactly one** of the *`N`* jars and distribute the cookies within it.
+
+She'd like to ensure a couple of things:
+
+- Each child should receive **at least** 1 cookie.
+- Each child should also receive an **equal number** of cookies, in the spirit of fairness.
+
+Under the above two conditions, what is the **minimum** number of "wasted" cookies, i.e, cookies that remain in the chosen jar after distribution?
+
+If it is not possible to give out any cookies at all, print −1 instead.
+
+## Input Format
+
+- The first line of input contains a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of two lines of input.
+  - The first line of each test case contains two space-separated integers *N* and *K* — the number of cookie jars and the number of children.
+  - The second line contains *N* space-separated integers *A[1]*,_A[2]_,…,*A[N]* — where *A[i]* is the number of cookies in the *i* th jar.
+
+## Output Format
+
+For each test case, output on a new line a single integer denoting the minimum number of cookies that will go to waste.
+
+If it is not possible to distribute the cookies at all, output −1 instead.
+
+## Constraints
+
+```c++
+1 ≤ T ≤ 100
+1 ≤ N ≤ 100
+1 ≤ A[i] , K ≤ 10^9
+```
+
+## Sample Input and Output
+
+```c++
+Input :
+4
+4 3
+7 8 2 1
+4 4
+1 2 3 1
+4 1
+1 1 1 1
+4 1000
+999 1500 2024 2100
+
+Output :
+1
+-1
+0
+24
+```
+
+## Intuition
+
+- _Sufficient Cookies:_ We must ensure each jar has at least as many cookies as there are children (cookies >= k). If not, it's impossible to give at least one cookie to each child from that jar.
+- _Minimising Waste:_ The waste in each jar is the remainder when the total cookies are divided by the number of children (cookies % k). Our goal is to find the jar where this value is minimised.
+- _Feasibility Check:_ If no jar can fulfil the requirement of giving at least one cookie to each child, we output -1.
+
+## Code Implementation
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, k;
+        cin >> n >> k; // Read the number of jars (n) and children (k)
+
+        vector<int> jars(n);
+        for (int i = 0; i < n; i++) {
+            cin >> jars[i]; // Read the number of cookies in each jar
+        }
+
+        int minWaste = INT_MAX; // Initialize minWaste to the maximum possible value
+        bool canDistribute = false; // Flag to check if distribution is possible
+
+        for (int cookies : jars) {
+            if (cookies >= k) { // Check if the jar has enough cookies
+                canDistribute = true;
+                int waste = cookies % k; // Calculate waste for this jar
+                minWaste = min(minWaste, waste); // Update minWaste if this jar has less waste
+            }
+        }
+
+        if (canDistribute) {
+            cout << minWaste << endl; // Print the minimum waste
+        } else {
+            cout << -1 << endl; // Print -1 if distribution is not possible
+        }
+    }
+}
+
+```
+
+## Time Complexity
+
+- The outer while loop runs t times for t test cases.
+- Inside each test case, we have a for loop that iterates `n` times.
+- All other operations inside the for loop are constant time operations.
+- Hence, the overall **time complexity** is `O(t * n)`.
+
+## Space Complexity Analysis:
+
+- The space complexity is primarily due to the storage of n cookies in the jars vector for each test case.
+- Therefore, the space complexity is `O(n)`.
