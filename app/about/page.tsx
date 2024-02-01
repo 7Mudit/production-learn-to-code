@@ -1,3 +1,4 @@
+"use client";
 import Avatar from "@/components/about/Avatar";
 import Bounded from "@/components/about/Bounded";
 import Button from "@/components/about/Button";
