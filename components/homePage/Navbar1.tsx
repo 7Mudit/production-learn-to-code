@@ -17,6 +17,7 @@ const navbarLinks = [
   { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/upsolving", title: "Upsolving", id: "3" },
   { href: "/nptel-notes", title: "NPTEL", id: "4" },
+  { href: "/contact", title: "Contact Me", id: "5" },
 ];
 
 export const sidebarLinks: any = [
@@ -50,11 +51,11 @@ export const sidebarLinks: any = [
     route: "/about",
     label: "About",
   },
-  // {
-  //   imgURL: "/assets/icons/question.svg",
-  //   route: "/ask-question",
-  //   label: "Ask a question",
-  // },
+  {
+    imgURL: "/assets/icons/question.svg",
+    route: "/contact",
+    label: "Contact",
+  },
 ];
 
 const NavContent = () => {

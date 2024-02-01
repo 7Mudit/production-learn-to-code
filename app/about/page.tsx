@@ -89,9 +89,9 @@ const Page = () => {
       <TechList />
       <Experience experience={true} data={ExperienceData} />
       <Experience experience={false} data={EducationData} />
-      <div className="flex items-center justify-center dark:text-slate-200 text-dark-900">
+      {/* <div className="flex items-center justify-center dark:text-slate-200 text-dark-900">
         Credits : Prismic
-      </div>
+      </div> */}
     </>
   );
 };

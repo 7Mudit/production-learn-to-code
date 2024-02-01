@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${urbanist.className}`}>
+    <div className={`${urbanist.className}  dark:bg-black bg-light-900`}>
       <Navbar1 />
       {children}
-      <div className="p-5">
+      {/* <div className="p-5">
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

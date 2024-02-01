@@ -16,6 +16,7 @@ const navbarLinks = [
   { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/upsolving", title: "Upsolving", id: "3" },
   { href: "/nptel-notes", title: "NPTEL", id: "4" },
+  { href: "/contact", title: "Contact", id: "5" },
 ];
 const Footer = () => {
   const [feedback, setFeedback] = useState("");

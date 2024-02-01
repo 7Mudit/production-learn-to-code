@@ -37,7 +37,7 @@ export default function RootLayout({
     >
       <Navbar1 />
       {children}
-      <div className="w-11/12 relative mx-auto">
+      <div className="w-11/12 mt-10 relative mx-auto">
         <Footer />
       </div>
     </div>

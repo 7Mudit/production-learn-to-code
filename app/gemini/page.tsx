@@ -250,16 +250,8 @@ const Page = () => {
   const messagesEndRef = useRef(null);
   return (
     <div className="md:container  ">
-      {/* <Heading
-        title="Conversation"
-        description="As anything from gemini pro modal"
-        icon={MessageSquareCode}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
-      /> */}
-      <Heading heading="Chat With Gemini" noMargin="false" />
-      <div className="px-4 my-[50px]  lg:px-8">
-        <div className="space-y-4  max-h-screen overflow-x-scroll  scroll-smooth  ">
+      <div className="px-4 my-[15px] flex flex-col h-[86vh] justify-between  lg:px-8">
+        <div className="space-y-4 min-h-[67vh]  max-h-[67vh] overflow-x-scroll  scroll-smooth  ">
           <div className="flex flex-col gap-y-4">
             {messages.map((message, index) => (
               <div
@@ -289,7 +281,7 @@ const Page = () => {
             ))}
           </div>
           {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center ">
+            <div className="p-8  min-h-[60vh]  rounded-lg w-full flex items-center justify-center ">
               <Loader />
             </div>
           )}
@@ -300,7 +292,7 @@ const Page = () => {
           )}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-2 ">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
