@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Noto_Sans } from "next/font/google";
 import PricingCard from "./PricingCard";
 import Heading from "./Heading";
+import Link from "next/link";
 
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const inter = Inter({ weight: "400", subsets: ["latin"] });
@@ -76,6 +77,14 @@ const PricingSection = () => {
           <PricingCard key={index} {...card} />
         ))}
       </main>
+      <div className="w-full text-center mt-[50px]">
+        <Link
+          href="/refund-policy"
+          className="text-[26px] text-pretty hover:underline transition-all duration-300 underline-offset-8 text-[#8c85ff] font-extrabold"
+        >
+          Refund Terms
+        </Link>
+      </div>
     </section>
   );
 };

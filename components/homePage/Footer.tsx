@@ -18,6 +18,7 @@ const navbarLinks = [
   { href: "/nptel-notes", title: "NPTEL", id: "4" },
   { href: "/contact", title: "Contact", id: "5" },
   { href: "/privacy-policy", title: "Privacy Policy", id: "6" },
+  { href: "/terms-conditions", title: "T & C", id: "6" },
 ];
 const Footer = () => {
   const [feedback, setFeedback] = useState("");
