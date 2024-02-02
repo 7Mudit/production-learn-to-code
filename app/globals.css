@@ -197,7 +197,7 @@ body {
 
 :root {
   /* Light mode colors */
-  --scrollbar-thumb-light: #020817;
+  --scrollbar-thumb-light: black;
   /* Light mode thumb color */
   --scrollbar-track-light: white;
   /* Light mode track color */
@@ -205,7 +205,7 @@ body {
   /* Dark mode colors */
   --scrollbar-thumb-dark: white;
   /* Dark mode thumb color */
-  --scrollbar-track-dark: #020817;
+  --scrollbar-track-dark: black;
   /* Dark mode track color */
 }
 
@@ -226,23 +226,25 @@ body {
 
 /* Light mode scrollbar styles */
 *::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-light);
+  background: black;
   /* Use the variable */
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--scrollbar-track-light);
+  background: white;
   /* Use the variable */
 }
 
 /* Dark mode scrollbar styles */
 .dark *::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-dark);
+  /* background: var(--scrollbar-thumb-dark); */
+  background: white;
   /* Use the variable */
 }
 
 .dark *::-webkit-scrollbar-track {
-  background: var(--scrollbar-track-dark);
+  /* background: var(--scrollbar-track-dark); */
+  background: black;
   /* Use the variable */
 }
 

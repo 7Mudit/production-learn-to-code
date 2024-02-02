@@ -17,6 +17,7 @@ const navbarLinks = [
   { href: "/upsolving", title: "Upsolving", id: "3" },
   { href: "/nptel-notes", title: "NPTEL", id: "4" },
   { href: "/contact", title: "Contact", id: "5" },
+  { href: "/privacy-policy", title: "Privacy Policy", id: "6" },
 ];
 const Footer = () => {
   const [feedback, setFeedback] = useState("");
@@ -77,7 +78,10 @@ const Footer = () => {
           I accept Learn To Code&apos;s Terms and Conditions and acknowledge
           that my information will be used in accordance with Learn To
           Code&apos;s{" "}
-          <Link href="/" className="underline underline-offset-2 text-blue-100">
+          <Link
+            href="/privacy-policy"
+            className="underline underline-offset-2 text-blue-100"
+          >
             Privacy Policy.
           </Link>
         </p>
