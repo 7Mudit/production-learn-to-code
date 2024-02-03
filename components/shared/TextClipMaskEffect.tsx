@@ -1,6 +1,6 @@
 // @ts-nocheck
 "use client";
-import { useRef, useEffect, useState, Suspense } from "react";
+import { useRef, useEffect, useState } from "react";
 import styles from "./page.module.css";
 
 export default function TextClipMaskEffect() {
@@ -58,23 +58,14 @@ export default function TextClipMaskEffect() {
   }
 
   return (
-    <Suspense
-      fallback={
-        <p className="w-full h-full items-center justify-center  font-bold prose-h1:text-lg">
-          Due to slow internet connection cannot load video.... We&apos;re
-          trying our best
-        </p>
-      }
-    >
-      <main className={styles.main}>
-        <div ref={container} className={styles.container}>
-          <div ref={stickyMask} className={styles.stickyMask}>
-            <video autoPlay muted loop>
-              <source src="/bannerVideo.mp4" type="video/mp4" />
-            </video>
-          </div>
+    <main className={styles.main}>
+      <div ref={container} className={styles.container}>
+        <div ref={stickyMask} className={styles.stickyMask}>
+          <video autoPlay muted loop>
+            <source src="/mask-video2.mp4" type="video/mp4" />
+          </video>
         </div>
-      </main>
-    </Suspense>
+      </div>
+    </main>
   );
 }

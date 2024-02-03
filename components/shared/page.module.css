@@ -5,6 +5,7 @@
 .container {
   position: relative;
   height: 300vh;
+  z-index: 1000;
 }
 
 @media screen and (max-width : 480px) {
