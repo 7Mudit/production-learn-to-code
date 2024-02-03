@@ -1,0 +1,150 @@
+---
+title: Quantum Physics Lecture 2
+description: In this lecture we will talk about second lecture only.
+date: 2024-02-04
+---
+
+# Week 1 Lecture 2
+
+## Wave-Function
+
+We define the probability of finding a particle between x and x + dx at time t as follows :
+
+<img
+  src="/courseContent/lecture2/WaveFunction.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+If you want to find the particle between `b` and `a` we can simply integrate and you will get shaded area under the curve. Formula -
+
+<img
+  src="/courseContent/lecture2/Wavefunction2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+## Oscillatory functions
+
+- Oscillatory functions are wave functions that exhibit periodic oscillations as a function of position or time.
+- In quantum mechanics, oscillatory behaviour is often associated with particles in potential wells or barriers.
+
+## Example Oscillatory Function:
+
+An example of an oscillatory function is _e<sup>ikx </sup>_, where k is the wave number.
+
+<img
+  src="/courseContent/lecture2/os1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+The probability density for an oscillatory function is constant and does not depend on x for plane waves. This is because the oscillatory nature of the wave function ensures that the probability is evenly distributed over all positions.
+
+<img
+  src="/courseContent/lecture2/os2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+The lecture briefly mentions that for oscillatory functions, even though an integral may appear to be infinite, regularisation can be achieved by considering a bounded region (e.g., from −L to L) and later taking the limit L→Infinity.
+
+<img
+  src="/courseContent/lecture2/os3.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+## Square-Integrable Functions
+
+Squared integrable functions are those for which `ψ(x,t)` goes to zero faster than
+`1  / √|x|` as |x| tends to infinity.
+
+## Normalisation Condition
+
+<img
+  src="/courseContent/lecture2/nc1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+Most of the time your condition may not be normalised but you can normalise it.
+
+## Normalisation Constant
+
+<img
+  src="/courseContent/lecture2/nc2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+## Expectation Value
+
+<img
+  src="/courseContent/lecture2/ev.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+## Ehrenfest Theorem:
+
+- The expectation values of position and momentum in quantum mechanics satisfy classical laws.
+- The rate of change of the expectation value of position is equal to the expectation value of momentum.
+
+## Boundary Conditions for Potentials:
+
+- The continuity of the wave function and its first derivative across boundaries is discussed for finite potentials.
+- For infinite potentials, the derivative of the wave function might not be continuous. The derivative of wave function cannot be checked for infinite potentials.
+
+## Delta Function Potential:
+
+A delta function potential, often denoted as V(x)=V<sub>0</sub>δ(x) is a mathematical construct used in quantum mechanics to model an infinitely narrow and tall potential barrier at a specific point in space. The delta function potential is centered at x=0, and V<sub>0</sub> represents the strength of the potential.
+
+The delta function potential is described by the `Dirac delta function δ(x))` , which is not a conventional function but rather a distribution. It is defined such that:
+
+<img
+  src="/courseContent/lecture2/dirac.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+The delta function potential introduces a discontinuity in the potential energy at x=0, representing a sudden change in the potential energy experienced by a quantum particle at that point.
+
+## Schrödinger Equation with Delta Function Potential:
+
+The time-independent Schrödinger equation for a particle of mass m in the presence of a delta function potential V(x) = V<sub>0</sub> δ(x) is given by:
+
+<img
+  src="/courseContent/lecture2/sdirac.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+In regions where x ≠ 0, the potential energy `V(x) = 0` , and the Schrödinger equation simplifies to the standard form. However, at x=0, the delta function potential introduces a term proportional to -V<sub>0</sub>δ(x), causing a change in the behaviour of the wave function at that point.
+
+## Behaviour of Wave function
+
+The behaviour of the wave function `(ψ(x))` in the vicinity of the delta function potential depends on the energy of the particle:
+
+1. **E &lt; V0:** For energy levels below the potential height ( E &lt; V<sub>0</sub>), the wave function exhibits an exponential decay as it approaches x=0. This represents a bound state.
+2. **E &gt; V0:** For energy levels above the potential height ( E &gt; V<sub>0</sub>) , the wave function shows oscillatory behaviour near x=0, signifying a scattering state.
