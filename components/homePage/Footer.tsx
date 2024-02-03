@@ -19,6 +19,7 @@ const navbarLinks = [
   { href: "/contact", title: "Contact", id: "5" },
   { href: "/privacy-policy", title: "Privacy Policy", id: "6" },
   { href: "/terms-conditions", title: "T & C", id: "6" },
+  { href: "/refund-policy", title: "Refunds & Cancellation", id: "7" },
 ];
 const Footer = () => {
   const [feedback, setFeedback] = useState("");

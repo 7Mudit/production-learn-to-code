@@ -95,7 +95,6 @@ const CourseCard = ({
           width={"318"}
           height={"230"}
           className="w-full h-full object-cover rounded-2xl"
-          priority
         />
 
         {/* <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
