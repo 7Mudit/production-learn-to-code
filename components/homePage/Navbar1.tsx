@@ -173,8 +173,8 @@ const Navbar1 = () => {
                   <span
                     className={clsx(
                       "absolute inset-0 z-0 h-full translate-y-12 rounded-xl bg-purple-300  dark:bg-teal-700 transition-transform duration-300 ease-in-out group-hover:translate-y-0 ",
-                      pathname === link.href
-                        ? "translate-y-0 "
+                      pathname.includes(link.href)
+                        ? "translate-y-[0.1px] "
                         : "translate-y-5"
                     )}
                   />
