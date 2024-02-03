@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
+import Heading from "../about/Heading";
 const center = {
   lat: 30.7333,
   lng: 76.7794,
@@ -100,6 +101,9 @@ const ContactUsForm = () => {
             </GoogleMap>
           </LoadScript>
         </div>
+        <Heading as="h3" size="md">
+          Send us your query
+        </Heading>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField

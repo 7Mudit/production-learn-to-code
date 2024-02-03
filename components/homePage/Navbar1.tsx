@@ -11,13 +11,15 @@ import { usePathname } from "next/navigation";
 import Theme from "../shared/Theme";
 import { Urbanist } from "next/font/google";
 const urbanist = Urbanist({ subsets: ["latin"] });
+import React from "react";
+import clsx from "clsx";
 
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
   { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/upsolving", title: "Upsolving", id: "3" },
   { href: "/nptel-notes", title: "NPTEL", id: "4" },
-  { href: "/contact", title: "Contact Me", id: "5" },
+  { href: "/contact", title: "Contact", id: "5" },
 ];
 
 export const sidebarLinks: any = [
@@ -102,6 +104,7 @@ const NavContent = () => {
 };
 
 const Navbar1 = () => {
+  const pathname = usePathname();
   return (
     <header
       className={`min-h-[64px] sticky sm:relative top-0 z-10 dark:bg-black bg-white border-b-[1px] border-opacity-30 border-white sm:border-none p-5 flex flex-row items-center justify-between`}
@@ -147,7 +150,7 @@ const Navbar1 = () => {
           </h1>
         </Link>
         <div className="hidden sm:flex  flex-row items-center justify-center gap-5">
-          {navbarLinks.map((link) => (
+          {/* {navbarLinks.map((link) => (
             <div className="" key={link.id}>
               <Link
                 href={link.href}
@@ -156,6 +159,37 @@ const Navbar1 = () => {
                 {link.title}
               </Link>
             </div>
+          ))} */}
+          {navbarLinks.map((link: any, index: any) => (
+            <React.Fragment key={index}>
+              <li className=" list-none">
+                <Link
+                  className={clsx(
+                    "group relative block overflow-hidden rounded px-3 font-bold text-slate-900 dark:text-light-800"
+                  )}
+                  href={link.href}
+                  // onClick={() => setOpen(false)}
+                >
+                  <span
+                    className={clsx(
+                      "absolute inset-0 z-0 h-full translate-y-12 rounded-xl bg-purple-300  dark:bg-teal-700 transition-transform duration-300 ease-in-out group-hover:translate-y-0 ",
+                      pathname === link.href
+                        ? "translate-y-0 "
+                        : "translate-y-5"
+                    )}
+                  />
+                  <span className="relative">{link.title}</span>
+                </Link>
+              </li>
+              {index < navbarLinks.length - 1 && (
+                <span
+                  className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline"
+                  aria-hidden="true"
+                >
+                  /
+                </span>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
