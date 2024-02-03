@@ -1,0 +1,144 @@
+---
+title: Another Good String
+description: Codechef Contest Starters 119
+date: 2024-02-03
+---
+
+# Another Good String
+
+## Introduction
+
+A string is called *beautiful* if all of its characters are the same.
+
+For example, `"a"`, `"bbb"` and `"aaaaa"` are beautiful, while `"ab"` and `"try"` are not.
+
+You are given a string *`S`* of length *`N`* consisting of lowercase English letters.
+
+You are also given *`Q`* updates to be performed on *`S`*. Each update consists of a single character that must be appended to *`S`* (so the length of *`S`* increases by 1).
+
+After each update, and also before any updates are performed, find the length of the **longest** beautiful [substring](https://en.wikipedia.org/wiki/Substring) of *`S`*.
+
+## Input Format
+
+- The first line of input contains a single integer *`T`*, denoting the number of test cases.
+- Each test case consists of multiple lines of input.
+  - The first line of each test case contains two space-separated integers *N* and *Q* — the initial size of the string *`S`* and the number of queries.
+  - The second line contains the string *`S`*, consisting of *N* lowercase letters.
+  - The next *`Q`* lines each contain a single character *c*, which is to be appended to *`S`*.
+
+## Output Format
+
+For each test case output a single line containing _Q_ +1 space-separated integers A[0] , A[1] , …. , A[Q].
+
+*`A[0]`* is the answer for the initial string _S_, and for _i_ ≥1, _A[i]_ must be the answer to the string after the _i_ th update.
+
+## Constraints
+
+```cpp
+1 ≤ T ≤ 2⋅10 ^ 4
+1 ≤ N ≤ 10 ^ 5
+1 ≤ Q ≤ 10 ^ 5
+Every letter in the input (both in the string  S and the updates) is a lowercase English letter.
+The sum of N and the sum of Q over all the test cases both do not exceed 10 ^ 5
+```
+
+## Input and Output Format
+
+```cpp
+Input :
+2
+6 4
+annncc
+c
+c
+c
+d
+9 3
+ananymous
+r
+r
+r
+
+Output :
+3 3 4 5 5
+1 1 2 3
+```
+
+## Intuition
+
+The key intuition behind solving this problem lies in recognising that the length of the longest beautiful substring can only be affected by the character that we are appending. If the appended character is the same as the last character of the current string, it has the potential to increase the length of the longest beautiful substring. Otherwise, it starts a new beautiful substring of length 1.
+
+## Approach
+
+- **Initial Analysis:** Start by analyzing the given string to find the length of the longest beautiful substring. This involves iterating through the string and tracking the length of consecutive characters that are the same.
+- **Handling Updates:** For each update (appending a character), check if the appended character is the same as the last character of the string. If so, increase the current length of the same-character sequence and update the maximum length if this sequence is longer than the previous maximum. If not, reset the current sequence length to 1 since we're starting a new sequence of identical characters.
+- **Tracking Results**: After each update (and initially), record the length of the longest beautiful substring found so far. This allows us to output the evolution of the longest beautiful substring lengths as the string grows.
+
+## Code Implementation
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int T; // Number of test cases
+    cin >> T;
+    while (T--) { // Iterate through each test case
+        int N, Q; // N = Length of the initial string, Q = Number of updates
+        cin >> N >> Q;
+        string S; // The initial string
+        cin >> S;
+
+        // Initialize variables to track the length of the longest beautiful substring
+        int maxLength = 1, currentLength = 1;
+        // Analyze the initial string to find the longest sequence of identical characters
+        for (int i = 1; i < N; ++i) {
+            if (S[i] == S[i - 1]) { // If current character matches the previous one, increase the sequence length
+                ++currentLength;
+                maxLength = max(maxLength, currentLength); // Update maxLength if the current sequence is longer
+            } else {
+                currentLength = 1; // Reset current sequence length for a new character
+            }
+        }
+
+        vector<int> results; // Store the length of the longest beautiful substring after each update
+        results.push_back(maxLength); // Include the initial maxLength before any updates
+
+        // Process each update
+        for (int i = 0; i < Q; ++i) {
+            char c; // The character to be appended
+            cin >> c;
+            S += c; // Append the character to the string
+
+            // Check if the appended character continues the sequence of the previous character
+            if (S.size() > 1 && S[S.size() - 1] == S[S.size() - 2]) {
+                ++currentLength; // Increase the length of the current sequence
+            } else {
+                currentLength = 1; // Start a new sequence with the appended character
+            }
+
+            maxLength = max(maxLength, currentLength); // Update the maxLength with the new sequence length if needed
+            results.push_back(maxLength); // Record the maxLength after this update
+        }
+
+        // Output the results
+        for (int res : results) {
+            cout << res << " "; // Print the length of the longest beautiful substring after each update
+        }
+        cout << endl; // New line after each test case
+    }
+    return 0;
+}
+```
+
+## Time Complexity
+
+- **Initial Analysis:** The initial pass through the string to find the longest beautiful substring is `O(N)`, where N is the length of the original string.
+- **Handling Updates:** Each update is handled in constant time, `O(1)`, since it only involves comparing the last character and possibly updating two integers. Thus, the total time for handling all `Q` updates is `O(Q)`.
+- **Overall:** The total time complexity is `O(N+Q)`, as the initial analysis and updates are done sequentially.
+
+## Space Complexity
+
+- The space complexity is `O(N+Q)`. The dominant factor here is the space required to store the updated string, which grows by one character per update. Additionally, we store the results of each update in an array, but this does not exceed `O(Q)` space. Therefore, the overall space complexity is linear with respect to the total length of the string after all updates and the number of results to store.
+- **Note:** The space used for auxiliary variables (like maxLength and currentLength) is constant and does not scale with the input size, thus considered `O(1)`.
