@@ -50,8 +50,6 @@ const EducationData = [
 ];
 
 const Page = () => {
-  const isLoading = true;
-  if (isLoading) return <Loading />;
   return (
     <>
       {/* <FirstComp /> */}
