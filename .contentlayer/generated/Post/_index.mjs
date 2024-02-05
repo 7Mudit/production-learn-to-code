@@ -10,5 +10,6 @@ import upsolving__codechef__literacyRateMdx from './upsolving__codechef__Literac
 import upsolving__codechef__subsetGcdMdx from './upsolving__codechef__Subset-GCD.mdx.json' assert { type: 'json' }
 import upsolving__codechef__xorry1Mdx from './upsolving__codechef__Xorry1.mdx.json' assert { type: 'json' }
 import upsolving__codechef__xorry2Mdx from './upsolving__codechef__Xorry2.mdx.json' assert { type: 'json' }
+import nptelNotes__quantumPhysics__quantumPhysics3Mdx from './nptel-notes__quantumPhysics__quantum-physics3.mdx.json' assert { type: 'json' }
 
-export const allPosts = [nptelNotes__quantumPhysics__quantumPhysics1Mdx, nptelNotes__quantumPhysics__quantumPhysics2Mdx, upsolving__codechef__anotherGoodStringMdx, upsolving__codechef__cookieDayMdx, upsolving__codechef__joinStatesMdx, upsolving__codechef__judgedMdx, upsolving__codechef__literacyRateMdx, upsolving__codechef__subsetGcdMdx, upsolving__codechef__xorry1Mdx, upsolving__codechef__xorry2Mdx]
+export const allPosts = [nptelNotes__quantumPhysics__quantumPhysics1Mdx, nptelNotes__quantumPhysics__quantumPhysics2Mdx, upsolving__codechef__anotherGoodStringMdx, upsolving__codechef__cookieDayMdx, upsolving__codechef__joinStatesMdx, upsolving__codechef__judgedMdx, upsolving__codechef__literacyRateMdx, upsolving__codechef__subsetGcdMdx, upsolving__codechef__xorry1Mdx, upsolving__codechef__xorry2Mdx, nptelNotes__quantumPhysics__quantumPhysics3Mdx]

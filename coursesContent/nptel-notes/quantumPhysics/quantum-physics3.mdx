@@ -1,0 +1,148 @@
+---
+title: Quantum Physics Lecture 3
+description: In this lecture we will talk about third lecture only.
+date: 2024-02-06
+---
+
+# Week 1 Lecture 3
+
+## Particle in a one-dimensional box
+
+**Concept :** A particle confined between two points `(x = 0 and x = L)` with infinite potential outside these points and free within.
+
+**Wave Function:** Derived from the time-independent Schrödinger equation, the normalized wave function is
+
+<img
+  src="/courseContent/lecture3/img.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl  rounded-xl"
+/>
+
+**Energy Eigenvalues :** Discrete and quantized, given by
+
+<img
+  src="/courseContent/lecture3/img1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+where ℏ is the reduced Planck's constant, m is the particle's mass, and L is the box length.
+
+**Quantization:** Imposed by boundary conditions (wave function equals zero at x = 0 and x = L), leading to discrete energy levels, a hallmark of quantum systems not observed in classical physics.
+
+For infinite potential energy situation, we need the wave function to be only continuous.
+
+Inside the box when U = 0, the solution to Schrödinger equation will be
+
+<img
+  src="/courseContent/lecture3/img2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+So this `k` being discretized is because of putting this constraint that it cannot move beyond x = 0 and x = L . It has to move only between x = 0 and x = L. Is that right? So discrete values start showing up if you start putting in such kinds of bounds, infinite potential boundaries, if you start putting in, then you start seeing that the energies are no longer continuous
+
+One unit of energy is defined as
+
+<img
+  src="/courseContent/lecture3/img3.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+**Allowed energies** are $E_0 ....4E_0.....9E_0.....$
+
+**Forbidden energies** are $2E_0 ....3.2E_0.....$
+
+Such things you cannot see in your classical system. This is why the Bohr's orbits were very specific. You cannot go somewhere in between.You have to be in one stationary orbit to go to the other stationary orbit and so on.
+
+## Particle in a two-dimensional box
+
+**Extension:** Moving from 1D to 2D introduces potential for degenerate states—different states having the same energy.
+
+You have to first write the Schrodinger equation in 2-dimension.Then separate wave functions for potential energy, separable wave functions. If your potential energy cannot be written as sum of a potential energy for x + sum of potential energy for y, then separable wave functions is not applicable. Separable wave functions, at least this particle in a 2-dimensional box falls into this class where U of xy is 0 for all x and y which is less than L, right, between 0 and L if x and y are taking values, U of xy is 0 and you can treat this condition being satisfied. So you can do separable wave function.
+
+<img
+  src="/courseContent/lecture3/img4.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+And then we look at the solution of particle in the 2-dimensional box . So , 2-dimensional Schrodinger equation is again time independent -
+
+<img
+  src="/courseContent/lecture3/img5.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+Normalisation condition for wave function must involve integration over `x` and `y` .
+
+<img
+  src="/courseContent/lecture3/img6.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+If the potential energy
+
+<img
+  src="/courseContent/lecture3/img7.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+then we can write the above equation as -
+
+<img
+  src="/courseContent/lecture3/img8.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+**Degeneracy:** Certain energy levels can be achieved with different combinations of n(x) and n(y), leading to degenerate states.
+
+The energy eigen values are :
+
+<img
+  src="/courseContent/lecture3/img9.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+## 3d square cube box
+
+The cubical symmetry will allow permutation of n(x), n(y), n(z) -
+
+<img
+  src="/courseContent/lecture3/img10.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+## Key Quantum Mechanics Features:
+
+- **Discrete Energy Levels:** Unlike classical systems, quantum systems like a particle in a box have quantized energy levels.
+- **Wave Function Normalization:** Ensures the probability density integrates to one across the domain of interest.
+- **Degeneracy in Higher Dimensions**: In 2D and 3D systems, multiple quantum states can share the same energy level, increasing complexity.

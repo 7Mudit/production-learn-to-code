@@ -17,19 +17,24 @@ const Page = () => {
 
         <h2 className="text-xl font-semibold">Cancellation Policy</h2>
         <p>
-          Customers can cancel their service or product purchase within 24 hours
-          of the transaction without any penalty. If you wish to cancel your
-          purchase after this period, please review the following conditions:
+          If you wish to cancel your purchase , please review the following
+          conditions:
         </p>
         <ul className="list-disc pl-6">
           <li>
             For ongoing freelancing services, customers may cancel within the
-            first 7 days of the start date for a full refund, provided that no
-            substantial work has been completed.
+            first 2 days of the start date for a full refund, provided that no
+            substantial work has been completed. The refund will not include any
+            fees, such as processing fees, bank fees, or any other charges even
+            if the service or product is eligible for a refund.
           </li>
           <li>
             For digital products, cancellation is not possible once the download
             or access link has been provided.
+          </li>
+          <li>
+            Proof of issue is required when requesting a refund, especially for
+            claims of dissatisfaction with services or digital product defects.
           </li>
         </ul>
 
@@ -41,7 +46,7 @@ const Page = () => {
         </p>
         <ul className="list-disc pl-6">
           <li>
-            Refunds for freelancing services must be requested within 7 days of
+            Refunds for freelancing services must be requested within 2 days of
             the service start date or product purchase, accompanied by a
             detailed explanation of the issue.
           </li>

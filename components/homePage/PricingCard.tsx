@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { FiCheck } from "react-icons/fi";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
+import Link from "next/link";
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const noto_sans2_pricing = Noto_Sans({ weight: "800", subsets: ["cyrillic"] });
 const interBold = Inter({ weight: "800", subsets: ["latin"] });
@@ -90,19 +91,25 @@ const PricingCard = ({
       >
         +{revisions} revisions are free
       </p>
-      <Button
-        variant={"outline"}
-        onClick={() => {
-          toast.error("Not accepting payments online");
-        }}
-        className={`bg-[#673de6] duration-300 transition-all hover:scale-110 ${
-          interBold.className
-        } text-white self-stretch ${
-          id === 2 ? "bg-[#fc5185]" : "bg-[#5025d1]"
-        } text-[16px] leading-[24px]`}
+      <Link
+        href={"https://rzp.io/l/1eRo3MY"}
+        className="items-center justify-center  flex w-full"
       >
-        Buy Now
-      </Button>
+        <Button
+          variant={"outline"}
+          onClick={() => {
+            toast.error("Not accepting payments online");
+          }}
+          className={`bg-[#673de6] w-full duration-300 transition-all hover:scale-110 ${
+            interBold.className
+          } text-white self-stretch ${
+            id === 2 ? "bg-[#fc5185]" : "bg-[#5025d1]"
+          } text-[16px] leading-[24px]`}
+        >
+          Buy Now
+        </Button>
+      </Link>
+
       <div className="h-[2px] my-[30px] bg-white w-full" />
       <h5
         className={`text-[18px] self-start ${interBold.className} leading-[24px] dark:text-white text-black font-[700]`}
