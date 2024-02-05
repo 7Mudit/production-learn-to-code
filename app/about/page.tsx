@@ -6,6 +6,7 @@ import Experience from "@/components/about/Experience";
 import FirstComp from "@/components/about/FirstComp";
 import Heading from "@/components/about/Heading";
 import TechList from "@/components/about/TechList";
+import Loading from "./loading";
 const ExperienceData = [
   {
     title: "Content Creator",
@@ -49,6 +50,8 @@ const EducationData = [
 ];
 
 const Page = () => {
+  const isLoading = true;
+  if (isLoading) return <Loading />;
   return (
     <>
       {/* <FirstComp /> */}

@@ -579,3 +579,17 @@ details>summary::-webkit-details-marker {
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+/* This style attempts to hide the full-screen button by targeting the video controls */
+.video-container video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+.video-container video::--webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+/* For other browsers, hiding the entire set of media controls could be a fallback */
+.video-container video::-webkit-media-controls {
+  display: none !important;
+}
