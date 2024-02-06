@@ -164,31 +164,16 @@ const Navbar1 = () => {
             <React.Fragment key={index}>
               <li className=" list-none">
                 <Link
-                  className={clsx(
-                    "group relative block overflow-hidden rounded px-3 font-bold text-slate-900 dark:text-light-800"
-                  )}
                   href={link.href}
-                  // onClick={() => setOpen(false)}
+                  className={`${
+                    pathname === link.href
+                      ? "text-emerald-600 font-bold underline underline-offset-8"
+                      : "dark:text-white text-black"
+                  } hover:underline hover:underline-offset-8 hover:cursor-pointer`}
                 >
-                  <span
-                    className={clsx(
-                      "absolute inset-0 z-0 h-full translate-y-12 rounded-xl bg-purple-300  dark:bg-teal-700 transition-transform duration-300 ease-in-out group-hover:translate-y-0 ",
-                      pathname.includes(link.href)
-                        ? "translate-y-[0.1px] "
-                        : "translate-y-5"
-                    )}
-                  />
-                  <span className="relative">{link.title}</span>
+                  {link.title}
                 </Link>
               </li>
-              {index < navbarLinks.length - 1 && (
-                <span
-                  className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline"
-                  aria-hidden="true"
-                >
-                  /
-                </span>
-              )}
             </React.Fragment>
           ))}
         </div>
