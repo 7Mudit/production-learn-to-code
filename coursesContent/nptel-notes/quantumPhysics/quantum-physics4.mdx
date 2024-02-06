@@ -1,0 +1,78 @@
+---
+title: Quantum Physics Lecture 4
+description: In this lecture we will talk about fourth lecture only.
+date: 2024-02-06
+---
+
+# Week 1 Lecture 4
+
+<Callout>
+  The lecture continues the exploration of quantum mechanics, moving from the
+  idealized particle in an infinite potential well to more realistic scenarios
+  such as finite potential wells and the introduction of tunneling, bound
+  systems, and harmonic oscillators.
+</Callout>
+### Lecture Notes: Quantum Mechanics - Finite Potential Wells and Tunneling
+
+### Finite Potential Wells
+
+- **Concept Overview**: Unlike infinite potential wells, finite potential wells have boundaries where the potential energy is finite, not infinite. This setup introduces new quantum behaviors.
+- **Regions Explained**: The potential well is divided into three regions: I (before the well), II (inside the well), and III (after the well). Region I extends to **`-∞`** , Region II is the well itself, and Region III extends to **`+∞`** .
+- **Energy Considerations**: If the particle's energy `E` is less than the potential energy at the well's boundaries, classical mechanics predicts the particle cannot penetrate the barriers. However, quantum mechanics allows for a nonzero probability of the particle `"tunneling"` through these barriers, appearing in Regions I and III.
+
+### Quantum Tunneling
+
+- **Quantum Tunneling**: A phenomenon where particles penetrate through a barrier that they classically shouldn't be able to pass, due to their energy being lower than the barrier's potential.
+- **Wave Function Behavior**: The wave function extends into Regions I and III, indicating the probability of finding the particle outside the well. This behavior underscores the non-zero probability of tunneling.
+- **Energy and Wavelength**: In finite potential wells, the energy levels are quantized but differ from the infinite well case due to the tunneling effect. The wavelength of the particle increases, leading to a decrease in energy compared to an infinite well scenario.
+
+## Tunneling Effect
+
+The tunneling effect is a quintessential quantum phenomenon not observed in classical physics. It allows particles to penetrate and sometimes pass through barriers that, according to classical mechanics, should be impenetrable due to the particle's energy being lower than the potential energy of the barriers. In the context of a finite potential well, this means that a particle with energy less than the potential energy of the well's boundaries can still have a non-zero probability of being found outside the well. This effect is due to the wave-like nature of particles, where the wave function extends into the classically forbidden regions (Regions I and III in the lecture ) and gradually decays, but does not instantly drop to zero.
+
+## Impact on Wavelength and Energy
+
+1. **Increase in Wavelength:** In an infinite potential well, the wave function of a particle is strictly confined within the well, leading to standing wave patterns with nodes at the boundaries. The confinement dictates the wavelength of the particle's wave function based on the well's width. However, in a finite potential well, because the wave function extends beyond the well due to tunneling, the effective "width" that influences the particle's wave function is larger than the physical width of the well. This extension increases the wavelength of the particle's wave function compared to what it would be in an infinite well of the same physical size.
+2. **Decrease in Energy:** The energy of a particle in a quantum well is inversely related to the square of its wavelength, as dictated by the de Broglie relationship -
+
+<img
+  src="/courseContent/lecture4/img.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl  rounded-xl"
+/>
+
+Therefore, an increase in the wavelength of the particle's wave function due to tunneling results in a decrease in the particle's energy levels compared to those in an infinite potential well. The energy levels in a finite well are lower because the particle's wave function "spreads out" more, reducing the kinetic energy component of the total energy.
+
+### Mathematical Formulation
+
+- **Differential Equations**: In Regions I and III, where the potential is considered finite, the solutions to the Schrödinger equation are exponential, indicating decaying (or growing) probabilities of finding the particle.
+- **Boundary Conditions**: Ensuring the wave function and its derivative are continuous across the well's boundaries`(x = 0 and x = L)` is crucial for determining the correct physical wave functions.
+
+### Bound and Scattering States
+
+- **Bound Systems**: Systems where the particle's energy is less than the potential energy at infinity. Examples include particles in a box and harmonic oscillators. The condition for bound states is `E < V` at `±∞` .
+- **Scattering States**: Occur when `(E > V)` at `±∞` , indicating the particle is not confined and can "scatter" or move freely beyond the potential barriers.
+
+### Harmonic Oscillator
+
+- **Harmonic Oscillator Potential**: Given by
+
+<img
+  src="/courseContent/lecture4/img1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl  rounded-xl"
+/>
+
+where `ω` is the angular frequency. It represents a potential that increases quadratically from the center, confining the particle in a "valley".
+
+- **Quantum Solution**: The solution to the harmonic oscillator problem involves Hermite polynomials and Gaussian functions, emphasizing that the wave function must not diverge at infinity and must remain normalizable.
+
+### Summary
+
+- The transition from infinite to finite potential wells introduces the concept of quantum tunneling, where particles have a finite probability of being found beyond a potential barrier they classically couldn't surpass.
+- Bound and scattering states provide a framework for understanding when particles are confined by a potential or free to move beyond it.
+- The harmonic oscillator serves as a fundamental quantum system with well-defined, quantized energy levels, illustrating the importance of potential shape in determining particle behavior.
