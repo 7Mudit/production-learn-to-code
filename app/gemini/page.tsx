@@ -251,7 +251,7 @@ const Page = () => {
   return (
     <div className="md:container  ">
       <div className="px-4 my-[15px] flex flex-col h-[86vh] justify-between  lg:px-8">
-        <div className="space-y-4 min-h-[67vh]  max-h-[67vh] overflow-x-scroll  scroll-smooth messages-container ">
+        <div className="space-y-4 min-h-[67vh]  max-h-[67vh] overflow-x-scroll  scroll-smooth  ">
           <div className="flex flex-col gap-y-4">
             {messages.map((message, index) => (
               <div

@@ -212,7 +212,7 @@ body {
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
-  scrollbar-width: auto;
+  scrollbar-width: 5px;
   /* scrollbar-color: #afb2bf; */
 }
 
@@ -231,7 +231,7 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: white;
+  background: transparent;
   /* Use the variable */
 }
 
@@ -244,7 +244,7 @@ body {
 
 .dark *::-webkit-scrollbar-track {
   /* background: var(--scrollbar-track-dark); */
-  background: black;
+  background: transparent;
   /* Use the variable */
 }
 
