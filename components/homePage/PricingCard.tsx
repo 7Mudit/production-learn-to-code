@@ -16,6 +16,7 @@ const interLight = Inter({ weight: "200", subsets: ["latin"] });
 interface Props {
   name: string;
   id: number;
+  paymentLink: string;
   description: string;
   fakePrice: string;
   discount: string;
@@ -33,6 +34,7 @@ const PricingCard = ({
   price,
   revisions,
   id,
+  paymentLink,
 }: Props) => {
   return (
     <div
@@ -92,14 +94,11 @@ const PricingCard = ({
         +{revisions} revisions are free
       </p>
       <Link
-        href={"https://rzp.io/l/1eRo3MY"}
+        href={paymentLink}
         className="items-center justify-center  flex w-full"
       >
         <Button
           variant={"outline"}
-          onClick={() => {
-            toast.error("Not accepting payments online");
-          }}
           className={`bg-[#673de6] w-full duration-300 transition-all hover:scale-110 ${
             interBold.className
           } text-white self-stretch ${

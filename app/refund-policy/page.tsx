@@ -23,7 +23,7 @@ const Page = () => {
         <ul className="list-disc pl-6">
           <li>
             For ongoing freelancing services, customers may cancel within the
-            first 2 days of the start date for a full refund, provided that no
+            first day of the start date for a full refund, provided that no
             substantial work has been completed. The refund will not include any
             fees, such as processing fees, bank fees, or any other charges even
             if the service or product is eligible for a refund.
@@ -46,7 +46,7 @@ const Page = () => {
         </p>
         <ul className="list-disc pl-6">
           <li>
-            Refunds for freelancing services must be requested within 2 days of
+            Refunds for freelancing services must be requested within a day of
             the service start date or product purchase, accompanied by a
             detailed explanation of the issue.
           </li>

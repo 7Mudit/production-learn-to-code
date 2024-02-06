@@ -18,6 +18,7 @@ const PricingData = [
     discount: "50%",
     price: "25,000.00",
     revisions: "2",
+    paymentLink: "https://rzp.io/l/learn-to-code-starters-plan",
     features: [
       "Custom Website Design",
       "Responsive Design for Mobile Devices",
@@ -36,6 +37,7 @@ const PricingData = [
     discount: "50%",
     price: "60,000.00",
     revisions: "10",
+    paymentLink: "https://rzp.io/l/learn-to-code-business-plan",
     features: [
       "Advanced Custom Website Design",
       "E-commerce Functionality (up to 50 products)",
@@ -54,6 +56,7 @@ const PricingData = [
     discount: "50%",
     price: "1,00,000.00",
     revisions: "Unlimited",
+    paymentLink: "https://rzp.io/l/learn-to-code-enterprise-plan",
     features: [
       "Premium Custom Design with Interactive Elements",
       "Advanced E-commerce Solutions (Unlimited Products)",
