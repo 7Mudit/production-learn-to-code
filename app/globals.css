@@ -593,3 +593,10 @@ details>summary::-webkit-details-marker {
 .video-container video::-webkit-media-controls {
   display: none !important;
 }
+
+
+.messages-container ::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+  scrollbar-width: none;
+}
