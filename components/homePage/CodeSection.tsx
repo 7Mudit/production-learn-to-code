@@ -11,22 +11,22 @@ const CodeSection = () => {
         heading={
           <div className="text-4xl font-semibold">
             Master Algorithms with
-            <HighlightText text={" LeetCode Challenges"} />
+            <HighlightText text={" Learn To Code Challenges"} />
           </div>
         }
         subheading={
-          "Dive deep into algorithmic problems with our interactive LeetCode challenges. Enhance your problem-solving skills and prepare for technical interviews."
+          "Dive deep into algorithmic problems with our interactive LeetCode challenges. Enhance your problem-solving skills and prepare for technical interviews. We will hosting contests soon on our platform."
         }
-        ctabtn1={{
-          btnText: "Start Solving",
-          link: "/leetcode-challenges",
-          active: true,
-        }}
-        ctabtn2={{
-          btnText: "Explore Algorithms",
-          link: "/algorithms",
-          active: false,
-        }}
+        // ctabtn1={{
+        //   btnText: "Coming Soon",
+        //   link: "/leetcode-challenges",
+        //   active: true,
+        // }}
+        // ctabtn2={{
+        //   btnText: "Explore Algorithms",
+        //   link: "/algorithms",
+        //   active: false,
+        // }}
         codeColor={"dark:text-yellow-25"}
         codeblock={`def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n\n    while left <= right:\n        mid = (left + right)\n        if arr[mid] == target:\n            return mid  # Target found\n        elif arr[mid] < target:\n            left = mid + 1  # Search in the right half\n        else:\n            right = mid - 1  # Search in the left half\n\n    return -1  # Target not found\n\n`}
         backgroundGradient={<div className="codeblock1 absolute"></div>}
@@ -42,7 +42,7 @@ const CodeSection = () => {
           </div>
         }
         subheading={
-          "Learn how to create dynamic and responsive websites using React. From simple components to complex interactive UIs, start building amazing web experiences."
+          "Learn how to create dynamic and responsive websites using React. From simple components to complex interactive UIs, start building amazing web experiences. Soon you will be able to develop directly on our platform."
         }
         ctabtn1={{
           btnText: "Continue Learning",

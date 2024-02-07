@@ -29,7 +29,7 @@ const CodeBlocks = ({
 
         {/* Button Group */}
         <div className="flex gap-7 mt-7">
-          <CTAButton active={ctabtn1.active} linkto={ctabtn1.link}>
+          {/* <CTAButton active={ctabtn1.active} linkto={ctabtn1.link}>
             <div className="flex items-center gap-2">
               {ctabtn1.btnText}
               <FaArrowRight />
@@ -37,7 +37,7 @@ const CodeBlocks = ({
           </CTAButton>
           <CTAButton active={ctabtn2.active} linkto={ctabtn2.link}>
             {ctabtn2.btnText}
-          </CTAButton>
+          </CTAButton> */}
         </div>
       </div>
 
