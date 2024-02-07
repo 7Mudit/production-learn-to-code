@@ -1,0 +1,264 @@
+---
+title: Java Chapter 3 Unit 1
+description: Complete Chapter 3 Notes.
+date: 2024-02-08
+---
+
+# Unit 1
+
+## Chapter 3 → Exception Handing
+
+## What is an Exception?
+
+An exception is an event that disrupts the normal flow of a program's instructions during its execution. It signifies problems like user errors, programming errors, or physical resource failures.
+
+### **Java Exception Handling Overview**
+
+Exception handling in Java is a powerful mechanism that handles runtime errors, maintaining the normal flow of an application and preventing the program from crashing. Java provides a structured way to catch and process exceptions through several keywords: try, catch, throw, throws, and finally.
+
+### **Understanding Exceptions and Errors**
+
+- **Exception:** An exception is an event that occurs during the execution of a program and disrupts the normal flow of instructions. For example, this might happen when a user enters invalid data, a file cannot be found, the JVM runs out of memory, or a network connection is lost.
+- **Error:** An error indicates a serious problem, typically related to the system environment, that applications should not try to catch. It is an indication of issues that are generally beyond the control of the programmer.
+
+### **Causes of Exceptions**
+
+- Invalid user input
+- File requested for operations not found
+- Network connection loss during communication
+- JVM running out of memory
+
+## **Exception Hierarchy**
+
+In Java, all `exceptions` and `errors` are subclasses of Throwable. The hierarchy has two branches: **Error** for serious issues and **Exception** for conditions that programs should catch, like _NullPointerException_. _RuntimeException_ is a subclass of Exception that includes unchecked exceptions like division by zero and array index out of bounds.
+
+- **Checked Exceptions:** Exceptions that a well-written application should anticipate and recover from. Methods that might throw these exceptions must declare them using the throws keyword.
+- **Unchecked Exceptions**: These exceptions are not typically recoverable, and it's generally not expected that the application will anticipate or recover from them. They include runtime exceptions such as NullPointerException or IllegalArgumentException.
+
+## **Checked vs. Unchecked Exceptions**
+
+### Checked
+
+- Are exceptional conditions that a program should catch.
+- Examples include ClassNotFoundException, IOException, and ReflectiveOperationException.
+
+### Unchecked
+
+- Are the exceptions that reflect incorrect code or problems with the program logic.
+- Examples include ArithmeticException, NullPointerException, and IllegalArgumentException.
+
+## **Methods in Throwable Class**
+
+| Method                                     | Description                                                                  |
+| ------------------------------------------ | ---------------------------------------------------------------------------- |
+| public String getMessage()                 | Returns a detailed message about the exception that has occurred.            |
+| public Throwable getCause()                | Returns the cause of the exception as represented by a Throwable.            |
+| public String toString()                   | Returns the name of the class concatenated with the result of getMessage().  |
+| public void printStackTrace()              | Prints the stack trace to the standard error stream.                         |
+| public StackTraceElement[] getStackTrace() | Returns an array containing each element on the stack trace.                 |
+| public Throwable fillInStackTrace()        | Fills the stack trace of this Throwable object with the current stack trace. |
+
+## **Error vs. Exception**
+
+| Key                       | Error                                               | Exception                                                          |
+| ------------------------- | --------------------------------------------------- | ------------------------------------------------------------------ |
+| Type                      | Indicates serious problems not reasonable to catch. | Indicates conditions a reasonable application might want to catch. |
+| Package                   | java.lang.Error                                     | java.lang.Exception                                                |
+| Recoverable/Irrecoverable | Generally irrecoverable, like OutOfMemoryError.     | Generally recoverable, like NullPointerException.                  |
+| Occurrence                | Occur at runtime and not known to the compiler.     | Can occur at both compile-time and runtime.                        |
+| Examples                  | StackOverflowError, OutOfMemoryError                | SQLException, IOException, NullPointerException                    |
+
+## **Examples of Exception Handling**
+
+StackOverflowError Example (Error):
+
+```java
+public class ErrorExample {
+  public static void main(String[] args) {
+    recursiveMethod(10);
+  }
+
+  public static void recursiveMethod(int i) {
+    while (i != 0) {
+      i = i + 1;
+      recursiveMethod(i);
+    }
+  }
+}
+
+// Output:
+// Exception in thread "main" java.lang.StackOverflowError
+```
+
+**ArithmeticException Example (Exception):**
+
+```java
+public class ExceptionExample {
+  public static void main(String[] args) {
+    int x = 100;
+    int y = 0;
+    int z = x / y; // This line will cause an ArithmeticException
+  }
+}
+
+// Output:
+// java.lang.ArithmeticException: / by zero
+```
+
+**Handling the ArithmeticException:**
+
+```java
+public class ExceptionExample {
+  public static void main(String[] args) {
+    try {
+      int x = 100;
+      int y = 0;
+      int z = x / y;
+    } catch (ArithmeticException e) {
+      e.printStackTrace(); // Prints the stack trace of the ArithmeticException
+    }
+  }
+}
+
+// Output:
+// java.lang.ArithmeticException: / by zero
+//    at ExceptionExample.main(ExceptionExample.java:7)
+```
+
+## **Customized Exception Handling in Java**
+
+Java provides a robust framework for handling runtime errors, allowing programs to deal with unforeseen issues that may occur during execution. Here's how Java manages exception handling through its five keywords:
+
+### **The `try` Block**
+
+The `try` block encloses code that might throw an exception. If an exception occurs within this block, it's thrown to the runtime system or caught by an associated catch block.
+
+```java
+try {
+    // Statements that may cause an exception
+}
+```
+
+### **The `catch` Block**
+
+A `catch` block catches and handles the exception thrown by the `try` block. A single try block can be followed by multiple catch blocks, each catching and handling different types of exceptions.
+
+```java
+catch (ExceptionType name) {
+    // Error handling code
+}
+```
+
+### **The `throw` Keyword**
+
+The `throw` keyword is used within a method to throw an exception explicitly. You must provide an instance of Throwable class (or one of its subclasses) when using throw.
+
+```java
+throw new SomeException("Error Message");
+```
+
+### The `throws` Keyword
+
+The `throws` keyword is used in a method's signature to indicate that this method might throw one or more exceptions during its execution. These exceptions must be caught or declared to be thrown.
+
+```java
+public void someMethod() throws SomeException {
+    // Method code
+}
+```
+
+### The `finally` Block
+
+The `finally` block is used to execute important code such as cleanup (like closing file streams) that must be executed whether an exception is handled or not. It always executes irrespective of an exception being thrown or caught.
+
+```java
+finally {
+    // Cleanup code, always executed
+}
+```
+
+### **Maintaining Normal Flow**
+
+Exception handling ensures that the normal flow of the application can be maintained even when unexpected events occur.
+
+### **Separating Error-Handling Code**
+
+It separates the error-handling code from the regular code, making the program easier to read and maintain.
+
+### **Propagating Errors**
+
+Exceptions can be propagated up the call stack, which means a method can throw an exception to its caller if it's unable to handle it. In other words , we’re letting higher-level methods decide how to handle these errors.
+
+### **Custom Exceptions**
+
+Java allows you to create custom exceptions by extending the Exception class. This is useful when you want to create more specific error messages or handle specific error types that are not covered by Java's standard exception classes.
+
+**Example of Custom Exception**
+
+```java
+class MyException extends Exception {
+    public MyException(String message) {
+        super(message);
+    }
+
+    @Override
+    public String toString() {
+        return "MyException: " + this.getMessage();
+    }
+}
+
+// Usage:
+public void someMethod() throws MyException {
+    throw new MyException("Custom error message");
+}
+```
+
+```java
+class InvalidAgeException extends Exception {
+    InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+class TestCustomException {
+    static void validate(int age) throws InvalidAgeException {
+        if (age < 18)
+            throw new InvalidAgeException("Not valid age for voting");
+        else
+            System.out.println("Welcome to vote");
+    }
+
+    public static void main(String args[]) {
+        try {
+            validate(13);
+        } catch (InvalidAgeException ex) {
+            System.out.println("Exception occurred: " + ex.getMessage());
+        }
+        System.out.println("Rest of the code...");
+    }
+}
+
+// Output:
+// Exception occurred: Not valid age for voting
+// Rest of the code...
+```
+
+## **Final vs Finally vs Finalize**
+
+- **final:** A keyword used to apply restrictions on class, method, and variable. It prevents further extension or modification. In other words , Final class cannot be inherited , final method cannot be overridden and final variable cannot be modified. It is a keyword.
+- **finally**: A block that contains code to execute after a try block has completed, ensuring execution whether an exception is caught or not. It is a block
+- **finalize:** A method from the Object class used for cleanup processing before an object is garbage collected. It is a method.
+
+## Throw vs Throws
+
+| throw                                                                                                                             | throws                                                                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| throw keyword is used to throw an exception explicitly.                                                                           | throws keyword is used to declare an exception which might be thrown.                                                                                                                 |
+| throw is followed by an instance of Throwable class or one of its subclasses.                                                     | throws is followed by one or more exception class names, separated by commas.                                                                                                         |
+| throw is declared inside a method body.                                                                                           | throws is declared with the method signature.                                                                                                                                         |
+| Only one exception at a time can be thrown using throw.                                                                           | Multiple exceptions can be declared with throws.                                                                                                                                      |
+| throw actually throws the exception and changes the flow of execution immediately.                                                | throws does not throw an exception; it specifies that there is a possibility of an exception occurring.                                                                               |
+| throw is used within the method.                                                                                                  | throws is used with the method declaration.                                                                                                                                           |
+| When an exception is thrown using throw, it must be caught with catch or declared to be thrown with throws in the current method. | throws clause requires that the method calling this method must handle the declared exceptions either using a try-catch block or by declaring the exception in its own throws clause. |
+
+##

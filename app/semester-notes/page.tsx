@@ -37,34 +37,34 @@ const subjects = [
       "Dive deep into Java through hands-on projects and real-world applications in our interactive lab.",
     link: "semester-notes/java",
   },
-  {
-    _id: 2,
-    name: "ADVANCED PROGRAMMING ",
-    description:
-      "Elevate your coding skills to the next level with advanced concepts and complex problem-solving techniques.",
-    link: "semester-notes/advanced-programming",
-  },
-  {
-    _id: 3,
-    name: "MOBILE APPLICATION DEVELOPMENT WITH LAB",
-    description:
-      "Learn to create stunning mobile applications for Android  from scratch in our comprehensive lab sessions.",
-    link: "semester-notes/mad",
-  },
-  {
-    _id: 4,
-    name: "CLOUD COMPUTING AND DISTRIBUTED SYSTEMS LAB",
-    description:
-      "Explore the world of cloud computing and understand the architecture of distributed systems through practical lab exercises.",
-    link: "semester-notes/cloud-computing",
-  },
-  {
-    _id: 5,
-    name: "THEORY OF COMPUTATION",
-    description:
-      "Unravel the fundamentals of computation, automata theory, and computational complexity in this foundational course.",
-    link: "semester-notes/toc",
-  },
+  // {
+  //   _id: 2,
+  //   name: "ADVANCED PROGRAMMING ",
+  //   description:
+  //     "Elevate your coding skills to the next level with advanced concepts and complex problem-solving techniques.",
+  //   link: "semester-notes/advanced-programming",
+  // },
+  // {
+  //   _id: 3,
+  //   name: "MOBILE APPLICATION DEVELOPMENT WITH LAB",
+  //   description:
+  //     "Learn to create stunning mobile applications for Android  from scratch in our comprehensive lab sessions.",
+  //   link: "semester-notes/mad",
+  // },
+  // {
+  //   _id: 4,
+  //   name: "CLOUD COMPUTING AND DISTRIBUTED SYSTEMS LAB",
+  //   description:
+  //     "Explore the world of cloud computing and understand the architecture of distributed systems through practical lab exercises.",
+  //   link: "semester-notes/cloud-computing",
+  // },
+  // {
+  //   _id: 5,
+  //   name: "THEORY OF COMPUTATION",
+  //   description:
+  //     "Unravel the fundamentals of computation, automata theory, and computational complexity in this foundational course.",
+  //   link: "semester-notes/toc",
+  // },
 ];
 
 export default function Home() {
