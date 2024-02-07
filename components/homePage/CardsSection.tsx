@@ -9,6 +9,7 @@ import { Noto_Sans } from "next/font/google";
 import Heading from "./Heading";
 import { projects } from "./data";
 import Lenis from "@studio-freight/lenis";
+import toast from "react-hot-toast";
 
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const inter = Inter({ weight: "400", subsets: ["latin"] });
@@ -19,15 +20,19 @@ export default function Home() {
     target: container,
     offset: ["start start", "end end"],
   });
-  useEffect(() => {
-    const lenis = new Lenis();
 
-    function raf(time: any) {
-      lenis.raf(time);
+  useEffect(() => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (!isSafari) {
+      const lenis = new Lenis();
+
+      const raf = (time: any) => {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      };
+
       requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
   });
 
   return (
