@@ -18,7 +18,8 @@ const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
   { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/upsolving", title: "Upsolving", id: "3" },
-  { href: "/nptel-notes", title: "NPTEL", id: "4" },
+  { href: "/nptel-notes", title: "Nptel", id: "4" },
+  { href: "/semester-notes", title: "Semester Notes", id: "6" },
   { href: "/contact", title: "Contact", id: "5" },
 ];
 
@@ -43,11 +44,11 @@ export const sidebarLinks: any = [
     route: "/nptel-notes",
     label: "NPTEL Notes",
   },
-  // {
-  //   imgURL: "/assets/icons/tag.svg",
-  //   route: "/tags",
-  //   label: "Tags",
-  // },
+  {
+    imgURL: "/assets/icons/tag.svg",
+    route: "/semester-notes",
+    label: "Semester Notes",
+  },
   {
     imgURL: "/assets/icons/user.svg",
     route: "/about",
