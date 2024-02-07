@@ -1,0 +1,399 @@
+---
+title: Java Chapter 2 Unit 1
+description: Complete Chapter 2 Notes.
+date: 2024-02-07
+---
+
+# Unit 1
+
+# Chapter 2 → **OOPS using Java**
+
+## **Java Classes and Objects**
+
+A class in Java is a blueprint from which individual objects are created. It is a core concept in Java's object-oriented programming. A class is a logical entity and does not exist physically in the world.
+
+```java
+public class Vehicle {
+    // Fields (Class Variables)
+    String brand;
+    int year;
+
+    // Constructor
+    public Vehicle(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
+    }
+
+    // Method
+    void display() {
+        System.out.println("Brand: " + brand + ", Year: " + year);
+    }
+}
+
+// To create an object of Vehicle:
+Vehicle myCar = new Vehicle("Toyota", 2021);
+myCar.display();
+```
+
+## **Class Components:**
+
+- **Fields:** Variables that store the state of an object.
+- **Methods:** Functions that define the behavior of an object.
+- **Constructors:** Special methods that are called when an object is instantiated.
+- **Blocks:** Code blocks in a class (Instance Initialization Block and Static Initialization Block).
+- **Nested Class and Interface:** A class or an interface defined within another class.
+
+## **Static Class:**
+
+A static class in Java is a nested class that is a static member of its outer class. It can be accessed without instantiating the outer class, using other static members
+
+```java
+public class OuterClass {
+    static class StaticNestedClass {
+        void display() {
+            System.out.println("Inside static nested class.");
+        }
+    }
+}
+
+// To access the static nested class:
+OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+nestedObject.display();
+```
+
+## **Java Inner Classes:**
+
+An inner class is a nested class that is not static. It is used to logically group classes to maintain cleaner and more maintainable code.
+
+## **Private Inner Class:**
+
+A private inner class cannot be accessed from outside its outer class.
+
+```java
+public class OuterClass {
+    private class InnerClass {
+        void display() {
+            System.out.println("Inside inner class.");
+        }
+    }
+
+    public InnerClass getInnerClass() {
+        return new InnerClass();
+    }
+}
+
+// To access the inner class from outside the outer class:
+OuterClass outer = new OuterClass();
+OuterClass.InnerClass inner = outer.getInnerClass();
+inner.display();
+```
+
+The code defines an example of using inner classes in Java. Inner classes are defined within the scope of another class, known as the outer class. Here is a step-by-step explanation of the code:
+
+- The `OuterClass` is the outer class which contains the `InnerClass` . It is declared as public, making it accessible from any other class.
+- Inside the `OuterClass` , there is a private inner class named `InnerClass` . The private modifier restricts the access to the InnerClass such that it can only be accessed from within the OuterClass. This encapsulation is useful when the inner class should not be exposed to the outside world.
+- The `InnerClass` has a single method display() that prints a message to the console, indicating that it's executing from within the inner class.
+- The `OuterClass` provides a public method `getInnerClass()` , which allows other classes to get an instance of the InnerClass. This method is necessary because InnerClass is private and cannot be instantiated directly from outside the OuterClass.
+- Outside the `OuterClass` , we create an instance of OuterClass named outer. Using the outer instance, we call the `getInnerClass()` method to obtain an instance of InnerClass. The returned InnerClass instance is stored in the variable inner.
+- Finally, we call the `display()` method on the inner instance, which results in printing "Inside inner class." to the console.
+
+## Inheritance:
+
+Inheritance is a fundamental OOP concept in Java where one class (child or subclass) inherits the attributes and behaviors from another class (parent or superclass). It is based on the IS-A relationship.
+
+**Advantages of Inheritance:**
+
+- Method Overriding for Runtime Polymorphism.
+- Code Reusability.
+
+**Example -**
+
+```java
+// Superclass
+class Vehicle {
+    void run() {
+        System.out.println("Vehicle is running");
+    }
+}
+
+// Subclass
+class Car extends Vehicle {
+    @Override
+    void run() {
+        System.out.println("Car is running safely");
+    }
+}
+
+// Using inheritance:
+Car myCar = new Car();
+myCar.run(); // Outputs: Car is running safely
+```
+
+## Abstraction:
+
+Abstraction is the concept of hiding the implementation details and showing only the essential features of the object.
+
+### **Ways to Achieve Abstraction:**
+
+- Ab**stract Class:** Can be partially abstract (contains abstract and non-abstract methods).
+- **Interface:** Fully abstract (only abstract methods).
+
+Example -
+
+```java
+abstract class Animal {
+    // Abstract method (does not have a body)
+    public abstract void animalSound();
+
+    // Non-abstract method
+    public void sleep() {
+        System.out.println("Zzz");
+    }
+}
+
+class Pig extends Animal {
+    public void animalSound() {
+        // The body of animalSound() is provided here
+        System.out.println("The pig says: wee wee");
+    }
+}
+
+// Using an abstract class:
+Animal myPig = new Pig();
+myPig.animalSound(); // Outputs: The pig says: wee wee
+myPig.sleep();       // Outputs: Zzz
+```
+
+### **Rules for Abstract Classes:**
+
+- An abstract class must be declared with the abstract keyword.
+- It can have abstract (without a body) and non-abstract (with a body) methods.
+- It cannot be instantiated directly.
+- It can contain constructors and static methods.
+- It can also contain final methods which cannot be overridden by subclasses.
+
+## **Polymorphism in Java**
+
+### Definition and Origin:
+
+Polymorphism is a core concept in OOP that allows actions to be performed in different ways. The term originates from the Greek words `'poly'` (many) and 'morphs' (forms), thus polymorphism means `many forms` .
+
+### **Types of Polymorphism:**
+
+- **Compile-time Polymorphism**: This is achieved through method overloading and operator overloading. It is determined during the compile time.
+- **Runtime Polymorphism**: This is achieved through method overriding and is determined during the runtime.
+
+### Method Overloading:
+
+Method Overloading occurs when there are multiple methods with the same name in a class but with different parameters or different data types. It is a way of increasing the readability of the program.
+
+### Example of Compile-time Polymorphism (Method Overloading):
+
+```java
+class DisplayOverload {
+    void show(int num) {
+        System.out.println(num);
+    }
+    void show(String message) {
+        System.out.println(message);
+    }
+}
+
+// Usage:
+DisplayOverload display = new DisplayOverload();
+display.show(1); // Output: 1
+display.show("Hello Polymorphism"); // Output: Hello Polymorphism
+```
+
+```java
+class BasicCalculator {
+    // Method to sum two integers
+    void sum(int a, int b) {
+        System.out.println("Sum of two: " + (a + b));
+    }
+
+    // Overloaded method to sum three integers
+    void sum(int a, int b, int c) {
+        System.out.println("Sum of three: " + (a + b + c));
+    }
+}
+
+// Usage:
+BasicCalculator calculator = new BasicCalculator();
+calculator.sum(5, 10); // Output: Sum of two: 15
+calculator.sum(5, 10, 15); // Output: Sum of three: 30
+```
+
+### **Advantages of Method Overloading:**
+
+- **Readability:** Makes the program easier to read and understand.
+- **Flexibility:** Allows different variations of a method to be called with different types of data.
+
+### Ways to Overload a Method:
+
+- **By Changing the Number of Arguments**: You can have two methods with the same name but a different number of parameters.
+- **By Changing the Data Type:** You can overload a method with the same name but different argument types.
+
+### **Limitations:**
+
+Method overloading cannot be done by merely changing the return type of the method. The parameters must differ. If you try to overload a method by changing only the return type, it leads to ambiguity during the method call and the compiler will throw an error.
+
+### Method Overriding:
+
+Method Overriding occurs when a subclass (child class) has a method with the same name, parameters, and return type as declared in its parent class. It is used to provide a specific implementation of a method already present in the superclass.
+
+### Example of Runtime Polymorphism (Method Overriding):
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Generic animal sound");
+    }
+}
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Usage:
+Animal animal = new Dog();
+animal.sound(); // Output: Dog barks
+```
+
+```java
+class Bank {
+    float getRateOfInterest() { return 0; }
+}
+
+class SBI extends Bank {
+    float getRateOfInterest() { return 3.5f; }
+}
+
+class ICICI extends Bank {
+    float getRateOfInterest() { return 4.0f; }
+}
+
+class AXIS extends Bank {
+    float getRateOfInterest() { return 4.5f; }
+}
+
+// Usage:
+Bank bank;
+bank = new SBI();
+System.out.println("SBI Rate of Interest: " + bank.getRateOfInterest()); // Output: 3.5
+bank = new ICICI();
+System.out.println("ICICI Rate of Interest: " + bank.getRateOfInterest()); // Output: 4.0
+bank = new AXIS();
+System.out.println("AXIS Rate of Interest: " + bank.getRateOfInterest()); // Output: 4.5
+```
+
+### **Usage of Method Overriding:**
+
+Method overriding is used to achieve runtime polymorphism and dynamic method dispatch. It allows Java to resolve method calls at runtime, ensuring the method executed is that of the object's actual type, not its reference type.
+
+### Rules for Method Overriding:
+
+- **Method Name:** Must be the same as in the parent class.
+- **Parameters:** Must be the same as in the parent class.
+- **Inheritance:** There must be an IS-A relationship (inheritance) between the classes.
+
+### **Dynamic Method Dispatch:**
+
+Dynamic method dispatch is a process where the call to an overridden method is resolved at runtime, rather than compile-time. This is the basis for one of Java's most powerful concepts—runtime polymorphism.
+
+### **Overriding Static Methods:**
+
+Static methods cannot be overridden. This is because static methods are not associated with any instance of a class but with the class itself. They cannot be overridden because they are not part of the class's individual objects.
+
+### Overriding `java main` Method:
+
+The `main` method in Java is static. Therefore, it cannot be overridden. The `main` method serves as the entry point for the program and is not meant to be an instance method that could be subject to polymorphism.
+
+| No. | Method Overloading                                                                                                                   | Method Overriding                                                                                                                                           |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Used to increase the readability of the program by allowing the same method name to be used for different parameter lists.           | Used to provide a specific implementation of a method that is already provided by its superclass, allowing a subclass to define a behavior specific to it.  |
+| 2   | Performed within the same class.                                                                                                     | Occurs between a superclass and a subclass that have an IS-A (inheritance) relationship.                                                                    |
+| 3   | Parameters must be different (either in number, order, or data types).                                                               | Parameters must be the same. The overriding method must have the same name, parameter list, and return type (or subtype) as the method it overrides.        |
+| 4   | An example of compile-time polymorphism (also known as static binding).                                                              | An example of runtime polymorphism (also known as dynamic method dispatch or dynamic binding).                                                              |
+| 5   | Cannot be performed by changing the return type alone; the parameters must change.                                                   | Return type must be the same or a subtype (covariant return type).                                                                                          |
+| 6   | Return type can be same or different; does not contribute to distinguishing overloaded methods.                                      | Return type must be compatible with the overridden method in the superclass.                                                                                |
+| 7   | Enhances the program's clarity by allowing methods that do similar tasks to have the same name.                                      | Provides the ability to define behavior that's specific to the subclass type, which means a subclass can implement a parent class method based on its need. |
+| 8   | No keywords are used; methods are differentiated by their signatures.                                                                | The @Override annotation (though not mandatory) is used to indicate that a method is intended to override a method in a superclass.                         |
+| 9   | Overloaded methods can call other versions of themselves, allowing different ways to perform a similar operation.                    | An overridden method can call its superclass version with the super keyword, allowing an extension of the superclass method's behavior.                     |
+| 10  | Method return types can vary or be the same, but overloading is determined by the method signature (method name and parameter list). | Method overriding considers the return type, but it is secondary to the signature matching between the superclass and subclass methods.                     |
+
+## **Upcasting:**
+
+Upcasting is casting a subclass object to a superclass reference variable. It is always safe and doesn't require an explicit type cast.
+
+**Example of Upcasting:**
+
+```java
+class Parent { }
+class Child extends Parent { }
+
+Parent obj = new Child(); // This is upcasting
+```
+
+**Example of Java Runtime Polymorphism with Upcasting:**
+
+```java
+class Bike {
+    void run() {
+        System.out.println("running");
+    }
+}
+class Splendor extends Bike {
+    void run() {
+        System.out.println("running safely with 60km");
+    }
+
+    public static void main(String args[]) {
+        Bike b = new Splendor(); // Upcasting
+        b.run(); // Output: running safely with 60km
+    }
+}
+```
+
+### Note on Runtime Polymorphism with Data Members:
+
+Runtime polymorphism cannot be achieved by data members in Java. When you access a data member using a reference of superclass, the member from superclass will be accessed, not the one from the subclass.
+
+## **Encapsulation in Java**
+
+### **Definition:**
+
+Encapsulation is the bundling of data (variables) and the methods that operate on this data into a single unit or class. It's similar to a medical capsule, where different medicines are encapsulated within a single shell.
+
+### **Advantages of Encapsulation:**
+
+- **Control Over Data**: It allows making classes read-only or write-only.
+- **Data Hiding:** By making class fields private and providing access via public methods, we hide the internal state of the object and only expose operations that are safe.
+- **Ease of Testing:** Encapsulated classes are easier to test for unit testing because the implementation is hidden from the tester.
+
+**Example of Encapsulation:**
+
+```java
+public class Person {
+    private String name; // Private field, encapsulated data
+
+    // Getter (Accessor)
+    public String getName() {
+        return name;
+    }
+
+    // Setter (Mutator)
+    public void setName(String newName) {
+        this.name = newName;
+    }
+}
+
+// Usage:
+Person person = new Person();
+person.setName("John"); // Setting the value
+System.out.println(person.getName()); // Getting the value: John
+```
+
+In the above example, the `name` field of the `Person` class is encapsulated. It can only be accessed and modified by the public methods `getName` and `setName` . This protects the name field from being accessed directly and allows the class to control how it is accessed and modified.
