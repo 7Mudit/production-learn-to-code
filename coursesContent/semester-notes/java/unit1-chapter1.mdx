@@ -1,0 +1,290 @@
+---
+title: Java Chapter 1 Unit 1
+description: Complete Chapter 1 Notes.
+date: 2024-02-07
+---
+
+# Unit 1
+
+# Chapter 1 → Java Fundamentals
+
+## What is Java?
+
+Java is a high-level, class-based, object-oriented programming language that was developed by `James Gosling` at Sun Microsystems (which has since been acquired by Oracle Corporation) and released in `1995` as a core component of `Sun Microsystems` Java platform. It was designed to have as few implementation dependencies as possible, allowing its applications to run on any system that has the `Java Virtual Machine` (JVM) installed. The JVM serves as an execution engine that converts Java bytecode into machine language and runs it, making Java applications platform-independent.
+
+## History of Java
+
+<Callout>
+  The development of Java was initiated in June `1991` by `James Gosling` ,
+  `Mike Sheridan` , and `Patrick Naughton` as part of the Green Project at Sun
+  Microsystems. It was originally designed for interactive television, but it
+  was too advanced for the digital cable television industry at the time. The
+  language was initially called `Oak` after an oak tree that stood outside
+  Gosling's office, later renamed to `Green` , and eventually renamed `Java` ,
+  from Java coffee, a type of coffee from Indonesia. The first public
+  implementation was Java 1.0 in `1995` . Its major web browser integration in
+  `1996` by Netscape Navigator helped to popularize Java and bring it to the
+  forefront of Internet development.
+</Callout>
+## Features of Java
+
+1. **Platform Independent:** Java provides a software-based platform that runs on top of other hardware-based platforms. Java code is compiled into bytecode (the .class file) which can run on any device equipped with a JVM.
+2. **Object-Oriented:** Java strictly follows the object-oriented programming model, which includes concepts like class, object, inheritance, encapsulation, abstraction, and polymorphism, making the code modular, flexible, and adaptable to change.
+3. **Simple:** Java is designed to be easy to learn and use effectively, eliminating the complexity of C++ by removing features like explicit pointers and operator overloading.
+4. **Secure:** With Java, the absence of explicit pointers helps to secure information, and its classloader, bytecode verifier, and security manager ensure secure execution.
+5. **Architecture-Neutral:** Java compiler generates an architecture-neutral object file format, which makes the compiled code executable on many processors, with the presence of a Java runtime system.
+6. **Portable:** Java bytecode can be carried to any platform. It doesn’t require any implementation-specific details.
+7. **Robust:** Java makes an effort to eliminate error-prone situations by emphasizing mainly on compile-time error checking and runtime checking.
+8. **Multithreaded:** With Java's multithreaded feature, it is possible to write programs that can perform many tasks simultaneously. This design feature allows developers to construct interactive applications that can run smoothly.
+9. **Interpreted and High Performance:** Java bytecode is translated on the fly to native machine instructions and is not stored anywhere. The development process is more rapid and analytical, making Java highly performant.
+10. **Distributed:** Java is designed for the distributed environment of the internet, as it can easily work with resources across networks.
+
+## Comparison between C++ and Java
+
+| Feature                       | C++                                                 | Java                                                    |
+| ----------------------------- | --------------------------------------------------- | ------------------------------------------------------- |
+| Platform Independence         | Platform-dependent                                  | Platform-independent (uses JVM)                         |
+| Main Usage                    | System programming                                  | Application programming (web, enterprise, mobile)       |
+| Design Goal                   | System and applications programming                 | Network computing, ease of use                          |
+| Goto Statement                | Supports goto                                       | Does not support goto                                   |
+| Multiple Inheritance          | Supports multiple inheritance                       | Does not support multiple inheritance (uses interfaces) |
+| Operator Overloading          | Supports operator overloading                       | Does not support multiple inheritance (uses interfaces) |
+| Pointers                      | Supports pointers                                   | Restricted pointer support                              |
+| Compiler & Interpreter        | Uses compiler only                                  | Uses both compiler and interpreter                      |
+| Call by Value/Reference       | Supports both                                       | Supports call by value only                             |
+| Structures & Unions           | Supports structures and unions                      | Does not support structures and unions                  |
+| Thread Support                | No built-in support, relies on libraries            | Has built-in thread support                             |
+| Documentation Comments        | No built-in support for documentation comments      | Supports documentation comments (/\*_ ... _/)           |
+| Virtual Keyword               | Supports virtual keyword                            | All non-static methods are virtual by default           |
+| Unsigned Right Shift Operator | Does not support >>>                                | Supports >>> operator                                   |
+| Inheritance Tree              | Multiple inheritance trees possible                 | Single inheritance tree from Object class               |
+| Hardware Interaction          | Closer to hardware                                  | Not as interactive with hardware                        |
+| Object-oriented               | Object-oriented, but allows more primitive handling | Everything (except primitives) is an object             |
+| Default Arguments             | Supports default arguments                          | Does not support default arguments                      |
+| Header Files                  | Uses header files                                   | Uses import statements, no header files                 |
+
+_(Explanation for each point. You can ignore the explanation) — >_
+
+### **1. Platform Independence**
+
+- **C++:** It is platform-dependent, which means the compiled code is specific to a particular operating system or hardware.
+- **Java:** Java is platform-independent, thanks to the `JVM` (Java Virtual Machine). Java code is compiled into `bytecode` , which can be run on any machine that has the JVM installed, regardless of its underlying architecture.
+
+### 2. **Usage**
+
+- **C++:** It is mainly used for system programming and applications where performance is critical, like game engines or desktop applications.
+- **Java:** Java is used for application programming, including window-based, web-based, enterprise, and mobile applications. Java has a significant presence in the enterprise environment and Android app development.
+
+### 3. **Design Goal**
+
+- **C++:** Designed for systems and application programming as an extension of the C language, C++ provides low-level control over system resources.
+- **Java:** Initially created as an interpreter for printing systems, Java was later expanded for network computing. Its design focuses on ease of use, security, and portability.
+
+### 4. **Goto Statement**
+
+- **C++:** Supports the goto statement, although its use is discouraged as it can lead to complex and unmanageable code.
+- **Java:** Does not support the goto statement, to maintain code clarity and prevent spaghetti code.
+
+### **5. Multiple Inheritance**
+
+- **C++:** Supports multiple inheritance, allowing a class to inherit from more than one base class.
+- **Java:** Does not support multiple inheritance through classes to prevent ambiguity. However, it achieves a similar effect using interfaces.
+
+### **6. Operator Overloading**
+
+- **C++:** Allows operator overloading, giving programmers the ability to redefine the way operators work with user-defined types.
+- **Java:** Does not support operator overloading, to keep the language simpler and avoid potential misuse.
+
+### 7. **Pointers**
+
+- **C++:** Fully supports pointers, which can be powerful but also risky if not handled carefully, as they allow direct memory access.
+- **Java:** Has restricted pointer support for safety. While Java manages memory access internally, it does not allow programmers to write pointer arithmetic directly.
+
+### **8. Compiler and Interpreter**
+
+- **C++:** Uses a compiler exclusively, which converts source code directly into machine code specific to the target platform.
+- **Java:** Uses both a compiler and an interpreter. Source code is first compiled into bytecode, which is then interpreted by the JVM, allowing for platform independence.
+
+### **9. Call by Value and Call by Reference**
+
+- **C++:** Supports both call by value and call by reference, giving programmers flexibility in how they want to pass arguments to functions.
+- **Java:** Only supports call by value. While references to objects are passed by value, Java does not have true call by reference semantics.
+
+### **10. Structure and Union**
+
+- **C++:** Supports structures and unions, which are composite data types.
+- **Java:** Does not support structures and unions as part of its design. Java uses classes and objects instead.
+
+### **11. Thread Support**
+
+- **C++:** Does not have built-in thread support and relies on third-party libraries or platform-specific APIs for multithreading.
+- **Java:** Has built-in support for multithreading with a rich set of synchronization primitives.
+
+### **12. Documentation Comments**
+
+- **C++:** Does not have built-in support for documentation comments.
+- **Java:** Supports documentation comments (/\*_ ... _/), which can be used to create official documentation directly from the code.
+
+### **13. Other Differences**
+
+- **Virtual Keyword:** C++ uses the virtual keyword to handle polymorphism, while Java does not have a virtual keyword because all non-static methods in Java are virtual by default.
+- **Unsigned Right Shift:** C++ does not support >>>, whereas Java does, which is used for bitwise operation on unsigned numbers.
+- **Inheritance Tree:** C++ allows creating multiple inheritance trees, while Java maintains a single inheritance tree because all classes are derived from java.lang.Object.
+- **Hardware:** C++ is closer to the hardware, often used for system-level programming. Java is less interactive with hardware and is generally used for application-level coding.
+- **Object-Oriented:** Both C++ and Java are object-oriented; Java considers everything (except primitive types) as objects, while C++ has a more flexible approach with primitives and user-defined types.
+- **Notes:** Java does not support default arguments or header files like C++; instead, it uses the import statement to include classes and methods.
+
+## **Java Tokens**
+
+Tokens are the smallest units of programming in Java, which the compiler uses for constructing the syntax. There are five types of tokens in Java:
+
+- **Identifiers:** Names given to elements like classes, variables, and methods.
+- **Keywords:** Reserved words that have a predefined meaning in Java.
+- **Literals:** Data values (e.g., 100, true, "Hello World").
+- **Operators:** Symbols that perform operations on variables and values (e.g., +, -, \*, /).
+- **Separators:** Characters that separate elements within the code (e.g., parentheses (), braces {}, and the semicolon ;).
+
+## **Java Identifiers**
+
+Identifiers are the names given to different entities such as classes, methods, variables, and labels in Java. They are tokens that help in identifying elements within the code.
+
+### Rules for Java Identifiers:
+
+- Can contain letters, digits, underscores (\_), and dollar signs ($).
+- Must begin with a letter, $, or \_. They cannot start with a digit.
+- Are case-sensitive (myVariable is different from MyVariable).
+- Cannot be a keyword or reserved word.
+- There is no limit to the length of an identifier but it’s advised to keep it within a reasonable length.
+
+## **Java Keywords**
+
+Keywords are reserved words in Java that have a predefined meaning in the language. They cannot be used as identifiers and are meant to serve a specific function.
+
+### Examples of Java Keywords:
+
+- class, interface, enum
+- public, private, protected
+- static, final, abstract
+- new, return, void
+- if, else, switch, case
+- try, catch, finally, throw, throws
+
+## **Java Data Types**
+
+### Primitive Data Types
+
+Primitive data types are predefined by the language and named by a keyword. There are 8 primitive data types:
+
+- **byte**: 8-bit signed integer.
+- **short:** 16-bit signed integer.
+- **int:** 32-bit signed integer.
+- **long:** 64-bit signed integer.
+- **float**: Single-precision 32-bit IEEE 754 floating point.
+- **double**: Double-precision 64-bit IEEE 754 floating point.
+- **boolean:** Represents one bit of information, true or false.
+- **char:** Single 16-bit Unicode character.
+
+These data types are not objects and represent raw values.
+
+### Non-Primitive Data Types (Reference Data Types)
+
+Non-primitive data types, also known as reference types, refer to objects and hence are called reference types. They are not defined by the language but are created by the programmer. Unlike primitive types, reference types can be null.
+
+- **Classes:** User-defined blueprints from which objects are created.
+- **Interfaces:** Abstract types that allow the declaration of methods without implementation.
+- **Arrays**: A collection of data items of the same primitive type or objects.
+
+Java also includes wrapper classes like `Integer` , `Character` , `Boolean` , etc., which encapsulate a primitive value in an object. These are particularly useful for working with collections of objects, like in the case of `ArrayList<Integer>` , which can hold `int` values because they are wrapped in the Integer class.
+
+## **Packages in Java**
+
+Packages in Java are used to group related classes and interfaces together. They serve as containers for classes that are meant to be used in a modular fashion. Packages help to avoid naming conflicts, manage access protection, and make searching/locating and usage of classes, interfaces, enumerations, and annotations easier.
+
+### Advantages of Using Packages:
+
+- **Namespace Management:** It helps organize classes by function or module, preventing naming conflicts.
+- **Access Protection:** Packages can restrict access to classes and class members, promoting encapsulation.
+- **Removal of Naming Conflicts:** If two classes have the same name but are in different packages, the full name (including the package name) will be unique.
+
+## **How to Import:**
+
+Java provides the import statement to bring certain classes, or entire packages, into visibility.
+
+- To import an entire package: `import java.util.*` ;
+- To import a specific class: `import java.util.Scanner` ;
+
+## Points to Remember for Java Packages and Import Statements
+
+- **Handling Class Name Conflicts:**
+  - Conflicts can occur when two packages contain classes with the same name.
+  - If both abcpackage and xyzpackage have a class named JavaExample, importing both packages (import abcpackage._; import xyzpackage._;) will cause a compilation error due to the naming conflict.
+  - To resolve this, use the fully qualified class name, specifying the package name before the class name.
+    ```java
+    abcpackage.JavaExample obj1 = new abcpackage.JavaExample();
+    xyzpackage.JavaExample obj2 = new xyzpackage.JavaExample();
+    ```
+  - This method bypasses the need for an import statement and prevents naming conflicts.
+- **Order of Statements in a Class File:**
+  - The package declaration must always be the first statement (if any) in the source file.
+  - Import statements come after the package declaration and before class declarations.
+  ```java
+  package abcpackage;
+  import xyzpackage.*;
+  public class MyClass { /*...*/ }
+  ```
+- **Multiple Import Statements:**
+
+  - A Java file can have only one package declaration but can contain multiple import statements.
+  - Multiple imports should be listed separately and are used to include different classes from various packages.
+
+  ```java
+  package abcpackage; // Only one package declaration allowed
+  import xyzpackage.*;
+  import anotherpackage.*;
+  import anything.*;
+  ```
+
+- **Using Wildcards with Sub Packages:**
+  - Importing a package using a wildcard (e.g., abc.\*) does not automatically import the classes from its sub packages.
+  - To import classes from a sub package, you must explicitly import it using its fully qualified name.
+  - Example -
+    - Importing only `abc` package classes:
+    ```java
+    import abc.*;
+    ```
+    - Importing only `foo` subpackage classes:
+    ```java
+    import abc.foo.*;
+    ```
+    - To import all classes from both the `abc` package and its `foo` sub package, use two separate import statements:
+    ```java
+    import abc.*;
+    import abc.foo.*;
+    ```
+
+## **Access Modifiers**
+
+Access modifiers in Java dictate the accessibility or scope of a field, method, constructor, or class. There are four access levels, controlled by the following access modifiers:
+
+- **Default:** When no access modifier is specified, it is set to default, which means the class or class member is accessible only within the same package.
+- **Private:** The class or class member is accessible only within the class it is declared. It is not visible to subclasses or other package classes.
+- **Protected:** The class or class member is accessible within the same package or subclasses in different packages.
+- **Public:** The class or class member is accessible from any other class everywhere, whether within the same package or in different packages
+
+## **Use of public, private, and protected**
+
+- **public:** The public keyword is used to declare a class, method, or variable that may be accessed from anywhere.
+- **private:** The private keyword is a modifier used when we want the class or class member to be accessible only within its own class.
+- **protected:** The protected keyword is similar to private but also allows access to a subclass or class within the same package.
+
+## **Table of Access Levels**
+
+| Modifier              | Class | Package | Subclass | World |
+| --------------------- | ----- | ------- | -------- | ----- |
+| public                | Y     | Y       | Y        | Y     |
+| protected             | Y     | Y       | Y        | N     |
+| no modifier (default) | Y     | Y       | N        | N     |
+| private               | Y     | N       | N        | N     |
+
+- **Y:** Accessible
+- **N:** Not Accessible
