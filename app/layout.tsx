@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       "Learn To Code - Programming Help, Freelancing, and Developer Resources",
     description:
       "Join our community-driven platform for programming solutions, freelancing services, developer documentation, and AI-powered Q&A. Collaborate and learn with developers worldwide.",
-    images: "https://thelearntocode.com/liveLogo.jpg",
+    images: "https://thelearntocode.com/liveLogo.png",
     type: "website",
     url: "https://thelearntocode.com/",
   },
@@ -41,7 +41,7 @@ export default function RootLayout({
           name="description"
           content="Join our community-driven platform for programming solutions, freelancing services, developer documentation, and AI-powered Q&A. Collaborate and learn with developers worldwide."
         />
-        <link rel="icon" href="/logoLive.png" />
+        <link rel="icon" href="/liveLogo.png" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -86,7 +86,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://thelearntocode.com/liveLogo.jpg"
+          content="https://thelearntocode.com/liveLogo.png"
         />
         <meta
           name="twitter:card"
@@ -104,7 +104,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content="https://thelearntocode.com/liveLogo.jpg"
+          content="https://thelearntocode.com/liveLogo.png"
         />{" "}
         {/* Replace with the full URL to the image */}
       </Head>
