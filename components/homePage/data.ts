@@ -15,13 +15,28 @@ export const projects = [
     link: "https://hackathonfrontend.vercel.app/",
     color: "#fde97d",
   },
+  // {
+  //   title: "Aritsan Labs Clone",
+  //   description:
+  //     "Though this is also not responsive but helped a 4th year student get A+ in his sem's project",
+  //   src: "Artisan-labs.png",
+  //   link: "https://arihant-ten.vercel.app/",
+  //   color: "#ff9e22",
+  // },
   {
-    title: "Aritsan Labs Clone",
+    title: "Razorpay Clone",
+    description: "During early days of my dev journey created this clone",
+    src: "razor.png",
+    link: "https://razorpay-clone-ten.vercel.app/",
+    color: "#07bea6",
+  },
+  {
+    title: "Ratan Herbs",
     description:
-      "Though this is also not responsive but helped a 4th year student get A+ in his sem's project",
-    src: "Artisan-labs.png",
-    link: "https://arihant-ten.vercel.app/",
-    color: "#ff9e22",
+      "Simple website just for showcasing some products of my former neighbor's shop",
+    src: "ratan-herbs.png",
+    link: "https://www.ratanherbs.com",
+    color: "#97389e",
   },
   {
     title: "Real Estate Work",

@@ -2,12 +2,13 @@
 import styles from "./page.module.scss";
 import Card from "./Card/index";
 import { useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { Inter } from "next/font/google";
 import { Noto_Sans } from "next/font/google";
 import Heading from "./Heading";
 import { projects } from "./data";
+import Lenis from "@studio-freight/lenis";
 
 const noto_sans2 = Noto_Sans({ weight: "600", subsets: ["latin"] });
 const inter = Inter({ weight: "400", subsets: ["latin"] });
@@ -17,6 +18,16 @@ export default function Home() {
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
+  });
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
   });
 
   return (
