@@ -1,0 +1,159 @@
+---
+title: Find Permutation
+description: Codechef Contest Starters 120
+date: 2024-02-09
+---
+
+# Find Permutation
+
+## Introduction
+
+You are given an array _`A`_ of length `2⋅N` consisting of **exactly two** occurrences of each integer from 1 to _N ._
+
+Find a _permutation `P`_ of length _`N`_ , such that, for each 1 ≤ i ≤ _N :_
+
+- If we delete **both** occurrences of *Pj* **for all** *i* < _j_ ≤ *N* from *A* without changing the order of remaining elements, there will be **at most** A / 2 elements between both occurrences of *Pi* in remaining *A*.
+
+It is guaranteed that one such permutation always exists.
+
+If multiple such permutations exist, you may print any.
+
+Note that a permutation of length _N_ consists of all integers from 1 to _N_ exactly once.
+
+## Input Format
+
+- The first line of input contains a single integer *T*, denoting the number of test cases.
+- Each test case consists of two lines of input.
+  - The first line of each test case contains a positive integer *N* — the length of the array *A* is 2⋅*N*.
+  - The second line of each test case contains 2⋅*N* space-separated integers *A*1,*A*2,…,*A*2⋅*N* representing the array *A*.
+
+## Output Format
+
+For each test case, output on a new line, *N* space-separated integers denoting a valid permutation *P*.
+
+It is guaranteed that one such permutation always exists.
+
+If multiple such permutations exist, you may print any.
+
+## Constraints
+
+```python
+1 ≤ T ≤ 10 ^ 5
+1 ≤ N ≤ 3⋅10 ^ 5
+1 ≤ Ai ≤ N
+A[i] occurs exactly twice in A
+The sum of  N over all test cases won't exceed 3⋅10 ^ 5
+```
+
+## Sample Input and Output
+
+```python
+Input :
+3
+1
+1 1
+2
+1 2 2 1
+3
+1 1 2 2 3 3
+
+Ouput:
+1
+2 1
+3 1 2
+```
+
+## Problem Explanation
+
+Given an array A of length `2 * N` containing exactly two occurrences of each integer from 1 to N, the task is to find a permutation P of length N that satisfies a particular condition. For each i (1 ≤ i ≤ N), if we remove both occurrences of all elements P[j] for all j > i from A without altering the remaining elements' order, there should be at most |A| / 2 elements between both occurrences of P[i] in the resulting array. The problem guarantees at least one such permutation exists for the given input.
+
+### **Hindi (Example)** -
+
+Socho ki aapke paas kuch jode (pairs) moje hain, har jode par ek anokha number hai 1 se lekar N tak. Agar N 3 hai, to aapke paas 3 jode moje hain jinpe numbers hain 1, 2, aur 3. Ye sab moje ek dher (array A) mein mixed hai jisme har number ke do moje hain, kyunki ye jode hain, isliye mojon ki total sankhya 2\*N hogi.
+
+Aapka kaam hai in mojon mein se kuch ko ek khas tarike se line up karna (ek naya sequence P banana) taki kisi bhi chune gaye moje ke liye, jab aap sequence mein aane wale baad ke sabhi moje ko dher se hata dete hain, to chune gaye moje ke number wale do mojon ke beech mein dher ke mojon ki aadhi se zyada sankhya nahi honi chahiye.
+
+## Simple Dry Run:
+
+Consider the sample input:
+
+```python
+N = 3
+A = [1, 1, 2, 2, 3, 3]
+```
+
+To find a valid permutation P, we observe the positions of each pair in the array A. The pairs are (1, 1), (2, 2), and (3, 3), with no elements between the occurrences of each number.
+
+A possible permutation that meets the condition is P = [3, 1, 2].
+
+- For i = 1 (P[i] = 3): Removing 1 and 2 leaves [3, 3], with 0 elements between the occurrences of 3.
+- For i = 2 (P[i] = 1): Removing 2 leaves [1, 1, 3, 3], with 0 elements between the occurrences of 1.
+- For i = 3 (P[i] = 2): The original array [1, 1, 2, 2, 3, 3] has 0 elements between the occurrences of 2.
+
+## **Approach**
+
+- **Tracking Occurrences:** Use a hash map to track the occurrences of each element in the array A. This helps in identifying and eliminating duplicates during the permutation construction.
+- **Building the Permutation:** Iterate through the array A, adding elements to the permutation P only if their occurrence in the hash map is positive. This ensures each element is added only once, adhering to the permutation's uniqueness constraint.
+
+## Code
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+vector<int> find_permutation(int N, const vector<int>& A) {
+    vector<int> P(N); // Initialize the permutation array
+    unordered_map<int, int> occurrences; // Map to store element occurrences
+
+    // Count occurrences of each element
+    for (int i = 0; i < 2 * N; ++i) {
+        occurrences[A[i]]++;
+    }
+
+    // Build permutation
+    for (int i = 0, j = 0; i < 2 * N; ++i) {
+        // If element's occurrence is positive, add it to the permutation
+        if (occurrences[A[i]] > 0) {
+            P[j++] = A[i];
+            // Decrement occurrences for the added element
+            occurrences[A[i]]--;
+            occurrences[P[j - 1]]--;
+        }
+    }
+
+    return P; // Return the constructed permutation
+}
+
+int main() {
+    int T; // Number of test cases
+    cin >> T;
+
+    while (T--) {
+        int N; // Length of array A is 2*N
+        cin >> N;
+
+        vector<int> A(2 * N); // Input array
+        for (int i = 0; i < 2 * N; ++i) {
+            cin >> A[i];
+        }
+
+        vector<int> result = find_permutation(N, A);
+
+        // Print the result
+        for (int i = 0; i < N; ++i) {
+            cout << result[i] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+## Time and Space Complexity Analysis:
+
+- **Time Complexity: O(N)**, where N is the length of the permutation. The algorithm iterates through the array A of size 2\*N once, and the operations within the loop (accessing and updating the hash map) are O(1), leading to a linear time complexity.
+- **Space Complexity: O(N).** The additional space is used for the hash map to track occurrences, which, in the worst case, stores N unique elements and their counts. The output array P also takes O(N) space but is part of the output, so it may not be counted towards additional space complexity depending on the context.
