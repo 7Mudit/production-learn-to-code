@@ -31,7 +31,7 @@ const Page = () => {
               </a>{" "}
             </div>
           </div>
-          <div>
+          {/* <div>
             <Heading as="h4" size="sm">
               Mobile Number
             </Heading>
@@ -45,13 +45,13 @@ const Page = () => {
                 +91 8791615052
               </a>{" "}
             </div>
-          </div>
+          </div> */}
           <div>
             <Heading as="h4" size="sm">
               Operation Address
             </Heading>
             <div className="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold tracking-tight text-slate-400">
-              <span>NC Towers , Chandigarh University , Kharar , Mohalli</span>{" "}
+              <span> Kharar , Mohalli</span>{" "}
             </div>
           </div>
 

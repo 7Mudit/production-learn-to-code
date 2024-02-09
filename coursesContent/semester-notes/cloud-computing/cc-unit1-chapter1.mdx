@@ -1,0 +1,534 @@
+---
+title: CC Chapter 1 Unit 1
+description: Complete Chapter 1 Notes.
+date: 2024-02-09
+---
+
+# Unit - 1
+
+## **Chapter 1 →** Introduction to Distributed Systems
+
+---
+
+### Overview of Distributed Systems
+
+- **Definition:** A distributed system is a network of autonomous computers that communicate with each other in order to achieve a common goal. These systems are characterized by their scalability, fault tolerance, heterogeneity, and concurrency.
+- **Scalability:** The system can easily be expanded by adding new resources without affecting the existing components.
+- **Fault Tolerance:** The ability of a system to continue operation even if some components fail.
+- **Heterogeneity:** Involves the integration and coordination of different types of computers, operating systems, and networks.
+- **Concurrency:** Enables multiple processes to execute simultaneously, improving efficiency and performance.
+
+### Advantages of Distributed Systems
+
+- **Resource Sharing:** Optimizes the utilization of hardware and software resources.
+- **Reliability:** Redundancy and diversity in components enhance the overall system reliability.
+- **Performance:** Load distribution across multiple nodes can lead to improved system performance.
+- **Flexibility:** Systems can be easily modified or expanded to accommodate changing needs.
+
+### Challenges in Distributed Systems
+
+- **Communication Delays:** Network latency can affect the speed of distributed operations.
+- **Consistency:** Keeping data synchronized across different nodes is complex.
+- **Fault Detection:** Identifying and addressing failures in the system is crucial for maintaining operations.
+- **Security:** Ensuring secure communication and data privacy is imperative, especially over public networks.
+
+### Architecture and Models
+
+- **Physical Architecture:** Describes the layout of the hardware components.
+- **System Models:** Includes architectural models that define the structure of software components and fundamental models addressing the basic principles and services provided by the network.
+
+### Types of Distributed Systems
+
+- **Computing Systems:** Such as clusters, grids, and clouds.
+- **Information Systems:** Include transaction processing systems and enterprise application integration.
+- **Embedded Systems:** Found in home systems, healthcare, and sensor networks.
+
+### Goals of Distributed Systems
+
+- **Connecting Resources and Users:** To share resources among a wide range of users and applications.
+- **Transparency:** The system should hide the complexity and show itself as a single entity to the user.
+- **Openness:** Systems are open for expansion and can interoperate with other systems.
+- **Scalability:** They can be scaled in size, geography, and administrative domains.
+
+### Historical Perspective
+
+<Callout>
+  The evolution of distributed systems began with the establishment of mainframe
+  systems and has since progressed through the development of LANs, network
+  cards, and the Internet, culminating in the creation of the World Wide Web.
+</Callout>
+
+### Application and Lifecycle Management
+
+- **Deployment/Rollback:** Processes for installing and reverting applications.
+- **Placement/Scheduling:** Decision-making for optimal resource allocation.
+- **Configuration Management:** Keeping system settings consistent and up-to-date.
+- **Resource/Failure Isolation:** Separating and managing individual system components.
+
+### Middleware and Support Systems
+
+- **Middleware:** Acts as an intermediary layer to facilitate communication and resource management.
+- **Support Systems:** Include distributed file systems and operating systems which provide foundational services to distributed applications.
+
+### Coordination and Agreement
+
+- **Algorithms & Shared Data:** Essential for ensuring proper operation and consistency.
+- **Transactions & Replications:** Important mechanisms for maintaining data integrity across the system.
+
+## Disadvantages of Distributed Systems
+
+### Network Reliance
+
+- **Issue:** Distributed systems are highly dependent on network connectivity. Problems in the network can disrupt the entire system's activities.
+
+### Complexities
+
+- **Issue:** The complexity of managing and maintaining a distributed system is significantly higher due to the need to handle errors and coordinate across all computers that make up the system.
+
+### Security
+
+- **Issue:** Distributed systems expose private resources to a broader range of security vulnerabilities. Unauthorized access from any connected computer can pose significant risks.
+
+## Centralized vs. Distributed Systems
+
+### Centralized Systems
+
+- **Definition:** A system where major functions are performed by a single physical computer. Originally, all activities were centralized on a single computer.
+
+### Decentralized Systems
+
+- **Definition:** There is no single central server. Instead, several key nodes provide resources or services. This could mean several servers connected to a main central server, sharing the load.
+
+### Distributed Systems
+
+- **Definition:** A system where physically separate computers work together on some task. This can range from multiple servers (clusters) to peer-to-peer models.
+
+<img
+  src="/courseContent/cloud-computing/cc-unit1/img1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+## **Comparsion**
+
+- **Centralized vs. Decentralized:** Centralized systems have a single control point, while decentralized systems distribute control across several important nodes, which can reduce risks of overloading and provide backup options.
+- **Decentralized vs. Distributed:** Decentralized systems have several important nodes that can take over the control if the main one fails, whereas in fully distributed systems, every node is independent, and the failure of one does not significantly affect the overall system's performance.
+
+## Distributed Systems in the Context of Social Media Networks
+
+### Overview of Distributed Systems in Social Media
+
+- Social media platforms exemplify distributed systems where a centralized network, typically the platform's data centers, coordinates activities and shares resources among various computer systems used by end-users globally.
+
+### Components of a Distributed Social Media Network
+
+1. **Distributed System Software:**
+   - Facilitates coordination and resource sharing among computers.
+   - Enables seamless user experiences despite geographical distances.
+2. **Database:**
+   - Centralized repositories that store data processed by nodes in the distributed system.
+   - Ensures data is accessible and updatable in real-time.
+3. **Common Applications:**
+   - Each node has applications that utilize data from the centralized database system.
+   - Applications may include user interfaces, messaging systems, and content delivery networks.
+4. **Middleware and Network:**
+   - Middleware services act as a bridge between the centralized system and local systems.
+   - The network is the underlying infrastructure that facilitates data transfer.
+5. **Data Segmentation and Processing:**
+   - Data is divided into segments or modules for processing by autonomous systems.
+   - After processing, data is sent back to the centralized system for storage.
+
+### Application Areas of Distributed Systems
+
+- **Finance and Commerce:** Platforms like Amazon and eBay utilize distributed systems for online transactions.
+- **Information Society:** Services like search engines and Wikipedia depend on distributed systems to manage vast information repositories.
+- **Cloud Technologies:** AWS, Salesforce, and Microsoft Azure offer cloud services powered by distributed systems.
+- **Entertainment:** Online gaming and streaming services like YouTube use distributed systems to deliver content.
+- **Healthcare:** Distributed systems are used for managing online patient records.
+- **Education:** E-learning platforms are made possible through distributed systems.
+- **Transport and Logistics:** Systems like GPS and Google Maps are based on distributed computing.
+- **Environment Management:** Sensor networks for monitoring environmental parameters.
+
+## Fundamentals of Distributed Systems
+
+1. **Components of Distributed Systems:**
+   - **Nodes**: Autonomous computers or devices that make up the system.
+   - **Networks**: Connectivity infrastructure that allows nodes to communicate.
+   - **Software**: Specialized applications that coordinate and manage resources and tasks across the distributed network.
+2. **Key Characteristics:**
+   - **Scalability**: Ability to grow and manage increased demand.
+   - **Fault Tolerance**: Resilience to failures within the system.
+   - **Heterogeneity**: Support for a wide range of technologies and platforms.
+   - **Concurrency**: Simultaneous operation of components in a cohesive manner.
+
+### **Trends in Distributed Systems**
+
+1. **Pervasive and Ubiquitous Computing:**
+   - Computing is becoming more integrated into the environment, allowing for more personal and context-aware applications. This includes smart homes and cities where computational capabilities are embedded within everyday objects.
+2. **Mobile Computing:**
+   - With the proliferation of mobile devices, distributed systems now must accommodate the mobility of users. This includes support for roaming, disconnection, and synchronization across various networks and devices.
+3. **Multimedia Services:**
+   - The delivery of rich multimedia content such as streaming video and interactive applications requires robust distributed systems capable of handling high bandwidth and low-latency connections.
+4. **Utility and Cloud Computing:**
+   - The cloud computing paradigm treats distributed system resources as utilities that can be leased and scaled on demand. This model has revolutionized the way organizations think about IT resources.
+
+## **Architecture and Design of Distributed Systems**
+
+1. **Client-Server Model:**
+   - Central servers provide resources and services, while clients request and consume them.
+2. **Peer-to-Peer Model:**
+   - Nodes act as both clients and servers, contributing to and consuming resources in a collective manner.
+3. **Decentralized Networks:**
+   - There is no single point of control or failure, leading to a resilient and distributed network architecture.
+
+### **Challenges in Distributed Systems**
+
+1. **Communication Delays and Network Reliance:**
+   - Network performance impacts the efficiency of distributed systems. Latency, bandwidth limitations, and network disruptions can significantly affect system performance.
+2. **Data Consistency:**
+   - Ensuring that all nodes have a consistent view of data across the distributed system is challenging, especially in systems that require real-time updates.
+3. **Fault Detection and Recovery:**
+   - Identifying system failures and recovering from them without affecting the overall service is a crucial aspect of maintaining a reliable distributed system.
+4. **Security and Privacy:**
+   - Protecting sensitive data and ensuring secure transactions over distributed networks is paramount, as these systems are often targets for cyber attacks.
+
+### **Applications and Use Cases**
+
+1. **E-Commerce Platforms:**
+   - Platforms like Amazon use distributed systems to manage inventory, process transactions, and handle customer data.
+2. **Social Media Networks:**
+   - Networks such as Facebook and Twitter rely on distributed systems to manage user connections, data feeds, and multimedia content distribution.
+3. **Financial Services:**
+   - Banks and financial institutions use distributed systems for transaction processing, fraud detection, and real-time analytics.
+4. **Healthcare:**
+   - Distributed systems enable the sharing of patient records, remote diagnostics, and telemedicine services.
+5. **Education:**
+   - E-learning platforms rely on distributed systems to deliver content, track progress, and facilitate communication between educators and learners.
+
+**Future of Distributed Systems**
+
+Advancements in technology continue to push the boundaries of what distributed systems can achieve. Trends such as edge computing, the Internet of Things (IoT), and artificial intelligence are shaping the next wave of distributed systems, enabling smarter, faster, and more personalized services.
+
+**Conclusion**
+
+Distributed systems are at the core of modern digital infrastructure, enabling connectivity and services across diverse sectors. They offer numerous benefits including scalability, resource sharing, and reliability. However, they also present significant challenges such as managing complexity, ensuring security, and maintaining data consistency. Future developments in the field are poised to address these challenges and unlock new possibilities.
+
+## **Detailed Exploration of Internet, Mobile & Ubiquitous Computing, and Distributed Multimedia Systems**
+
+**Internet as a Distributed System**
+
+The Internet is a vast and complex distributed system comprising a myriad of interconnected computer networks. It incorporates various network types and communication technologies, such as:
+
+- **WiFi and WiMAX**: High-speed wireless communication for local and metropolitan areas.
+- **Bluetooth**: Short-range wireless technology for personal device connectivity.
+- **Mobile Networks**: Including 3G and beyond, offering wide-area wireless connectivity.
+
+This diversity has transformed networking into a pervasive resource, enabling connections anywhere and anytime, seamlessly integrating with daily life.
+
+**Structure of the Internet**
+
+- **World Wide Web and Email**: Fundamental services that the Internet supports, enabling global information exchange and communication.
+- **Intranets and Firewalls**: Private networks within organizations safeguarded by firewalls that filter traffic to prevent unauthorized data exchange.
+- **Internet Service Providers (ISPs)**: Organizations that connect users to the Internet, providing various services, including email and web hosting.
+- **Backbones**: High-capacity network links that form the Internet's core, using advanced technologies like satellite links and fiber-optic cables.
+
+**Mobile and Ubiquitous Computing**
+
+Advancements in technology have spurred the integration of computing into various aspects of life:
+
+1. **Portable Devices**: Laptops, smartphones, and PDAs have become integral to the mobile computing landscape, enabling tasks on the move.
+2. **Wearable Devices**: Smartwatches and other wearable gadgets extend computing to personal attire, offering convenience and functionality.
+3. **Embedded Devices**: Computers within appliances and vehicles add intelligent features to traditional objects, making them part of the ubiquitous computing environment.
+
+**Challenges in Mobile Computing**
+
+- **Connectivity**: Maintaining stable connections in varying environments is challenging.
+- **Device Mobility**: Ensuring consistent operation as devices move and change networks.
+- **Resource Access**: Providing remote access to resources from users' home intranets or public services.
+
+**Ubiquitous Computing**
+
+The concept revolves around embedding computational capabilities into the environment to make them unobtrusive and intuitively usable, such as:
+
+- **Smart Environments**: Homes and offices where appliances and systems are interconnected, providing intelligent automation and control.
+- **Transparent Functionality**: The computing functions of everyday objects become so seamlessly integrated that they are hardly noticeable.
+
+**Interaction Between Mobile and Ubiquitous Computing**
+
+While overlapping, they serve distinct purposes:
+
+- **Ubiquitous Computing**: Benefits users within a stable environment by integrating computing with their surroundings.
+- **Mobile Computing**: Provides advantages by allowing users to perform computing tasks while moving, with access to resources from various locations.
+
+**Distributed Multimedia Systems**
+
+The maturing infrastructure of distributed systems has led to a service-oriented approach:
+
+- **Utility Model**: Distributed resources, like electricity or water, are provided on-demand, where companies offer computing resources as a service (e.g., cloud services).
+- **Service Suppliers**: Entities that rent out resources, reducing the need for end users to own and manage physical or logical services.
+
+**Conclusion**
+
+The Internet exemplifies the capabilities of distributed systems, seamlessly connecting a range of devices and technologies. The evolution of mobile and ubiquitous computing signifies a future where computing is an integral, yet unnoticeable part of everyday life. Distributed multimedia systems are shifting toward a utility-based model, where resources are commoditized and services are provisioned on demand. This paradigm shift promises to make distributed systems even more integral to society, offering a spectrum of services that are as ubiquitous as traditional utilities.
+
+## Types of System Models
+
+### Physical Model:
+
+- Describes the layout of hardware in a distributed system.
+- Abstracts away the specifics of computers and network technologies.
+
+### Architectural Model:
+
+- Defines the structure of software components in a distributed system and their relationships.
+- Includes styles such as layered, object-oriented, data-centered, and event-based architectures.
+
+### Fundamental Model:
+
+- Specifies the essential characteristics common to all distributed systems.
+- Includes interaction models, failure models, and security models.
+
+## Communication Mechanisms
+
+- **Message Passing**: Nodes communicate by sending messages over a network, either directly or through an intermediary.
+- **Remote Procedure Calls (RPC):** A method of invoking a procedure on a remote system as if it were local, abstracting the complexity of the network.
+- **Publish-Subscribe:** Nodes publish messages to a broker on specific topics, and subscribers receive messages based on their subscriptions.
+
+## **Physical Models of Distributed Systems (**System Generations**)**
+
+_(In short)_
+
+1. **Baseline Physical Model**:
+   - Comprises nodes communicating via a network exclusively through message passing.
+2. **Early Distributed Systems**:
+   - Developed with the advent of local area networks, like Ethernet, and provided basic services like file sharing and email.
+3. **Contemporary Distributed Systems**:
+   - Features more mobility with devices like laptops and smartphones, leading to requirements for service discovery and interoperation.
+4. **Internet-scale Distributed Systems**:
+   - Utilizes the global reach of the Internet to deliver services across different organizations, emphasizing open standards and middleware technologies.
+5. **Distributed Systems of Systems**:
+   - Ultra-large-scale systems consisting of interconnected subsystems working together for specific functions.
+
+## **Physical Models of Distributed Systems (**System Generations**)**
+
+_(In detail)_
+
+1. **Baseline Physical Model**:
+   - **Definition**: This model represents distributed systems as a collection of networked hardware or software components that interact solely through message passing.
+   - **Diagram you can create**: Imagine a network diagram showing various computer nodes linked by lines representing network connections, signifying the passage of messages that coordinate actions.
+2. **Early Distributed Systems**:
+   - **Era**: Late 1970s to early 1980s.
+   - **Characteristics**: Consisted of 10 to 100 nodes on a local area network like Ethernet with limited internet connectivity.
+   - **Services Supported**: Shared local resources like printers, file servers, email, and file transfer.
+   - **Diagram you can create**: A simple LAN diagram where all nodes are connected to a central hub or switch would be representative.
+3. **Contemporary Distributed Systems**:
+   - **Mobility**: The rise of mobile computing introduced systems where nodes (like laptops or smartphones) could move location, necessitating service discovery and spontaneous interoperation.
+   - **Ubiquitous Computing**: Transition from discrete nodes to embedded computing in daily objects.
+   - **Cloud Computing**: Shift to cluster architectures with pooled nodes providing services collectively.
+   - **Diagram you can create**:: A cloud computing architecture diagram showing a cluster of servers providing a collective service.
+4. **Internet-scale Distributed Systems**:
+   - **Scope**: Global, with an infrastructure consisting of an extensible set of nodes interconnected by the Internet.
+   - **Heterogeneity**: Significant diversity in network types, computer architectures, operating systems, and languages.
+   - **Standards and Technologies**: Emphasis on open standards and middleware technologies like CORBA and web services.
+   - **Diagram you can create**: A global network diagram illustrating interconnected nodes across vast geographical spaces would symbolize this model.
+5. **Distributed Systems of Systems**:
+   - **Definition**: Ultra-large-scale systems consisting of subsystems that are complete systems in themselves, combining to perform complex tasks.
+   - **Internet as a Metaphor**: The Internet, a network of networks, mirrors this concept.
+   - **Diagram you can create**: A complex, multi-layered network topology showing interconnected subsystems each comprising its own network.
+
+### **Architectural Styles in Distributed Systems**
+
+1. **Centralized Systems**:
+   - **Single Machine**: All computations are performed by one computer.
+   - **Performance**: Lower, as workloads aren't divided and no backup systems exist.
+   - **Diagram you can create**: A centralized architecture diagram where all terminals are connected to a single central server.
+2. **Distributed Systems**:
+   - **Multiple Machines**: Workloads are distributed among various systems.
+   - **Performance**: Higher, as it leverages the capacity of multiple computers, with backup systems in place.
+   - **Diagram you can create**: A network diagram showing multiple computers with tasks distributed among them.
+
+### **Specific Architectural Patterns**
+
+_(In short - )_
+
+1. **Layered Architecture**:
+   - Structures components in layers with each layer interacting only with its adjacent layers.
+   - Enhances organized communication and separation of concerns.
+2. **Object-Oriented Architecture**:
+   - Treats components as objects that interact through method calls.
+   - Employs RPC or RMI for communication between objects.
+3. **Data Centered Architecture**:
+   - Centralizes data in a shared repository accessible by various components.
+   - Follows a publish/subscribe communication model.
+4. **Event-Based Architecture**:
+   - Similar to data-centered but focuses on the distribution of events through an event bus.
+   - Supports asynchronous communication and is highly adaptable.
+
+### **Specific Architectural Patterns**
+
+_(In detail - )_
+
+1. **Layered Architecture**:
+
+   - **Communication**: Layers interact with adjacent layers via request and response flows.
+   - **Flexibility**: Components are organized into layers, simplifying communication and modifications.
+   - **Diagram Explanation**: The uploaded image with layers N to 1 showing request and response flow represents this pattern.
+
+<img
+  src="/courseContent/cloud-computing/cc-unit1/img2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+2. **Object-Oriented Architecture**:
+
+   - **Loose Coupling**: Objects communicate through method calls, making the system adaptable.
+   - **Communication Mechanisms**: Remote Procedure Call (RPC) or Remote Method Invocation (RMI) are commonly used.
+   - **Examples -** REST API Calls, Web Services, and Java RMI are a few well-known examples
+   - **Diagram Explanation**: The diagram with objects and method calls symbolizes this architecture, highlighting the interaction between distributed components.
+
+<img
+  src="/courseContent/cloud-computing/cc-unit1/img3.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+3. **Data-Centered Architecture**:
+
+   - **Central Data Repository**: All data is stored centrally and components subscribe to the data they need.
+   - **Publish/Subscribe Model**: Components receive data as it changes or is updated.
+   - **Examples -** Distributed file systems, producer-consumer systems, and web-based data services are a few well-known examples.
+   - **Diagram Explanation**: The diagram with a central cloud representing the shared data space and components around it illustrates this architecture.
+
+<img
+  src="/courseContent/cloud-computing/cc-unit1/img4.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+4. **Event-Based Architecture**:
+
+   - **Central Event Bus**: Events are dispatched to interested components as they occur.
+   - **Notification**: Components are informed of events relevant to them.
+   - **Explanation -**
+     - In this architecture, the entire communication is done through events.
+     - When an event occurs, the system, as well as the receiver, get notified. Data, URLs etc are transmitted through events.
+     - The components of this system are loosely coupled that’s why it is easy to add, remove and modify them.
+     - One significant benefit is that these heterogeneous components can communicate with the bus using any protocol
+   - **Diagram Explanation**: The uploaded image depicting the Event Bus and components interacting through events is emblematic of this pattern.
+
+<img
+  src="/courseContent/cloud-computing/cc-unit1/img5.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+### Distributed Systems: Overview
+
+Distributed systems consist of multiple interconnected computers that appear as a single coherent system to the end-user. These systems are characterized by their ability to manage workloads by distributing tasks across various machines, improving performance and reliability. If one component fails, others can take over, thus providing fault tolerance and continuous service.
+
+## Fundamental Models
+
+- **Interaction Models**: Address performance issues like timing and the rate of event handling.
+- **Failure Models**: Define how systems handle different types of failures, including omission and arbitrary failures.
+- **Security Models**: Concerned with protecting systems from threats to processes and communication channels.
+
+### Interaction Model Challenges
+
+- Unpredictable timing and varying message delivery rates are common in distributed systems.
+- Processes maintain their own state with no single unified time, leading to clock drifts and coordination challenges.
+
+### Performance Considerations
+
+- **Latency**: The delay between message transmission and receipt, affected by network traffic and processing time.
+- **Bandwidth**: The volume of data that can be transmitted over a network within a certain time frame.
+
+### Interaction Model Flavours
+
+- **Synchronous Model**: Assumes known time boundaries for execution and clock drift, uses timeouts for failure detection.
+- **Asynchronous Model**: Makes no assumptions about timing, allowing more flexible resource sharing and complex designs.
+
+### Failure Models
+
+- **Omission Failures**: Messages or actions that are dropped or missed. Process crashed and will not execute any further.
+- **Arbitrary (Byzantine) Failures**: Erratic behavior from processes or channels that are unpredictable and harder to detect. Integrity of data or processing steps are in error and undetectable by other processes.
+
+### **Omission and Arbitrary Failures**
+
+Omission and arbitrary failures refer to the various ways in which a distributed system can fail. Failures in distributed systems are typically categorized by how they affect either the processes or the communication channels.
+
+1. **Fail-stop**: This type of failure occurs when a process halts and remains halted. Other processes in the system may be able to detect this halt.
+2. **Crash**: Similar to a fail-stop, a crash means the process halts and remains halted. However, other processes might not be able to detect this state.
+3. **Omission**: This occurs when a message that is supposed to be sent or received is not. For example, a message might be lost in the network, or a process might fail to place a message into its outgoing message buffer.
+4. **Send-omission**: A process completes a send operation, but the message is not put in its outgoing message buffer, leading to a failure to send the message.
+5. **Receive-omission**: A process fails to take a message from its incoming message buffer, thus failing to receive it.
+6. **Arbitrary (Byzantine)**: This is the most severe type of failure, where a process or channel may exhibit unpredictable or incorrect behavior. This could include sending messages at arbitrary times, committing omissions, or executing incorrect operations.
+
+### **Timing Failures**
+
+Timing failures are related to the performance aspects of a distributed system, particularly concerning the adherence to time constraints.
+
+1. **Clock**: This type of failure is when a process's local clock drifts too much from real time, leading to inconsistencies in time-dependent processes.
+2. **Performance (Process)**: A failure where a process takes longer than the expected or bounded time to complete its steps.
+3. **Performance (Channel)**: When the transmission of a message takes longer than the stated bound, causing delays in communication.
+
+These types of failures have different implications for synchronous and asynchronous systems. Synchronous systems operate with defined time limits, making certain types of timing failures more critical, as they can lead to a breakdown in the coordination between processes. Asynchronous systems, on the other hand, do not guarantee time limits, which means that timing failures may have less impact on the system's overall functioning.
+
+### **Masking Failures**
+
+Masking failures are techniques or mechanisms that make the system continue to operate in the presence of failures.
+
+1. **Checksums**: These are used to detect errors in data transmission. If a checksum does not match, the data can be retransmitted.
+2. **Message Retransmission**: If a message is known to be lost or corrupted, it can be sent again to ensure delivery.
+3. **Redundant Servers**: By having multiple servers performing the same task, the system can tolerate the failure of one or more servers without service interruption.
+4. **Validity**: Any message is eventually delivered, assuming the network and processes are operational.
+5. **Integrity**: A message received is identical to the message sent, and no messages are delivered twice.
+
+### Processes and Channels
+
+- Communication in distributed systems occurs between processes through channels, each having their own message buffers.
+- Ensuring reliable communication despite potential failures is a key aspect of system design.
+
+### **Failure Models in Distributed Systems:**
+
+1. **Access Rights and Principles:**
+   - The client-server model is foundational in distributed systems, where clients request services and servers provide them.
+   - Access rights define what operations can be performed on shared resources or objects within the system.
+   - Principles refer to the entities (users or processes) that have specific access rights.
+2. **Security Threats:**
+   - Distributed systems face security threats from adversaries who may have legitimate or unauthorized access to the network.
+   - Threats to processes make identity verification challenging, as clients or servers may not be able to confirm each other’s identity.
+   - Communication channels are vulnerable, allowing adversaries to copy, alter, or inject messages.
+   - Denial of Service (DoS) attacks occur when the system is overwhelmed with excessive requests, depleting resources.
+   - Mobile code security concerns arise from malicious software like Trojan horses and viruses.
+3. **The Enemy (Adversary):**
+   - An illustration of an adversary in the communication channel shows the potential for intercepting and modifying messages between processes.
+   - The adversary’s ability to copy and alter messages compromises the integrity and confidentiality of the communication.
+4. **Defeating Security Threats:**
+   - Encryption using cryptography, particularly secret key pairs, is essential for secure message exchanges.
+   - Authentication ensures that message senders are who they claim to be, protecting against impersonation.
+   - Secure channels, like those using SSL (Secure Socket Layer), provide a protected pathway for communication, ensuring that messages are not intercepted or tampered with.
+   - Designing with worst-case scenarios in mind helps in building robust security measures.
+5. **Secure Channels:**
+   - Secure channels between processes are depicted, emphasizing the importance of protecting communication in a distributed system.
+   - The use of secure channels prevents adversaries from gaining access to the messages being exchanged, ensuring that communication remains confidential and unaltered.
+
+**Summary:**
+
+Distributed systems are composed of independent yet interconnected computers that cooperate to perform collective tasks. These systems are characterized by their scalability, resilience to faults, and ability to manage a heterogeneous mix of resources and processes. However, distributed systems must confront various challenges, including latency in communications, maintaining data consistency, detecting and handling faults, and securing the network from various threats.
+
+Architectural models like client-server and peer-to-peer frameworks provide structure to these systems, and communication is facilitated through mechanisms such as message passing and RPCs. Applications of distributed systems are vast and include distributed databases and file systems, which are crucial for handling large datasets over networks.
+
+Consistency models are implemented to ensure data remains consistent across the system. Replication enhances reliability, and load balancing optimizes resource utilization. Examples of distributed systems in use today include Google's backend infrastructure and Amazon Web Services.
+
+Emerging trends in the field point towards edge computing to reduce latency, the adoption of blockchain technology for secure transactions, and serverless computing models for more efficient resource usage. Distributed systems will continue to evolve, striking a balance between their inherent benefits and the complexities they introduce. Innovations in this area are pivotal to the advancement of technology and the way we interact with and leverage computational resources.
