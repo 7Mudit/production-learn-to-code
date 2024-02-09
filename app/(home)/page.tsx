@@ -12,6 +12,7 @@ import Footer from "@/components/homePage/Footer";
 import CardsSection from "@/components/homePage/CardsSection";
 import PricingSection from "@/components/homePage/PricingSection";
 import Works from "@/components/homePage/Works";
+import { GoogleGeminiEffectDemo } from "@/components/homePage/PipesAceternity";
 
 export default function Home() {
   return (
@@ -38,7 +39,8 @@ export default function Home() {
         {/* This is my works section */}
         <CardsSection />
         <PricingSection />
-        <Pipes />
+        {/* <Pipes /> */}
+        <GoogleGeminiEffectDemo />
         <div className="w-11/12 relative mx-auto">
           <Footer />
         </div>
