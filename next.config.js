@@ -7,7 +7,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ["tenor.com"],
+    domains: ["tenor.com", "aceternity.com"],
     // Allow images from all domains
     remotePatterns: [
       {

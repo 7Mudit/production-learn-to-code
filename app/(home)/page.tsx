@@ -13,13 +13,15 @@ import CardsSection from "@/components/homePage/CardsSection";
 import PricingSection from "@/components/homePage/PricingSection";
 import Works from "@/components/homePage/Works";
 import { GoogleGeminiEffectDemo } from "@/components/homePage/PipesAceternity";
+import { HeroParallaxDemo } from "@/components/homePage/HeroParallax";
 
 export default function Home() {
   return (
     <div>
       <main className="flex relative h-full dark:bg-black bg-white  gap-[50px] sm:gap-[100px] flex-col">
         <Navbar1 />
-        <Hero1 />
+        {/* <Hero1 /> */}
+        <HeroParallaxDemo />
         <MainNavbar />
         <TextClipMaskEffect />
 
