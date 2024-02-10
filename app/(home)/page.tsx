@@ -20,8 +20,8 @@ export default function Home() {
     <div>
       <main className="flex relative h-full dark:bg-black bg-white  gap-[50px] sm:gap-[100px] flex-col">
         <Navbar1 />
-        {/* <Hero1 /> */}
-        <HeroParallaxDemo />
+        <Hero1 />
+        {/* <HeroParallaxDemo /> */}
         <MainNavbar />
         <TextClipMaskEffect />
 
