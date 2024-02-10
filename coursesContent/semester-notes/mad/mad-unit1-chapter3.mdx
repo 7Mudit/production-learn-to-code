@@ -1,0 +1,861 @@
+---
+title: MAD Chapter 3 Unit 1
+description: Complete Chapter 3 Notes.
+date: 2024-02-10
+---
+
+## Chapter 3 → Building Blocks of Mobile Apps and Threads
+
+### Layouts and View Groups in Android
+
+Layouts in Android are subclasses of `ViewGroup` and are used to arrange child views in a particular manner on the screen. Each layout type has its own properties and behaviors for how it positions its children.
+
+### Common Layout Classes
+
+- **ConstraintLayout**: Enables complex layouts with flat view hierarchy by using constraints between views.
+
+  ```xml
+  <ConstraintLayout ...>
+    <!-- child views with constraints here -->
+  </ConstraintLayout>
+
+  ```
+
+- **LinearLayout**: Arranges views in a single column or row, either vertically or horizontally.
+
+  ```xml
+  <LinearLayout android:orientation="vertical" ...>
+    <TextView ... />
+    <Button ... />
+  </LinearLayout>
+
+  ```
+
+- **RelativeLayout**: Allows views to be positioned relative to siblings or parent in terms of positioning.
+
+  ```xml
+  <RelativeLayout ...>
+    <TextView android:layout_below="@id/some_id" ... />
+  </RelativeLayout>
+
+  ```
+
+- **TableLayout**: Groups views into rows and columns without requiring them to be homogenous in size.
+
+  ```xml
+  <TableLayout ...>
+    <TableRow ...>
+      <TextView ... />
+      <TextView ... />
+    </TableRow>
+  </TableLayout>
+
+  ```
+
+- **FrameLayout**: Designed to block out an area on the screen to display a single item.
+
+  ```xml
+  <FrameLayout ...>
+    <ImageView ... />
+  </FrameLayout>
+
+  ```
+
+- **GridView**: Displays items in a two-dimensional, scrollable grid.
+
+  ```xml
+  <GridView ...>
+    <!-- Adapter views here -->
+  </GridView>
+
+  ```
+
+### Creating Layouts Programmatically
+
+Layouts can also be created in Java code within an Activity:
+
+```java
+LinearLayout linearLayout = new LinearLayout(this);
+linearLayout.setOrientation(LinearLayout.VERTICAL);
+TextView textView = new TextView(this);
+textView.setText("Display this text!");
+linearLayout.addView(textView);
+setContentView(linearLayout);
+
+```
+
+### Setting Width and Height in Java
+
+When setting layout parameters programmatically:
+
+```java
+LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+    LinearLayout.LayoutParams.MATCH_PARENT,
+    LinearLayout.LayoutParams.WRAP_CONTENT
+);
+myView.setLayoutParams(layoutParams);
+
+```
+
+### Event Handling
+
+In Android, events such as clicks, taps, or system events like `onCreate`, are responded to with event handlers.
+
+**XML Event Handling Example**:
+
+```xml
+<Button
+    android:id="@+id/myButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="handleButtonClick"
+    android:text="@string/button_text" />
+
+```
+
+**Java Event Handling Example**:
+
+```java
+Button button = findViewById(R.id.myButton);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Code to perform on click
+        showToast("Button clicked!");
+    }
+});
+
+// Example showToast method
+public void showToast(String message) {
+    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+}
+
+```
+
+### Resources
+
+Resources in Android (like strings, dimensions, and images) are kept in XML files under the `res` directory, enabling better organization and easier localization.
+
+**Referencing Resources in Code**:
+
+```java
+// In Java
+String appname = getString(R.string.app_name);
+
+// In XML
+<TextView
+    android:text="@string/welcome_message" ... />
+
+```
+
+### Screen Measurements
+
+Android uses different units of measurement to ensure consistency and adaptability across different screen sizes and densities:
+
+- **dp (device independent pixels)**: Used for UI elements to ensure consistent sizing across different screen densities.
+- **sp (scale independent pixels)**: Used for text size, it scales with the user's preferred text size.
+
+**Using Measurements in XML**:
+
+```xml
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="16sp" ... />
+
+```
+
+**Using Measurements in Java**:
+
+```java
+TextView textView = new TextView(this);
+float textSizeInSp = 16f;
+textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSizeInSp);
+
+```
+
+### Views, ViewGroups, and View Hierarchy
+
+Every component that you interact with on an Android device is a `View`. Views can be combined into `ViewGroups` which form the layout. `ViewGroups` themselves can nest other `ViewGroups`, creating a hierarchy.
+
+**Creating and Laying Out Views**:
+
+You can define views and their layout via the Android Studio's graphical layout editor or by writing XML files manually. For dynamic or conditional UI creation, you may also construct and arrange views programmatically in Java or Kotlin code.
+
+### Context in Android
+
+Context is an interface that provides access to application-specific resources and classes, as well as up-calls for application-level operations such as launching activities and receiving intents.
+
+**Getting Context**:
+
+```java
+Context context = getApplicationContext(); // Application context
+Context activityContext = this; // Activity context, since Activity is a subclass of Context
+
+```
+
+### Custom Views
+
+In cases where built-in views do not meet the requirements, you can create custom views by extending an existing View class or by directly subclassing the View class.
+
+**Creating a Custom View Example**:
+
+```java
+public class MyCustomView extends View {
+    // Constructor
+    public MyCustomView(Context context) {
+        super(context);
+        // Initialization code
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        // Drawing code
+    }
+}
+
+```
+
+### ViewGroup & View Hierarchy
+
+A `ViewGroup` is a container that holds other Views (which are also referred to as "children"). The `ViewGroup` is responsible for arranging the child Views.
+
+**Creating a ScrollView Example**:
+
+```xml
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- Child views here -->
+    </LinearLayout>
+</ScrollView>
+
+```
+
+**What is an Activity?**
+
+- An Activity is a fundamental component of Android applications.
+- It represents a single screen with a user interface, essentially one view hierarchy.
+- An Activity typically occupies the full screen but can also be used as a floating window or be embedded within another Activity.
+- It is a Java class, and each Activity usually corresponds to one Java file in an Android project.
+
+**What does an Activity do?**
+
+- An Activity facilitates user interactions and represents a single, focused thing that the user can do, like ordering groceries or sending emails.
+- It manages user interactions such as button clicks and text input.
+- An Activity can start other activities within the same or different applications.
+- It follows a lifecycle: created, started, paused, resumed, stopped, and destroyed.
+
+**Apps and Activities**
+
+- Activities are the building blocks of an Android app. They work together to form a cohesive user experience.
+- The first Activity that a user interacts with is typically the main Activity.
+- In the Android manifest file, Activities can be arranged in parent-child relationships to support proper navigation within the app.
+
+**Layouts and Activities**
+
+- Activities usually have a UI layout defined in XML layout files.
+- During creation, an Activity will inflate its layout from XML, creating the View hierarchy that will be displayed.
+
+**What is an Intent?**
+
+- An Intent is a messaging object used to request an action from another app component.
+- It allows for the application to interact with other components of the Android system to perform operations like starting Activities or services.
+
+**What can Intents do?**
+
+- **Start Activities**: For example, open a new screen for text entry or sharing content.
+- **Start Services**: For example, download a file in the background.
+- **Deliver Broadcasts**: System-wide announcements, such as notifying when the phone starts charging.
+
+**Explicit and Implicit Intents**
+
+- **Explicit Intent**: Specifies the exact Activity to start, like asking for a specific service.
+
+  ```java
+  Intent intent = new Intent(this, TargetActivity.class);
+  startActivity(intent);
+
+  ```
+
+- **Implicit Intent**: Requests an action that any app can perform, like sending a message or taking a photo.
+
+  ```java
+  Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("<http://example.com>"));
+  startActivity(intent);
+
+  ```
+
+**How Activities Run**
+
+- Activities are managed by the Android runtime system.
+- They are usually started by sending an Intent to the runtime, specifying the Activity to run.
+
+**Sending Data with Intents**
+
+- **Data**: Information represented by a URI that the system can use to retrieve the data.
+- **Extras**: Additional data passed as key-value pairs in a Bundle.
+
+  ```java
+  Intent intent = new Intent(this, TargetActivity.class);
+  intent.putExtra("key", "value");
+  startActivity(intent);
+
+  ```
+
+**Activity Stack**
+
+- When a new Activity starts, the previous one is paused and added to a back stack, which is a LIFO structure.
+- Pressing the back button or ending the current Activity pops the top of the stack, resuming the previous Activity.
+
+**Activity Navigation**
+
+- **Temporal Navigation (Back Navigation)**: Managed by the back stack, allows the user to navigate to the previous Activity.
+- **Ancestral Navigation (Up Navigation)**: Defined by parent-child relationships in the Android manifest, usually implemented with an "Up" button in the app bar.
+
+**Activity Stack and Navigation**
+
+- The Activity stack keeps track of all launched Activities.
+- Each task has its own stack, and switching tasks brings that task's stack into focus.
+- Starting an Activity from the home screen starts a new task.
+- Tasks can be navigated using the overview screen (recent tasks screen).
+
+**Up vs. Back Navigation**
+
+- **Back Navigation**: Moves through the Activity stack in reverse chronological order.
+- **Up Navigation**: Moves up the app's hierarchy to the logical parent, not necessarily the chronological previous Activity.
+
+### Activity Lifecycle and Navigation:
+
+**Back Navigation:**
+
+- When an Activity starts another, the first Activity is stopped and placed onto a "back stack."
+- The back stack maintains a history of Activities that have been opened, in reverse order.
+- Each task has its own back stack, which is brought to the foreground when switching between tasks.
+- Starting an Activity from the home screen initiates a new task with its own back stack.
+- Users can navigate between tasks using the overview or recent tasks screen.
+
+**Up Navigation:**
+
+- Up navigation is designed to navigate within an app based on the logical structure as defined in the Android manifest.
+- In the manifest, you define the parent of each Activity using `parentActivityName`:
+
+  ```xml
+  <activity
+     android:name=".ShowDinnerActivity"
+     android:parentActivityName=".MainActivity">
+  </activity>
+
+  ```
+
+**Activity Lifecycle:**
+
+<img
+  src="/courseContent/mad/chapter3/img.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+- **Created**: The Activity is being initialized. `onCreate()` is called with a Bundle containing the previous saved state, if any.
+- **Started**: The Activity becomes visible to the user. `onStart()` is invoked.
+- **Resumed/Running**: The Activity starts interacting with the user. `onResume()` is triggered.
+- **Paused**: The Activity is partially visible but not active as the user is leaving it. `onPause()` is called, which should be used to stop animations and other CPU-intensive operations.
+- **Stopped**: The Activity is no longer visible. `onStop()` is called, indicating heavier "clean-up" operations.
+- **Destroyed**: The Activity is being removed from memory. `onDestroy()` is called, and this is where you should clean up any remaining resources.
+
+**Configuration Changes:**
+
+- Configuration changes, like screen rotations or language changes, trigger a destruction and recreation of the Activity unless the Activity has specified handling for configuration changes in the manifest.
+- Android calls `onPause()`, `onStop()`, and `onDestroy()` followed by `onCreate()`, `onStart()`, and `onResume()` on configuration changes.
+
+**Saving and Restoring Activity State:**
+
+- **Saving Instance State**: Overriding `onSaveInstanceState()` allows you to save transient UI state to a Bundle to prevent data loss when an Activity is unexpectedly destroyed and recreated.
+- **Restoring Instance State**: The saved state can be restored in `onCreate()` or `onRestoreInstanceState()`.
+- **Persistent Data**: For data that needs to persist beyond the current session, you should use shared preferences, a database, or other persistent storage options.
+
+### Code Snippets:
+
+**Switching Activities with Intent:**
+
+```java
+Intent intent = new Intent(CurrentActivity.this, NextActivity.class);
+startActivity(intent);
+
+```
+
+**Saving Instance State:**
+
+```java
+@Override
+public void onSaveInstanceState(Bundle savedInstanceState) {
+    // Save the user's current game state
+    savedInstanceState.putInt("SCORE", currentScore);
+    savedInstanceState.putInt("LEVEL", currentLevel);
+
+    // Always call the superclass so it can save the view hierarchy state
+    super.onSaveInstanceState(savedInstanceState);
+}
+
+```
+
+**Restoring Instance State:**
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // Restore state members from saved instance
+    if (savedInstanceState != null) {
+        currentScore = savedInstanceState.getInt("SCORE");
+        currentLevel = savedInstanceState.getInt("LEVEL");
+    }
+}
+
+```
+
+**Handling Configuration Changes:**
+To handle configuration changes like screen rotation, you can declare the Activity configuration changes in the manifest:
+
+```xml
+<activity android:name=".MyActivity"
+          android:configChanges="orientation|screenSize">
+    <!-- ... -->
+</activity>
+
+```
+
+### The Main Thread in Android
+
+- The main thread, also known as the UI thread, is essential for maintaining a responsive app by handling UI updates and events.
+- Operations on the main thread must complete within 16 milliseconds to prevent app stutter or hang.
+- Long operations must be offloaded to background threads to prevent Application Not Responding (ANR) dialogs.
+- The Android UI toolkit is not thread-safe, necessitating all UI manipulations to occur on the main thread.
+- Two main rules for the main thread:
+  - Do not block the UI thread.
+  - Do not access the UI toolkit from outside the UI thread.
+    <img
+      src="/courseContent/mad/chapter3/img1.png"
+      width="718"
+      height="404"
+      alt="Image"
+      className="shadow-xl rounded-xl"
+    />
+
+### Broadcasts in Android
+
+- Broadcasts enable apps to send or receive messages, functioning similarly to the publish-subscribe pattern.
+- System broadcasts are sent for system-wide events, while apps can send custom broadcasts to communicate with each other.
+- Apps must subscribe to receive specific broadcasts.
+- There are three ways to send broadcasts in Android:
+  - `sendOrderedBroadcast`: Sends broadcasts one at a time, sequentially.
+  - `sendBroadcast`: Sends broadcasts to all receivers without a defined order.
+  - `LocalBroadcastManager.sendBroadcast`: Sends broadcasts internally within the app.
+
+### SMS in Android
+
+- SMS is a protocol used for sending text messages between mobile devices, supporting up to 160 characters.
+- SMS is reliable and discrete, functioning without an internet connection and preserving conversations until deletion.
+- Unlike data-driven messaging services, SMS messages often incur costs per message sent.
+- SMS cannot be unsent, and messages are limited in length compared to other modern messaging solutions.
+
+### Main Thread Detailed Explanation
+
+- Android does not create separate threads for each component. All components that run in the same process are instantiated in the UI thread.
+- The UI thread is responsible for dispatching events to UI widgets and handling system callbacks.
+- Intensive operations triggered by user interactions must be performed in background threads to maintain smooth UI performance.
+- ANR dialogs occur when the UI thread is blocked for too long, usually over 5 seconds.
+
+### Broadcasts Detailed Explanation
+
+- Broadcast messages are encapsulated in `Intent` objects.
+- System broadcasts are automatically sent to all subscribed apps, while custom broadcasts can target specific apps or be limited to the sending app.
+- Local broadcasts are more efficient than global broadcasts, as they avoid interprocess communication and potential security concerns.
+
+### SMS Detailed Explanation
+
+- SMS messages are widely supported by GSM, CDMA, and TDMA networks.
+- The primary advantages of SMS include its established reliability, straightforward delivery guarantees, and inherent record-keeping via conversation history.
+- The main disadvantages involve the cost per message and the inherent limitation of message length.
+
+### Advantages of SMS
+
+- **Reliability:** SMS is an established and reliable platform for sending important information with guaranteed delivery.
+- **Discretion:** SMS provides a discreet way of sending information compared to making a phone call, offering privacy in communication.
+- **Universality:** It is available on all mobile devices by default, without the need for any additional setup or internet connection.
+- **Automatic Conversation Logging:** Conversations are automatically saved on the device, providing a record of communication until manually deleted by the user.
+- **Accessibility:** SMS does not require downloading any additional apps since it is a core function of mobile phones.
+
+### Disadvantages of SMS
+
+- **Character Limit:** SMS messages are limited to 160 characters, which can be restrictive and may require multiple messages for longer communication.
+- **Cost:** Sending SMS messages is typically not free and may incur charges, depending on the user's mobile service plan or the country of usage.
+- **Irrevocability:** Once an SMS message is sent, it cannot be unsent or retracted, which can be problematic if sent in error.
+- **No Rich Content:** SMS is limited to text only and does not support rich content like images, videos, or complex formatting found in modern messaging apps.
+- **No Read Receipts:** Unlike some messaging applications, SMS does not provide read receipts or confirmations that the recipient has seen the message.
+- **Dependency on Cellular Network:** SMS requires a cellular network connection to send and receive messages, which may not be available in all areas or when the network is down.
+
+These points cover the primary pros and cons of using SMS for communication on Android devices.
+
+### Processes and Threads Overview in Android
+
+- Android applications typically run in a single process with a single thread of execution known as the main or UI thread.
+- Multiple components can run in this single process and they share the same thread.
+- However, you can specify different components to run in separate processes via the Android manifest.
+- You can also create additional threads in any process for background tasks.
+
+### What are Threads in Android?
+
+- A thread is a concurrent unit of execution in Android. It allows operations to run in the background, separate from the UI thread.
+- In Android, the main thread handles all UI operations. Any long-running tasks in the main thread can freeze the UI, leading to an Application Not Responding (ANR) error.
+
+### Using Threads in Android with Examples
+
+- Threads are used for tasks that shouldn't block the main thread, like network calls or heavy computations.
+- **Kotlin Coroutine Example**:
+
+  ```kotlin
+  GlobalScope.launch {
+    // Background thread tasks
+  }
+
+  ```
+
+- **Java Thread Example**:
+
+  ```java
+  new Thread(new Runnable() {
+    public void run() {
+      // Background thread tasks
+    }
+  }).start();
+
+  ```
+
+### AsyncTask and Services
+
+- `AsyncTask` is a class that allows you to perform background operations and publish results on the UI thread without having to manipulate threads and handlers. It is now deprecated.
+- Services are components that can perform long-running operations in the background.
+
+### Implementing Threads in Android Apps
+
+- **Step 1**: Create a new Android Studio project.
+- **Step 2**: Define the user interface in XML.
+- **Step 3**: Implement the activity logic. Use AsyncTask (deprecated) or an alternative like coroutines, Handlers, or Java threads.
+
+### XML Code for Layout
+
+- Define layouts using XML in Android to structure the user interface of your application.
+- Use `LinearLayout`, `RelativeLayout`, or `ConstraintLayout` to arrange UI components.
+
+```java
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/result_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result will appear here"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start" />
+</LinearLayout>
+
+```
+
+### Kotlin and Java Code for AsyncTask
+
+- Use AsyncTask class to handle background tasks and update the UI accordingly.
+- **Kotlin Example**:
+
+  ```kotlin
+  inner class MyTask : AsyncTask<Void, Void, String>() {
+    override fun doInBackground(vararg params: Void?): String {
+      // Background work
+      return "Task Completed"
+    }
+
+    override fun onPostExecute(result: String) {
+      // Update UI
+    }
+  }
+
+  ```
+
+- **Java Example**:
+
+  ```java
+  private class MyTask extends AsyncTask<Void, Void, String> {
+    protected String doInBackground(Void... params) {
+      // Background work
+      return "Task Completed";
+    }
+
+    protected void onPostExecute(String result) {
+      // Update UI
+    }
+  }
+
+  ```
+
+### Threading Best Practices
+
+- Keep the main thread free from heavy tasks to ensure a responsive UI.
+- Use worker threads for CPU-intensive tasks.
+- Manage threads properly to avoid memory leaks or crashes.
+
+### Implementing Threading in Android Studio
+
+- Design the UI in the `activity_main.xml` using various layout managers.
+- In the `MainActivity`, set up event listeners for user actions that trigger background tasks.
+- Manage thread lifecycle to avoid leaks and ensure proper execution.
+
+### Resources in Android Projects
+
+- XML files define the UI and resources like strings and colors, separating them from the logic in Java/Kotlin code.
+- Access these resources using the `R` class in your code to maintain modularity and ease of localization.
+
+When working with threads in Android, it is crucial to follow best practices to ensure that your app remains responsive and does not suffer from performance issues. Always remember to offload heavy operations to background threads and properly manage the lifecycle of each thread.
+
+### Kotlin Code Example for Background Task Execution:
+
+```kotlin
+// Import necessary libraries
+import android.os.AsyncTask
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+// Define MainActivity class which is a subclass of AppCompatActivity
+class MainActivity : AppCompatActivity() {
+
+    // Declare a TextView variable to display the result
+    private lateinit var resultTextView: TextView
+
+    // onCreate is the first method called when the activity is created
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main) // Set the content view to the XML layout
+
+        // Initialize the TextView and Button by finding them in the layout
+        val startButton = findViewById<Button>(R.id.start_button)
+        resultTextView = findViewById(R.id.result_text_view)
+
+        // Set an OnClickListener on the start button
+        startButton.setOnClickListener {
+            BackgroundTask().execute() // Execute the background task when the button is clicked
+        }
+    }
+
+    // Define BackgroundTask class which is an inner class and a subclass of AsyncTask
+    private inner class BackgroundTask : AsyncTask<Void?, Void?, String>() {
+        // onPostExecute is called when the background task is finished
+        override fun onPostExecute(result: String) {
+            resultTextView.text = result // Update the TextView with the result
+        }
+
+        // doInBackground is where the background task is performed
+        override fun doInBackground(vararg p0: Void?): String {
+            try {
+                Thread.sleep(5000) // Simulate a long-running operation
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+            return "Task Completed" // Return the result that will be passed to onPostExecute
+        }
+    }
+}
+
+```
+
+### Java Code Example for Background Task Execution:
+
+```java
+// Import necessary libraries
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+// Define MainActivity class which is a subclass of AppCompatActivity
+public class MainActivity extends AppCompatActivity {
+
+    // Declare a TextView variable to display the result
+    private TextView resultTextView;
+
+    // onCreate is the first method called when the activity is created
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); // Set the content view to the XML layout
+
+        // Initialize the TextView and Button by finding them in the layout
+        Button startButton = findViewById(R.id.start_button);
+        resultTextView = findViewById(R.id.result_text_view);
+
+        // Set an OnClickListener for the start button
+        startButton.setOnClickListener(view -> new BackgroundTask().execute()); // Execute the background task when the button is clicked
+    }
+
+    // Define BackgroundTask class which is an inner class and a subclass of AsyncTask
+    private class BackgroundTask extends AsyncTask<Void, Void, String> {
+        // doInBackground is where the background task is performed
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                Thread.sleep(5000); // Simulate a long-running operation
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "Task Completed"; // Return the result that will be passed to onPostExecute
+        }
+
+        // onPostExecute is called when the background task is finished
+        @Override
+        protected void onPostExecute(String result) {
+            resultTextView.setText(result); // Update the TextView with the result
+        }
+    }
+}
+
+```
+
+In both examples, an asynchronous task is created to perform a background operation (in this case, a simple sleep for 5 seconds to simulate a long-running task) and then update the UI thread with the result. The AsyncTask is triggered by a button click in the activity's layout. After the task is completed, it updates the `TextView` on the UI to display a string indicating the task has been completed.
+
+This pattern is commonly used in Android to offload operations that would otherwise block the UI thread, ensuring the app remains responsive to user interactions. However, as AsyncTask is deprecated, it's recommended to use alternatives like Java's Executor framework, Kotlin Coroutines, or Android's WorkManager for such background operations.
+
+### Asynchronous Tasks in Android:
+
+- **AsyncTask**: An abstract class in Android that handles heavy lifting of tasks in the background to keep the UI thread light and responsive.
+- **Single Thread Limitation**: Android apps run on a single main thread by default, which can become unresponsive with time-consuming tasks.
+- **Background Execution**: AsyncTask enables performing background operations and publishing results on the UI thread without causing unresponsiveness.
+- **Usage and Limitations**: Although AsyncTask facilitates operations on the UI thread, it's been deprecated due to issues like Context leaks and inconsistencies across different Android versions. For long-running tasks, Java’s concurrent package components are recommended.
+- **AsyncTask Types**:
+  - **Params**: The type of parameters sent to the task upon execution.
+  - **Progress**: The type of progress units published during the background computation.
+  - **Result**: The type of result of the background computation.
+- **AsyncTask Methods**:
+  - **doInBackground(Params...)**: Code to run in the background. Can use `publishProgress(Progress...)` to send updates to the UI thread.
+  - **onPreExecute()**: Runs before the task begins, setting up any necessary preconditions.
+  - **onPostExecute(Result)**: Runs after `doInBackground` completes, with the result passed as a parameter. Used to update the UI with the results.
+  - **onProgressUpdate(Progress...)**: Invoked on the UI thread after `publishProgress(Progress...)` is called. Used for displaying any form of progress in the user interface.
+
+### Threads in Android(Recap):
+
+- **Main/UI Thread**: The primary thread where the application's UI is updated and user interaction is handled. Long operations here can cause an ANR (Application Not Responding) dialog.
+- **Worker Threads**: For tasks that shouldn't block the UI thread, such as networking or database operations.
+- **Thread Management**: AsyncTask, Executors, Services, IntentService, and JobScheduler are all mechanisms to handle background tasks in Android.
+- **Threading Rules**:
+  - Never block the UI thread.
+  - Don't access the Android UI toolkit from outside the UI thread.
+
+## Services
+
+Services in Android are components that handle operations intended to run in the background. They don't provide a user interface. Instead, they work behind the scenes as long as they are active, even if the user is interacting with a different application. This feature is particularly useful for tasks such as playing music, handling network transactions, or interacting with content providers.
+
+**Types of Android Services:**
+
+1. **Foreground Services:** They perform operations noticeable by the user. For example, a music app using a service to play music will show a notification indicating that the music is playing. The user can interact with this service through the notification interface, controlling the music playback.
+2. **Background Services:** These services perform tasks that aren't directly noticed by the user. For example, an app that syncs data in the background or saves data to a database without user interaction would use a background service.
+3. Bound Services: These services offer a client-server interface that allows components (like activities) to interact with the service, send requests, receive responses, and perform interprocess communication (IPC). Bound services run only as long as another application component is bound to them.
+
+**Service Lifecycle:**
+
+- **Started Services (Unbounded Services)**: These services are started by calling the `startService()` method. They can continue to run in the background indefinitely, even if the component that started them is destroyed. They can be stopped by calling `stopService()` or `stopSelf()`.
+- **Bound Services**: These services allow components to bind to the service using `bindService()`. The service runs only as long as it is bound to a component. When all components unbind, the service is destroyed.
+
+**Lifecycle Methods:**
+
+- **onStartCommand()**: This method is called when a component, such as an activity, requests the service to start by calling `startService()`.
+- **onBind()**: This method is invoked when a component wants to bind with the service using `bindService()`. It must return an `IBinder` object through which the component can communicate with the service.
+
+### Some important methods of Android services-
+
+| Method      | Description                                                                                                                                                                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onUnbind()  | The Android system invokes this method when all the clients get disconnected from a particular service interface.                                                                                                                                    |
+| onRebind()  | Once all clients are disconnected from the particular interface of service and there is a need to connect the service with new clients, the system calls this method.                                                                                |
+| onCreate()  | Whenever a service is created either using onStartCommand() or onBind(), the android system calls this method. This method is necessary to perform a one-time-set-up.                                                                                |
+| onDestroy() | When a service is no longer in use, the system invokes this method just before the service destroys as a final clean up call. Services must implement this method in order to clean up resources like registered listeners, threads, receivers, etc. |
+
+**Service Implementation Steps:**
+
+1. **Create a new project** in Android Studio and choose an Empty Activity.
+2. **Modify the `strings.xml` file** if needed to include the strings used in the app.
+3. **Work with the `activity_main.xml` file** to add UI elements like buttons to start and stop the service.
+4. **Create a custom service class** by extending the `Service` class and implementing callback methods.
+5. **Implement functionality in the MainActivity** class to handle button clicks to start and stop the service.
+6. **Modify the `AndroidManifest.xml` file** to declare the service so that the Android system recognizes it.
+
+An example of using a service in Android is playing music in the background. When a user starts the service, the music will continue to play even if the user navigates away from the app or closes it. The music will only stop if the user explicitly stops the service.
+
+**Here's an example of how a service might be implemented in code:**
+
+```java
+public class MyService extends Service {
+    private MediaPlayer mediaPlayer;
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // Start the music player
+        mediaPlayer = MediaPlayer.create(this, R.raw.music_file);
+        mediaPlayer.start();
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        // Stop the music player
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        // Return the communication channel to the service
+        return null; // No binding provided
+    }
+}
+
+```
+
+In the AndroidManifest.xml file, you would declare the service like this:
+
+```xml
+<service android:name=".MyService" />
+
+```
+
+In the MainActivity class, you could start the service when a button is clicked like this:
+
+```java
+public void startMusicService(View view) {
+    startService(new Intent(this, MyService.class));
+}
+
+public void stopMusicService(View view) {
+    stopService(new Intent(this, MyService.class));
+}
+
+```
+
+Remember, the actual implementation might vary based on the specific needs of your application and the version of Android you are targeting.
