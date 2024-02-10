@@ -1,0 +1,343 @@
+---
+title: MAD Chapter 2 Unit 1
+description: Complete Chapter 2 Notes.
+date: 2024-02-10
+---
+
+## **Chapter 2 → Introduction to Mobility**
+
+## Mobility Landscape in Mobile Application Development
+
+**Mobility in Development**:
+
+- **Mobility** refers to the user engagement with mobile devices, which includes how frequently an app or website is used, content consumption, searches, and the use of location services.
+- The term contrasts with **mobile**, which refers to the devices themselves.
+
+### Platforms in Mobile App Development
+
+**Mobile Application Development Platform (MADP)**:
+
+- MADPs are software that allows businesses to quickly build, test, and deploy mobile apps for various devices such as smartphones and tablets.
+- Businesses can choose to develop their own MADP or purchase third-party solutions.
+
+**Types of Mobile Platforms**:
+
+- Includes Palm, BlackBerry, iPhone, Android, and Windows Mobile.
+- Mobile operating systems provide the framework for applications to share data and services.
+
+### Symbian OS
+
+**Background**:
+
+- Symbian was a mobile operating system initially developed in 1988 for PDAs and was used by brands like Samsung, Sony Ericsson, and Nokia.
+- It included a microkernel and user interface, written in C++.
+
+**Versions**:
+
+- EPOC32
+- Symbian OS 6.0 and 6.1 through to Symbian OS 9.5
+
+**Features**:
+
+- Offered a browser, messaging, multimedia, telephony, data synchronization, and multitasking, among other features.
+
+**Advantages**:
+
+- Open platform for third-party app development.
+- Known for impressive battery life and lower hardware requirements.
+
+**Disadvantages**:
+
+- Over-reliance on Nokia.
+- Slower response times compared to iOS and Android.
+- Less smooth touchscreen experience.
+
+### Android OS
+
+**Background**:
+
+- Developed by Google, Android is based on the Linux OS and is designed for touchscreen devices like smartphones and tablets.
+- Written in Java, Android has brought significant changes to mobile technology.
+
+**Evolution**:
+
+- Originally developed by Android Inc., bought by Google in 2007.
+- The first commercial Android device was the HTC Dream, launched in 2008.
+- Android has gone through many updates, with the latest at the time being Android 9.0 Pie.
+
+**Versions**:
+
+- Lists versions from Android 1.0 to Android 9.0 Pie, each with different codenames and release years.
+
+**Features**:
+
+- Hardware-based features include audio, Bluetooth, GSM, microphone, NFC, and sensors.
+- Software-based features include widgets, home screen customization, input methods, and a wide array of supported media types.
+
+**Advantages**:
+
+- Open-source based on Linux.
+- Multitasking capabilities.
+- Large app market with Google Play Store.
+- Notifications and widget support.
+
+**Disadvantages**:
+
+- Many features require an active internet connection.
+- Higher battery consumption due to background processing.
+- Security vulnerabilities when compared to iOS.
+
+### iOS
+
+**Background**:
+
+- Designed and developed by Apple Inc., iOS is widely used after Android and is designed for iPhone, iPad, and iPod Touch.
+- Known for its security features and intuitive touch interface.
+
+**Evolution**:
+
+- Conceptualized by Steve Jobs and developed by Scott Forstall.
+- The first iPhone with iOS was released in 2007, and the App Store launched in 2008 with 500 apps.
+- Apple renamed iPhone OS to iOS in 2010, with the latest version being iOS 11 at the time of the text.
+
+**Versions**:
+
+- Lists versions from iPhone OS 1 to iOS 11, with release years.
+
+**Features**:
+
+- Includes home screen, Touch ID, iCloud, Health app, Siri, Safari browser, camera, Game Center, Bluetooth, and Wi-Fi, among others.
+
+**Advantages**:
+
+- Superior performance and gaming experience.
+- Less heat generation during processing.
+- Excellent security features and options for customization through Jailbreaking.
+
+**Disadvantages**:
+
+- Limited to Apple devices.
+- Not open-source.
+- High cost for devices and apps.
+- Single SIM support and larger app sizes compared to other platforms.
+
+### Windows vs Android vs iOS Comparison Table
+
+**Windows**:
+
+- Owned by Microsoft, launched in 1985, designed for PCs, and charges for its original version.
+
+**Android**:
+
+- Owned by Google, launched in 2008, designed for mobile devices, free of cost, and is the most used OS overall.
+
+**iOS**:
+
+- Owned by Apple, launched in 2007, designed for Apple's mobile devices, and known for its proprietary system and security.
+
+| Feature                | Windows                                 | Android                              | iOS                                 |
+| ---------------------- | --------------------------------------- | ------------------------------------ | ----------------------------------- |
+| Developer/Owner        | Microsoft Corporation                   | Google LLC                           | Apple Inc.                          |
+| Initial Release        | 1985                                    | 2008                                 | 2007                                |
+| Design Focus           | PCs of all companies                    | Specifically for mobile devices      | Apple iPhones and iPads             |
+| Current Stable Version | Windows 11                              | Android 14                           | iOS 17                              |
+| Kernel Type            | Hybrid with modules                     | Linux-based                          | Hybrid                              |
+| License                | Proprietary, Source-available           | Apache 2.0, GNU GPLv2                | Proprietary, APSL, GNU GPL          |
+| Cost                   | Charges for the original version        | Free (inbuilt in smartphones)        | N/A (proprietary to Apple devices)  |
+| Primary Use            | Workstation, PCs, media center, tablets | Smartphones, tablet computers        | Smartphones, music players, tablets |
+| Default Browser        | N/A                                     | Google Chrome (varies by device)     | Safari                              |
+| Voice Assistant        | Cortana                                 | Google Assistant                     | Siri                                |
+| Third-Party App Stores | Varies by device                        | Allows installation                  | Blocks unless jailbroken            |
+| Language Availability  | Varies by version                       | 100+ languages                       | 34 languages                        |
+| Customizability        | Limited                                 | High; almost anything can be changed | Limited unless jailbroken           |
+| File Transfer          | Varies by device and software           | Easier than iOS                      | More difficult compared to Android  |
+
+## Android Versions & API Levels
+
+**Version 1.0 (Apple Pie) - API level 1**
+
+- Introduced Android Market for app downloads and updates.
+- Gmail synchronization within the Gmail application.
+- Google Search function across the internet, apps, contacts, calendar, etc.
+- Instant messaging, text messaging, and MMS capabilities.
+
+**Version 1.5 (Cupcake) - API level 3**
+
+- Video recording/playback in MPEG-4 and 3GP formats.
+- Bluetooth support with auto-pairing and stereo support (A2DP/AVRCP).
+- Copy and paste functionality in the web browser.
+- User pictures for Favorites in Contacts.
+- Screen auto-rotation.
+- Direct video uploads to YouTube.
+
+**Version 1.6 (Donut) - API level 4**
+
+- Enhanced voice and text search including bookmarks, contacts, and the web.
+- Developers can include their content in search results.
+- Multi-lingual speech support.
+- Improved Android Market search and app screenshot viewing.
+- Faster camera access with gallery integration.
+- WVGA screen resolution support.
+
+**Version 2.0 (Eclair) - API level 4**
+
+- Faster typing with an improved virtual keyboard and smarter dictionary.
+- Updated browser UI with new features like double-tap zoom and HTML5 support.
+- Enhanced Google Maps 3.1.2.
+- Multi-touch event tracking support.
+
+**Version 2.2 (Froyo) - API level 8**
+
+- Overall speed, memory, and performance optimizations.
+- JIT compilation for application speed enhancement.
+- Chrome's V8 JavaScript engine integrated into the browser app.
+- Android Cloud to Device Messaging (C2DM) support.
+- USB tethering and Wi-Fi hotspot functionality.
+- Adobe Flash support.
+
+**Version 2.3 (Gingerbread) - API level 9**
+
+- Native SIP VoIP internet telephony support.
+- Enhanced native code development support.
+- Improved gaming audio, graphical, and input features.
+- New Download Manager for easy file access.
+- Performance optimizations.
+
+**Version 3.0 (Honeycomb) - API level 11**
+
+- Hardware acceleration support.
+- Multi-core processor optimization.
+- Full device encryption support.
+- Improved HTTPS and filesystem (FUSE) support.
+- Optimized tablet support with a new interface.
+
+**Version 4.0 (Ice Cream Sandwich) - API level 14**
+
+- Adopted soft buttons from Android 3.x for phones.
+- New tab for widgets, similar to the application list.
+- Drag-and-drop folder creation.
+- Enhanced keyboard error correction.
+- Face Unlock feature.
+- Built-in photo editor.
+- 1080p video recording support.
+
+**Version 4.1 (Jelly Bean) - API level 16**
+
+- Smoother user interface with improved accessibility.
+- Expandable and actionable notifications.
+- Bi-directional text support and language updates.
+- Android Beam for Bluetooth data transfer.
+- Improved camera functionality.
+
+**Version 4.4 (KitKat) - API level 19**
+
+- Refreshed interface with aesthetic changes.
+- Translucency in system bars.
+- NFC host card emulation support.
+- Sensor batching for improved sensor data collection.
+- Built-in screen recording for developers.
+- Bluetooth MAP support.
+
+**Version 5.0 (Lollipop) - API level 21**
+
+- Project Volta for battery life enhancements.
+- Improved lock screen and notification settings.
+- Multiple user accounts and guest logins on phones.
+- USB audio support.
+- Smart Lock feature.
+- Updated emoji and accessibility support.
+
+**Version 6.0 (Marshmallow) - API level 23**
+
+- App Standby to reduce battery usage.
+- Application drawer with search bar and vertical scrolling.
+- Direct Share feature for content sharing.
+- "Do Not Disturb" mode refinement.
+- App Linking for quicker app-to-app transitions.
+- Support for 4K displays and MIDI devices for music.
+
+**Version 7.0 (Nougat) - API level 24**
+
+- Daydream VR platform support.
+- Enhanced Doze functionality for battery conservation.
+- Notification enhancements with direct reply.
+- Multi-window support for multitasking.
+- Picture-in-picture mode for Android TV.
+
+### Open Handset Alliance (OHA)
+
+- A consortium of 84 firms, including HTC, Sony, Dell, Intel, and Google, formed to develop open standards for mobile devices.
+- Established on November 5, 2007, with the aim to create a rich mobile ecosystem.
+
+### Android Architecture
+
+- **Linux Kernel**: Foundation of the Android platform, providing hardware abstraction and essential drivers.
+- **Libraries**: Set of libraries including WebKit, libc, SQLite, and media libraries for audio and video playback.
+- **Android Runtime**: The Dalvik Virtual Machine (DVM) is a critical component of Android Runtime, designed and optimized for Android, particularly efficient for devices with limited memory and processor power.
+- Android Runtime also includes a set of core libraries that allows Android application developers to write Android applications using standard Java programming language.
+
+**Application Framework**:
+
+- **Activity Manager**: Manages the app lifecycle and the stack of activities.
+- **Content Providers**: Facilitate the sharing and management of data across different applications.
+- **Resource Manager**: Provides access to non-code resources like strings and UI layouts.
+- **Notifications Manager**: Manages the display of notifications to the user.
+- **View System**: Fundamental UI components such as buttons and lists are part of this system.
+
+**System Apps**:
+
+- These are applications that come pre-installed with the phone and are not inherently different from regular apps in terms of capabilities. They include critical services such as the dialer or home screen.
+
+Key libraries and components within the Android system include:
+
+- **android.app**− Provides access to the application model and is the cornerstone of all Android applications.
+- **android.content**− Facilitates content access, publishing and messaging between applications and application components.
+- **android.database**− Used to access data published by content providers and includes SQLite database management classes.
+- **android.opengl**− A Java interface to the OpenGL ES 3D graphics rendering API.
+- **android.os**− Provides applications with access to standard operating system services including messages, system services and inter-process communication.
+- **android.text**− Used to render and manipulate text on a device display.
+- **android.view**− The fundamental building blocks of application user interfaces.
+- **android.widget**− A rich collection of pre-built user interface components such as buttons, labels, list views, layout managers, radio buttons etc.
+- **android.webkit**− A set of classes intended to allow web-browsing capabilities to be built into applications.
+
+The Android architecture is designed to facilitate a seamless interaction between the user-facing application layer and the lower-level hardware through a well-defined stack of components. Each layer of the stack serves a specific function and provides the necessary services and APIs for the layer above it.
+
+The Android OS architecture ensures that apps have a consistent framework to rely on for UI design, data management, network access, and more, while also allowing for a high degree of flexibility and customization. This architecture has been key to Android's wide adoption and the vast ecosystem of applications available on the platform.
+
+### Tools Required for Android Development
+
+- **Java JDK5 or JDK6**: The Java Development Kit (JDK) is essential for Android app development. It's a software development environment used for developing Java applications.
+- **Android SDK**: The Software Development Kit (SDK) for Android includes libraries, debugger, and sample codes necessary for building Android applications.
+- **Eclipse IDE for Java Developers (Optional)**: Integrated Development Environment (IDE) for writing, debugging, and compiling code in Java.
+- **Android Development Tools (ADT) Eclipse Plugin (Optional)**: Plugin for Eclipse that extends the IDE with the ability to build Android applications.
+
+### Steps for Setting Up the Development Environment
+
+**Step 1: Setup Java Development Kit (JDK)**
+
+- Download and install the JDK from Oracle's website.
+- Set `PATH` and `JAVA_HOME` environment variables to point to the folder where `java` and `javac` are located.
+  - **Windows Users**: Add JDK paths to the `C:\\autoexec.bat` file or through the System Properties.
+
+**Step 2: Configure Android SDK**
+
+- After installing the SDK, launch the SDK Manager and select the required packages to install.
+- Deselect 'Documentation for Android SDK' and 'Samples for SDK' to save space and reduce installation time if desired.
+- Installation time depends on the internet connection speed.
+
+**Step 3: Setup Eclipse IDE**
+
+- Install the latest version of Eclipse.
+- Launch Eclipse after installation; it should display a startup window.
+
+**Step 4: Setup Android Development Tools (ADT) Plugin**
+
+- In Eclipse, go to `Help` > `Software Updates` > `Install New Software`.
+- Add the ADT Plugin repository URL (`https://dl-ssl.google.com/android/eclipse/`).
+- Follow the prompts to install the ADT Plugin.
+
+**Step 5: Create Android Virtual Device (AVD)**
+
+- In Eclipse, open the Android AVD Manager from `Window` > `AVD Manager`.
+- Click on 'New' to create a new AVD.
+- Configure the AVD with the desired specifications for testing your applications.
