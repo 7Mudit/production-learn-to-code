@@ -7,14 +7,14 @@ export const projects = [
     link: "https://gogibus.vercel.app/",
     color: "#fb96b5",
   },
-  {
-    title: "Skill Jet",
-    description:
-      "Made this web app both frontend and backend in three days span at hackathon. Though its not responsive but worth checking it once",
-    src: "Skilljet.png",
-    link: "https://hackathonfrontend.vercel.app/",
-    color: "#fde97d",
-  },
+  // {
+  //   title: "Skill Jet",
+  //   description:
+  //     "Made this web app both frontend and backend in three days span at hackathon. Though its not responsive but worth checking it once",
+  //   src: "Skilljet.png",
+  //   link: "https://hackathonfrontend.vercel.app/",
+  //   color: "#fde97d",
+  // },
   // {
   //   title: "Aritsan Labs Clone",
   //   description:
