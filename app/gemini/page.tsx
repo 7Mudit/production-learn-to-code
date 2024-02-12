@@ -222,6 +222,7 @@ const Page = () => {
       // const response = await axios.post(`${URL}/api/conversation`, {
       const response = await axios.post(
         `https://gemini-backend-ls9c.onrender.com/api/v1/gemini`,
+        // `http://localhost:8000/api/v1/gemini`,
         {
           messages: newMessages,
         }
