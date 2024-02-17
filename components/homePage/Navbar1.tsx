@@ -108,11 +108,11 @@ const Navbar1 = () => {
   const pathname = usePathname();
   return (
     <header
-      className={`min-h-[64px] sticky sm:relative top-0 z-10 dark:bg-black bg-white border-b-[1px] border-opacity-30 border-white sm:border-none p-5 flex flex-row items-center justify-between`}
+      className={`min-h-[64px] sticky md:relative top-0 z-10 dark:bg-black bg-white border-b-[1px] border-opacity-30 border-white sm:border-none p-5 flex flex-row items-center justify-between`}
     >
       {/* Mobile Nav */}
-      <div className="flex flex-row items-center gap-5 sm:gap-10">
-        <div className="block sm:hidden ">
+      <div className="flex flex-row items-center gap-5 md:gap-10">
+        <div className="block md:hidden ">
           <Sheet>
             <SheetTrigger asChild>
               <Image
@@ -120,7 +120,7 @@ const Navbar1 = () => {
                 width={36}
                 height={36}
                 alt="Menu"
-                className={`dark:text-white text-black invert-colors sm:hidden`}
+                className={`dark:text-white text-black invert-colors md:hidden`}
               />
             </SheetTrigger>
             <SheetContent
@@ -150,7 +150,7 @@ const Navbar1 = () => {
             Learn To Code
           </h1>
         </Link>
-        <div className="hidden sm:flex  flex-row items-center justify-center gap-5">
+        <div className="hidden md:flex  flex-row items-center justify-center gap-5">
           {/* {navbarLinks.map((link) => (
             <div className="" key={link.id}>
               <Link
