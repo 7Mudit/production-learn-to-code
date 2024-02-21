@@ -28,7 +28,7 @@ const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
   { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/upsolving", title: "Upsolving", id: "3" },
-  { href: "/nptel-notes", title: "NPTEL", id: "4" },
+  // { href: "/nptel-notes", title: "NPTEL", id: "4" },
   { href: "/contact", title: "Contact", id: "5" },
   { href: "/privacy-policy", title: "Privacy Policy", id: "6" },
   { href: "/terms-conditions", title: "T & C", id: "6" },

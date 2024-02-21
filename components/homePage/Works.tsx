@@ -30,27 +30,27 @@ const courses = [
     image: "/courses/Dev.png",
     course_link: "/upsolving",
   },
-  {
-    name: "NPTEL Notes",
-    description:
-      "Dive into comprehensive learning resources compiled from NPTEL lectures. This course offers in-depth knowledge on various engineering and science subjects. Will include additional study materials and insights.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: "/courses/NPTEL.png",
-    course_link: "/nptel-notes",
-  },
+  // {
+  //   name: "NPTEL Notes",
+  //   description:
+  //     "Dive into comprehensive learning resources compiled from NPTEL lectures. This course offers in-depth knowledge on various engineering and science subjects. Will include additional study materials and insights.",
+  //   tags: [
+  //     {
+  //       name: "react",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "restapi",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "scss",
+  //       color: "pink-text-gradient",
+  //     },
+  //   ],
+  //   image: "/courses/NPTEL.png",
+  //   course_link: "/nptel-notes",
+  // },
   {
     name: "Semester Notes",
     description:
