@@ -1,0 +1,608 @@
+---
+title: Java Chapter 1 Unit 2
+description: Complete Chapter 1 Notes.
+date: 2024-03-18
+---
+
+# Unit 2
+
+## **Chapter 1 - Collection Framework**
+
+### **Introduction to Collections Framework**
+
+The Java Collections Framework is a set of classes and interfaces that implement commonly reusable collection data structures. This framework resides in the `java.util` package and is designed to handle a group of objects, making it easier to work with them. It includes operations like searching, sorting, insertion, updating, and deletion.
+
+**Key Terms**
+
+- **Collection**: A group of objects treated as a single unit.
+- **Framework**: A ready-made architecture offering a set of classes and interfaces.
+- **Collection Framework**: An architecture for storing and manipulating groups of objects with a unified approach. It utilizes interfaces, their implementations, and algorithms.
+
+**Hierarchy of Collection Framework**
+
+- **Iterable Interface**: The root interface for collection classes.
+- **Collection Interface**: Extends the Iterable interface, forming the basis for most collection classes.
+- **List**: An ordered collection that can contain duplicates.
+- **Queue**: A collection used to hold multiple elements prior to processing.
+- **Deque**: A queue that supports element insertion and removal at both ends.
+- **Set**: A collection that contains no duplicate elements.
+
+<img
+  src="/courseContent/java/unit2/pic1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+**Implementations**
+
+- **ArrayList**: A resizable-array implementation of the List interface.
+- **LinkedList**: A doubly-linked list implementation of the List and Deque interfaces.
+- **PriorityQueue**: A priority heap implementation of the Queue interface.
+- **HashSet**: A hash table implementation of the Set interface.
+- **LinkedHashSet**: A hash table and linked list implementation of the Set interface, with predictable iteration order.
+- **TreeSet**: A NavigableSet implementation based on a TreeMap.
+
+**Methods of Collection Interface**
+
+- **`add(Object element)`**: Inserts an element.
+- **`addAll(Collection c)`**: Inserts all elements from the specified collection.
+- **`remove(Object element)`**: Deletes an element.
+- **`removeAll(Collection c)`**: Deletes all elements from the specified collection.
+- **`retainAll(Collection c)`**: Retains only the elements in the current collection that are contained in the specified collection.
+- **`size()`**: Returns the number of elements.
+- **`clear()`**: Removes all elements.
+- **`contains(Object element)`**: Searches for an element.
+- **`containsAll(Collection c)`**: Searches for all elements in the specified collection.
+- **`iterator()`**: Returns an iterator.
+- **`toArray()`**: Converts the collection to an array.
+- **`isEmpty()`**: Checks if the collection is empty.
+- **`equals(Object element)`**: Compares the specified object with the collection for equality.
+- **`hashCode()`**: Returns the hash code value for the collection.
+
+**Iterator Interface**
+
+- **`hasNext()`**: Returns `true` if there are more elements to iterate.
+- **`next()`**: Returns the next element in the iteration.
+- **`remove()`**: Removes the last element returned by the iterator.
+
+### **Java ArrayList Class**
+
+The ArrayList class uses a dynamic array to store elements, allowing for flexible size management.
+
+**Characteristics of ArrayList**
+
+- Can contain duplicate elements.
+- Maintains insertion order.
+- Is non-synchronized.
+- Allows random access via indices.
+- Manipulation can be slow due to shifting during removal.
+
+**Hierarchy of ArrayList Class**
+
+- ArrayList extends AbstractList, which implements the List interface.
+- The List interface extends both Collection and Iterable interfaces.
+
+**ArrayList Class Declaration**
+
+```java
+public class ArrayList<E> extends AbstractList<E> implements List<E>,
+RandomAccess, Cloneable, Serializable
+```
+
+**Constructors of Java ArrayList**
+
+- **`ArrayList()`**: Constructs an empty list.
+- **`ArrayList(Collection c)`**: Constructs a list containing the elements of the specified collection.
+- **`ArrayList(int capacity)`**: Constructs a list with the specified initial capacity.
+
+**Methods of Java ArrayList**
+
+- **`add(int index, Object element)`**: Inserts the specified element at the specified position.
+- **`addAll(Collection c)`**: Appends all elements in the specified collection to the end of the list.
+- **`clear()`**: Removes all elements.
+- **`indexOf(Object o)`**: Returns the index of the first occurrence of the specified element, or -1 if not found.
+- **`lastIndexOf(Object o)`**: Returns the index of the last occurrence of the specified element, or -1 if not found.
+- **`toArray()`**: Returns an array containing all elements.
+- **`trimToSize()`**: Trims the capacity of the ArrayList to the list's current size.
+
+**ArrayList Growth Mechanism**
+
+- ArrayLists are created with an initial size and grow automatically when this size is exceeded. Similarly, the internal array may shrink when elements are removed.
+
+---
+
+## Java LinkedList Class
+
+The `LinkedList` class in Java implements a doubly linked list data structure and is part of the Java Collections Framework. It extends the `AbstractSequentialList` class and implements the `List` and `Deque` interfaces, offering a rich interface for manipulating a sequence of objects.
+
+### Characteristics of Java LinkedList
+
+- **Duplicates**: Like most collections in Java, `LinkedList` can contain duplicate elements.
+- **Order**: It maintains the insertion order of its elements.
+- **Synchronization**: `LinkedList` is not synchronized, meaning that if multiple threads access it concurrently, it must be synchronized externally.
+- **Manipulation Speed**: Manipulation of data (such as insertions and deletions) is generally faster than `ArrayList`, as it doesn't involve shifting elements—only pointer changes.
+- **Versatility**: It can be used as a list, stack, or queue due to its implementation of `List` and `Deque` interfaces.
+
+### LinkedList Class Hierarchy
+
+The class extends `AbstractSequentialList` and implements `List` and `Deque`, situating it within the Collections hierarchy which allows for list operations and deque operations (operations at both ends of the list).
+
+### LinkedList Constructors
+
+- **`LinkedList()`**: Constructs an empty list.
+- **`LinkedList(Collection c)`**: Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+
+### Methods of LinkedList
+
+The `LinkedList` class provides a host of methods to manipulate the list:
+
+- **`add(int index, Object element)`**: Inserts the element at the specified position.
+- **`addFirst(Object o)`**: Inserts the given element at the beginning of the list.
+- **`addLast(Object o)`**: Appends the given element to the end of the list.
+- **`size()`**: Returns the number of elements in the list.
+- **`contains(Object o)`**: Returns true if the list contains the specified element.
+- **`remove(int index)`**, **`remove(Object o)`**: Removes elements either by position or by content.
+- **`getFirst()`**, **`getLast()`**: Returns the first or last element, respectively.
+- **`clone()`**: Creates a shallow copy of the list.
+- **`indexOf(Object o)`**, **`lastIndexOf(Object o)`**: Returns the position of an element.
+- **`toArray()`**: Returns an array containing all elements in the list.
+- **`clear()`**: Removes all elements from the list.
+- **`set(int index , Object Element)`** : Replaces the element at the specified position in this list with the specified element.
+- ... and many others for various operations.
+
+### Differences between ArrayList and LinkedList
+
+The main differences between `ArrayList` and `LinkedList` are:
+
+- **Internal Structure**: `ArrayList` uses a dynamic array, while `LinkedList` is implemented as a doubly linked list.
+- **Manipulation Speed**: `LinkedList` is generally faster for manipulative operations due to its linked nature, as it doesn't require shifting elements, **`ArrayList`** is better for storing and accessing data
+- **Usage Scenarios**: `ArrayList` is more suitable for storing and accessing data, where frequent access to elements is needed. `LinkedList` excels in scenarios where data manipulation is common.
+- **ArrayList** only implements the **`List`** interface, whereas **LinkedList** implements both the **`List`** and **`Deque`** interfaces, allowing it to be used as a queue in addition to a list.
+
+Here's a summary of when to use each class:
+
+- Use `ArrayList` for better performance in retrieving elements.
+- Opt for `LinkedList` when your application involves frequent insertion and deletion of elements.
+
+---
+
+## Java HashSet Class
+
+### Description:
+
+- Implements a collection that uses a hash table for storage.
+- Inherits from `AbstractSet` and implements the `Set` interface.
+- Stores elements using a mechanism called hashing.
+- Ensures that elements are unique.
+
+### Hierarchy:
+
+- `HashSet` extends `AbstractSet` and implements the `Set` interface.
+- The `Set` interface extends `Collection` and `Iterable`.
+
+### Declaration:
+
+```java
+public class HashSet<E> extends AbstractSet<E> implements Set<E>,
+Cloneable, Serializable
+```
+
+### Constructors:
+
+1. **`HashSet()`**: Constructs a default `HashSet`.
+2. **`HashSet(Collection c)`**: Initializes the `HashSet` with elements from `Collection c`.
+3. **`HashSet(int capacity)`**: Initializes the `HashSet` with the specified capacity, which grows automatically as more elements are added.
+
+### Methods:
+
+- **`clear()`**: Removes all elements.
+- **`contains(Object o)`**: Checks if the `HashSet` contains the specified element.
+- **`add(Object o)`**: Adds the specified element if it's not already present.
+- **`isEmpty()`**: Checks if the `HashSet` is empty.
+- **`remove(Object o)`**: Removes the specified element if present.
+- **`clone()`**: Creates a shallow copy of the `HashSet`.
+- **`iterator()`**: Provides an iterator over the `HashSet`.
+- **`size()`**: Returns the number of elements in the `HashSet`.
+
+---
+
+## Java LinkedHashSet Class
+
+### Description:
+
+- A `HashSet` with a linked list running through it, preserving insertion order.
+- Inherits from `HashSet` and implements the `Set` interface.
+- Allows null elements and optional set operations.
+
+### Hierarchy:
+
+- `LinkedHashSet` extends `HashSet` and implements the `Set` interface.
+
+### Declaration:
+
+```java
+public class LinkedHashSet<E> extends HashSet<E> implements Set<E>,
+Cloneable, Serializable
+```
+
+### Constructors:
+
+1. **`LinkedHashSet()`**: Constructs a default `LinkedHashSet`.
+2. **`LinkedHashSet(Collection c)`**: Initializes the `LinkedHashSet` with elements from `Collection c`.
+3. **`LinkedHashSet(int capacity)`**: Initializes the `LinkedHashSet` with the specified capacity.
+4. **`LinkedHashSet(int capacity, float fillRatio)`**: Initializes both the capacity and the fill ratio of the `LinkedHashSet`.
+
+---
+
+## Java TreeSet Class
+
+### Description:
+
+- Implements a `NavigableSet` that is automatically arranged in ascending order according to natural ordering or by a provided `Comparator`.
+- Ensures that elements are unique and sorted.
+
+### Hierarchy:
+
+- `TreeSet` implements `NavigableSet`, which extends `SortedSet`, `Set`, `Collection`, and `Iterable`.
+
+### Declaration:
+
+```java
+public class TreeSet<E> extends AbstractSet<E> implements NavigableSet<E>,
+Cloneable, Serializable
+```
+
+### Constructors:
+
+1. **`TreeSet()`**: Constructs an empty `TreeSet` that sorts in natural order.
+2. **`TreeSet(Collection c)`**: Constructs a `TreeSet` containing the elements of `Collection c`.
+3. **`TreeSet(Comparator comp)`**: Constructs a `TreeSet` that will be sorted according to the given `Comparator`.
+4. **`TreeSet(SortedSet ss)`**: Constructs a `TreeSet` containing the same elements and using the same ordering as the provided `SortedSet`.
+
+### Methods:
+
+- **`addAll(Collection c)`**: Adds all elements from the specified collection to the `TreeSet`.
+- **`contains(Object o)`**: Checks if the `TreeSet` contains the specified element.
+- **`isEmpty()`**: Checks if the `TreeSet` is empty.
+- **`remove(Object o)`**: Removes the specified element from the `TreeSet`.
+- **`add(Object o)`**: Adds the specified element to the `TreeSet` if it's not already present.
+- **`clear()`**: Removes all elements from the `TreeSet`.
+- **`clone()`**: Creates a shallow copy of the `TreeSet`.
+- **`first()`**: Returns the first (lowest) element.
+- **`last()`**: Returns the last (highest) element.
+- **`size()`**: Returns the number of elements in the `TreeSet`.
+
+---
+
+## Java Map Interface
+
+### Overview:
+
+- A `Map` manages key-value pairs, with each pair known as an entry.
+- Each key is unique, and each key maps to exactly one value.
+- Maps are useful for searching, updating, or deleting elements based on keys.
+
+### Key Characteristics:
+
+- Keys are unique within a `Map`.
+- A `Map` can contain a special `null` key and multiple `null` values.
+- Operations include searching for keys, updating values, and deleting entries.
+
+### Map.Entry Sub-Interface:
+
+- `Map.Entry` is a sub-interface of `Map`.
+- Allows access to the keys and values within a `Map`.
+
+### Methods of Map.Entry Interface:
+
+- **`getKey()`**: Retrieves the key from the entry.
+- **`getValue()`**: Retrieves the value associated with the key in the entry.
+
+## Java HashMap Class
+
+### Overview:
+
+- Implements the `Map` interface using a hash table.
+- Inherits from `AbstractMap` and implements the `Map` interface.
+- Allows one `null` key and multiple `null` values.
+- Does not maintain any order of entries.
+
+### Hierarchy:
+
+- `HashMap` extends `AbstractMap` and implements the `Map` interface.
+
+### Class Declaration:
+
+```java
+public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>,
+Cloneable, Serializable
+```
+
+### Parameters:
+
+- `K`: The type of keys maintained by the `HashMap`.
+- `V`: The type of mapped values.
+
+### Constructors:
+
+1. **`HashMap()`**: Constructs a default `HashMap`.
+2. **`HashMap(Map m)`**: Initializes the `HashMap` with elements from the given `Map`.
+3. **`HashMap(int capacity)`**: Initializes the `HashMap` with the specified initial capacity.
+4. **`HashMap(int capacity, float fillRatio)`**: Initializes both the capacity and fill ratio for the hash table.
+
+### Methods:
+
+- **`put(Object key, Object value)`**: Inserts an entry into the `Map`.
+- **`putAll(Map map)`**: Inserts all entries from the specified `Map` into this one.
+- **`remove(Object key)`**: Removes the entry for the specified key.
+- **`get(Object key)`**: Returns the value for the specified key.
+- **`containsKey(Object key)`**: Checks if the `Map` contains the specified key.
+- **`keySet()`**: Returns a `Set` view of the keys in the `Map`.
+- **`entrySet()`**: Returns a `Set` view of the key-value mappings in the `Map`.
+
+### Internal Working:
+
+- The `hashCode()` method computes the memory reference of the key and is used as the bucket number.
+- A bucket array stores nodes, which may be linked if a hash collision occurs (when multiple keys have the same bucket number).
+- The index is calculated using `Index = hashCode(Key) & (n-1)` where `n` is the size of the bucket array.
+
+---
+
+## Java TreeMap Class
+
+### Overview:
+
+- `TreeMap` is a red-black tree-based implementation of the `Map` interface.
+- Provides an efficient way to store key-value pairs in sorted order.
+- Inherits from `AbstractMap` and implements `NavigableMap`.
+- Maintains ascending order for its keys.
+
+### Characteristics:
+
+- Keys are unique, and `TreeMap` cannot have a null key but can accept multiple null values.
+- Non-synchronized, meaning it's not thread-safe unless externally synchronized.
+- Ensures that the map is sorted according to the natural ordering of its keys or by a comparator provided at map creation time.
+
+### Hierarchy:
+
+- `TreeMap` extends `AbstractMap` and implements `NavigableMap`, which in turn extends `SortedMap` and `Map`.
+
+### Class Declaration:
+
+```java
+public class TreeMap<K,V> extends AbstractMap<K,V> implements NavigableMap<K,V>, Cloneable, Serializable
+```
+
+### Parameters:
+
+- `K`: Type of keys maintained by the map.
+- `V`: Type of mapped values.
+
+### Constructors:
+
+1. **`TreeMap()`**: Constructs an empty `TreeMap` sorted according to the natural order of its keys.
+2. **`TreeMap(Comparator<? super K> comparator)`**: Constructs a new, empty tree-based map sorted according to the given comparator.
+3. **`TreeMap(Map<? extends K, ? extends V> m)`**: Initializes a `TreeMap` with the entries from the specified map, sorted according to the natural order of the keys.
+4. **`TreeMap(SortedMap<K,? extends V> m)`**: Initializes a `TreeMap` with the same mappings and the same ordering as the specified sorted map.
+
+### Key Methods:
+
+- **`ceilingEntry(K key)`**, **`ceilingKey(K key)`**: Returns the least key greater than or equal to the given key, or null if there is no such key.
+- **`clear()`**: Clears the map.
+- **`clone()`**: Returns a shallow copy of the `TreeMap`.
+- **`comparator()`**: Returns the comparator used to order the keys in this map, or null if it uses the natural ordering.
+- **`descendingKeySet()`**: Returns a reverse order `NavigableSet` view of the keys contained in this map.
+- **`descendingMap()`**: Returns the key-value pairs in descending order.
+- **`firstEntry()`**, **`lastEntry()`**: Returns the first (lowest) and last (highest) key-value pairs, respectively.
+- **`floorEntry(K key)`**, **`higherEntry(K key)`**: Returns the greatest key less than or equal to the specified key, or the least key strictly greater than the given key, respectively.
+- **`headMap(K toKey)`**, **`tailMap(K fromKey)`**: Returns views of the portions of this map.
+- **`put(K key, V value)`**: Associates the specified value with the specified key in the map.
+- **`putAll(Map<? extends K, ? extends V> map)`**: Copies all of the mappings from the specified map to this map.
+- **`remove(Object key)`**: Removes the mapping for a key from this map if present.
+
+---
+
+## Multithreading in Java
+
+### Definition of Multithreading
+
+- Multithreading in Java is a feature that allows concurrent execution of two or more parts of a program to maximize CPU utilization.
+- Each part of the program is called a thread, which is a lightweight sub-process within a process.
+
+### Use of Multithreading
+
+- Enables concurrent execution of multiple threads within a single program, leading to better performance.
+- Each thread carries out a specific task, which allows for parallel processing and more efficient use of resources.
+
+### Life Cycle of a Thread
+
+1. **New**: The thread is in this state after it has been created and before it has started running.
+2. **Runnable**: The thread is in this state when it is ready to run and is waiting for the CPU allocation.
+3. **Running**: The thread is executing its task in this state.
+4. **Waiting**: The thread is in this state when it is waiting for another thread to perform a certain action.
+5. **Timed Waiting**: The thread is in this state when it is waiting for a specified interval of time.
+6. **Terminated (Dead)**: The thread is in this state when it has completed its task or is terminated.
+
+### Advantages of Multithreading
+
+- Enhanced performance and concurrency.
+- Easier coding of asynchronous tasks.
+- Multiple operations can be carried out simultaneously without blocking user interactions.
+- Reduces the need for multiple servers by utilizing the same application resources.
+
+### Disadvantages of Multithreading
+
+- Increased complexity in writing and understanding code.
+- Debugging multithreaded applications can be challenging.
+- Managing the concurrency and synchronization between threads is difficult.
+- Testing multithreaded applications to ensure they work correctly under different conditions is hard.
+
+### Ways to Create a Thread
+
+1. **Extending the Thread class**:
+   - Create a subclass of `Thread` and override its `run()` method.
+   - Instantiate the subclass and call its `start()` method to execute the `run()` method in a new thread.
+2. **Implementing the Runnable Interface**:
+   - Implement the `Runnable` interface and define the `run()` method.
+   - Pass an instance of the class to a new `Thread` object and call `start()`.
+
+### Thread Class and Methods
+
+- The `Thread` class provides constructors and methods to create and operate on threads.
+- Common constructors: `Thread()`, `Thread(String name)`, `Thread(Runnable r)`, `Thread(Runnable r, String name)`.
+- Important methods: `run()`, `start()`, `sleep(long milliseconds)`, `join()`, `setPriority(int priority)`, `getName()`, `currentThread()`, `isAlive()`, `yield()`, `interrupt()`, `isDaemon()`, `setDaemon(boolean b)`.
+
+### Runnable Interface
+
+- Has a single method `run()`, which contains the code that executes on the thread.
+- Preferred when Java classes are already extending another class, as Java does not support multiple inheritance.
+
+### Multithreaded Program Example
+
+### Extending Thread class
+
+```java
+class Multi extends Thread {
+  public void run() {
+    System.out.println("Thread is running...");
+  }
+  public static void main(String args[]) {
+    Multi t1 = new Multi();
+    t1.start();
+  }
+}
+
+```
+
+### Implementing Runnable Interface
+
+```java
+class Multi3 implements Runnable {
+  public void run() {
+    System.out.println("Thread is running...");
+  }
+  public static void main(String args[]) {
+    Multi3 m1 = new Multi3();
+    Thread t1 = new Thread(m1);
+    t1.start();
+  }
+}
+
+```
+
+---
+
+## Synchronization in Java
+
+### Concept of Synchronization
+
+- Synchronization is crucial when threads need to share data or resources.
+- It prevents multiple threads from accessing and modifying the same data simultaneously.
+
+### Monitors and Semaphores
+
+- The key to synchronization is the concept of a monitor, also known as a semaphore.
+- Monitors ensure that only one thread can access a resource at a time.
+
+### Thread Synchronization Types
+
+1. **Mutual Exclusive**
+   - Ensures that only one thread can execute a synchronized method or block at a time.
+   - Methods to achieve mutual exclusion:
+     - Synchronized method
+     - Synchronized block
+     - Static synchronization
+2. **Cooperation (Inter-thread Communication)**
+   - Allows threads to communicate with each other to coordinate their work.
+
+### Mutual Exclusive Techniques
+
+### Synchronized Method
+
+- A method declared with the `synchronized` keyword allows only one thread to execute it at a time.
+- It locks the monitor of the object for which it's called.
+
+### Synchronized Block
+
+- Targets a specific object's monitor and can be used to synchronize a subset of operations within a method.
+
+### Static Synchronization
+
+- Uses a lock on the class's Class object, affecting all instances of the class.
+
+### Example of Synchronized Method
+
+```java
+class Table {
+  synchronized void printTable(int n) {
+    for(int i = 1; i <= 5; i++) {
+      System.out.println(n * i);
+      try {
+        Thread.sleep(400);
+      } catch(Exception e) {
+        System.out.println(e);
+      }
+    }
+  }
+}
+
+```
+
+### Example of Synchronized Block
+
+```java
+class Table {
+  void printTable(int n) {
+    synchronized(this) {
+      for(int i = 1; i <= 5; i++) {
+        System.out.println(n * i);
+        try {
+          Thread.sleep(400);
+        } catch(Exception e) {
+          System.out.println(e);
+        }
+      }
+    }
+  }
+}
+
+```
+
+### Example of Static Synchronization
+
+```java
+class Table {
+  synchronized static void printTable(int n) {
+    for(int i = 1; i <= 10; i++) {
+      System.out.println(n * i);
+      try {
+        Thread.sleep(400);
+      } catch(Exception e) {}
+    }
+  }
+}
+
+```
+
+### Locks in Java
+
+- Each Java object has an associated lock or monitor.
+- A thread needs to acquire the lock before it can execute synchronized code and release it after execution.
+
+### Lifecycle of Synchronized Threads
+
+- A thread can be in one of several states: New, Runnable, Blocked, Waiting, Timed Waiting, or Terminated.
+- Synchronization is mainly concerned with the transition between the Runnable state (when a thread has the lock) and the Blocked state (when it's waiting to obtain the lock).
+
+### Advantages of Synchronization
+
+- Protects against data corruption and inconsistency.
+- Ensures thread safety when accessing shared resources.
+
+### Disadvantages of Synchronization
+
+- Can lead to thread contention, resulting in performance overhead
+- Introduces complexity in the program design.
+- Can cause deadlocks if not handled carefully.

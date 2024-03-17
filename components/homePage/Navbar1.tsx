@@ -16,7 +16,7 @@ import clsx from "clsx";
 
 const navbarLinks = [
   { href: "/about", title: "About", id: "1" },
-  { href: "/gemini", title: "Gemini", id: "2" },
+  // { href: "/gemini", title: "Gemini", id: "2" },
   { href: "/upsolving", title: "Upsolving", id: "3" },
   // { href: "/nptel-notes", title: "Nptel", id: "4" },
   { href: "/semester-notes", title: "Semester Notes", id: "6" },
@@ -29,11 +29,11 @@ export const sidebarLinks: any = [
     route: "/",
     label: "Home",
   },
-  {
-    imgURL: "/assets/icons/users.svg",
-    route: "/gemini",
-    label: "Gemini",
-  },
+  // {
+  //   imgURL: "/assets/icons/users.svg",
+  //   route: "/gemini",
+  //   label: "Gemini",
+  // },
   {
     imgURL: "/assets/icons/star.svg",
     route: "/upsolving",
