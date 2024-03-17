@@ -1,0 +1,636 @@
+---
+title: Java Chapter 2 Unit 2
+description: Complete Chapter 2 Notes.
+date: 2024-03-19
+---
+
+# Unit 2
+
+## Chapter 2 → Wrapper Classes in Java
+
+### Overview
+
+- **Wrapper classes** convert primitive data types into objects.
+- Essential because many Java methods and collections operate on objects, not primitives.
+
+### Purpose of Wrapper Classes
+
+- To utilize primitive types as objects.
+- To provide a range of utility methods for primitive operations.
+
+### List of Wrapper Classes
+
+- **Boolean**: for `boolean` primitives
+- **Character**: for `char` primitives
+- **Double**: for `double` primitives
+- **Float**: for `float` primitives
+- **Byte**: for `byte` primitives
+- **Short**: for `short` primitives
+- **Integer**: for `int` primitives
+- **Long**: for `long` primitives
+
+### Class Hierarchy
+
+- Most wrapper classes inherit from the `Number` class, except `Boolean` and `Character`.
+- All wrapper classes inherit from `Object` and implement `Comparable`.
+
+<img
+  src="/courseContent/java/unit2/pic2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+### Constructors
+
+- Wrapper classes provide constructors to create objects from primitive types or Strings.
+- For example: `Integer(int value)` or `Double(String s)`.
+
+### Constants
+
+- **MAX_VALUE**, **MIN_VALUE**: Define the range for numeric wrapper classes.
+- **NaN**, **POSITIVE_INFINITY**, **NEGATIVE_INFINITY**: Special values for `Float` and `Double`.
+- **TYPE**: The `Class` instance for the primitive type wrapped by this object.
+- **SIZE**: The number of bits to represent the value in a wrapper object.
+
+### Methods
+
+- Conversion methods like `doubleValue()`, `intValue()`, `byteValue()`, `floatValue()`, `shortValue()`.
+- Parsing methods like `parseInt()`, `parseDouble()`.
+- String conversion methods like `toString()`, `toBinaryString()`.
+- Value checking methods like `isInfinite()`, `isNaN()`.
+- Utility methods like `valueOf()`, `compare()`, `compareTo()`.
+
+### Boxing and Unboxing
+
+- **Boxing**: Automatic conversion of primitive types to corresponding wrapper object.
+- **Unboxing**: Automatic conversion of wrapper objects back to their corresponding primitive types.
+
+### Autoboxing Example
+
+```java
+Integer iOb = 100; // Boxing
+int i = iOb; // Unboxing
+System.out.println(i + " " + iOb); // Displays 100 100
+```
+
+### Significance
+
+- Wrapper classes are used extensively in collections, such as `ArrayList`, where primitive types cannot be used directly.
+
+### Notes
+
+- Autoboxing and unboxing simplify coding by reducing the need to manually convert between primitives and wrapper objects.
+
+## Wrapper Classes in Java
+
+Java provides a set of wrapper classes to convert primitives into objects. These classes come with various utility methods for performing operations on the respective primitive type. Here's a detailed breakdown for `Double`, `Float`, `Integer`, `Character`, and `Boolean`:
+
+### Integer
+
+- **Constructors**:
+  - `Integer(int value)`
+  - `Integer(String s)` throws `NumberFormatException`
+- **Constants**:
+  - `MAX_VALUE`, `MIN_VALUE`: Extrema for `int` type.
+  - `SIZE`: Size of `int` in bits.
+- **Methods**:
+  - `compareTo(Integer anotherInteger)`: Compares two `Integer` objects.
+  - `doubleValue()`, `intValue()`, `byteValue()`, `floatValue()`, `shortValue()`: Conversion methods.
+  - `equals(Object obj)`: Checks for equality.
+  - `parseInt(String s)`, `parseInt(String s, int radix)`: Parses `int` from string.
+  - `toBinaryString(int i)`, `toHexString(int i)`, `toOctalString(int i)`: String representation in various number bases.
+  - `toString()`, `toString(int i)`: Converts `Integer` to string.
+  - `valueOf(String s)`, `valueOf(String s, int radix)`: Returns an `Integer` object from a string.
+
+### Character
+
+- **Constructors**:
+  - `Character(char ch)`
+- **Constants**:
+  - `MAX_VALUE`, `MIN_VALUE`: Extrema for `char` type.
+  - `TYPE`: Class literal for `char`.
+  - `SIZE`: Size of `char` in bits.
+- **Methods :**
+  - **`charValue()`**: Returns the value of this `Character` object.
+  - **`compareTo(Character anotherCharacter)`**: Compares two `Character` objects numerically.
+  - **`equals(Object obj)`**: Compares this object to the specified object. The result is true if and only if the argument is not `null` and is a `Character` object that represents the same `char` value as this object.
+  - **`toString()`**: Returns a `String` object representing this `Character`'s value.
+  - **`isLetter(char ch)`**: Determines if the specified character is a letter.
+  - **`isDigit(char ch)`**: Determines if the specified character is a digit.
+  - **`isWhitespace(char ch)`**: Determines if the specified character is white space according to Java.
+  - **`isUpperCase(char ch)`**: Determines if the specified character is an uppercase character.
+  - **`isLowerCase(char ch)`**: Determines if the specified character is a lowercase character.
+  - **`toUpperCase(char ch)`**: Converts the character argument to uppercase using case mapping information from the UnicodeData file.
+  - **`toLowerCase(char ch)`**: Converts the character argument to lowercase using case mapping information from the UnicodeData file.
+  - **`isDefined(char ch)`**: Determines if a character is defined in Unicode.
+  - **`isLetterOrDigit(char ch)`**: Determines if the specified character is a letter or a digit.
+  - **`isSpaceChar(char ch)`**: Determines if the specified character is a Unicode space character.
+    These methods are used for checking properties of a character or for converting character case. The `Character` class also contains a series of `isXxx` methods that determine if the character is of a particular type, like a control character, a space character, or a letter of a certain case, and `getXxx` methods for retrieving character properties, such as its directionality or its numeric value in the case of numeric characters.
+
+### Boolean
+
+- **Constructors**:
+  - `Boolean(boolean boolValue)`
+  - `Boolean(String boolString)`
+- **Methods**:
+  - `compareTo(Boolean b)`: Compares two `Boolean` objects.
+  - `equals(Object boolObj)`: Checks for equality.
+  - `parseBoolean(String str)`: Parses a boolean value from a string.
+  - `toString()`, `toString(boolean boolVal)`: String representation of `Boolean`.
+  - `valueOf(String boolString)`: Returns a `Boolean` object from a string.
+
+### **Double Class**
+
+- **Constructors**:
+  - `Double(double value)`
+  - `Double(String s)` throws `NumberFormatException`
+- **Constants**:
+  - `MAX_VALUE`: Largest positive finite value of type double.
+  - `MIN_VALUE`: Smallest positive nonzero value of type double.
+  - `NaN`: Constant holding a Not-a-Number (NaN) value.
+  - `POSITIVE_INFINITY`: Positive infinity.
+  - `NEGATIVE_INFINITY`: Negative infinity.
+  - `SIZE`: Number of bits used to represent a double value.
+  - `TYPE`: Class instance representing the primitive type double.
+- **Methods**:
+  - `compareTo(Double anotherDouble)`: Compares two Double objects numerically.
+  - `equals(Object obj)`: Compares this object against the specified object.
+  - `doubleValue()`: Returns this Double object as a double.
+  - `parseInt(String s)`: Parses the string as an integer.
+  - `toString()`: Returns a string representation of this Double object.
+
+### Float Class
+
+- **Constructors**:
+  - `Float(double value)`
+  - `Float(float value)`
+  - `Float(String s)` throws `NumberFormatException`
+- **Constants**: Similar to `Double`, adjusted for the `float` type.
+
+### Autoboxing and Unboxing
+
+- Autoboxing is the automatic conversion of primitive types to their corresponding wrapper class objects. For example, `Integer i = 2;`.
+- Unboxing is the automatic conversion of wrapper class objects back to their corresponding primitive types. For example, `int i = new Integer(2);`.
+
+### Notes on Usage
+
+Wrapper classes are essential for using primitives in contexts where objects are required, like in collections. They also provide a multitude of utility functions for parsing, converting, and manipulating primitive values.
+
+### Java I/O Stream Classes
+
+In Java, I/O streams are used to read data from a source or to write data to a destination. There are two main categories of streams: byte streams and character streams.
+
+**Byte Streams**: These handle I/O of 8-bit bytes, useful for binary data like images or any other file type.
+
+- **InputStream**: The base class of all byte input streams. It defines methods like `read()` for reading bytes from the source.
+- **OutputStream**: The base class of all byte output streams. It defines methods like `write(int)` for writing bytes to the destination.
+
+**FileInputStream and FileOutputStream**:
+
+- **FileInputStream**: Allows reading bytes from a file. It has constructors that can accept either a `String` representing the file path or a `File` object. Methods include:
+  - `read()`: Reads a byte of data.
+  - `available()`: Returns an estimate of the number of bytes that can be read.
+  - `close()`: Closes the stream.
+- **FileOutputStream**: Allows writing bytes to a file. It has similar constructors to `FileInputStream` and methods like:
+  - `write(int b)`: Writes a specified byte to the output stream.
+  - `flush()`: Flushes the output stream and forces any buffered output bytes to be written out.
+
+**ByteArrayInputStream and ByteArrayOutputStream**:
+
+- **ByteArrayInputStream**: Allows an application to create an input stream from a byte array.
+- **ByteArrayOutputStream**: Creates an output stream where data is written into a byte array which can be retrieved using the `toByteArray()` method.
+
+**Buffered Byte Streams**:
+
+- **BufferedInputStream**: Wraps any input stream, like `FileInputStream`, buffering the input to provide efficient reading of bytes, arrays, and lines.
+- **BufferedOutputStream**: Wraps any output stream, such as `FileOutputStream`, and buffers the output to provide efficient writing of bytes, arrays, and lines.
+
+### Character Streams
+
+Character streams are designed for handling the input and output of characters. They use Unicode and therefore can be used to read and write data in internationalized characters.
+
+- **Reader**: The abstract class for reading character streams.
+- **Writer**: The abstract class for writing character streams.
+
+**FileReader and FileWriter**:
+
+- **FileReader**: Used for reading character files. Its constructors can take a file name or a `File` object.
+- **FileWriter**: Used to write characters to a file. Like `FileReader`, it can take a file name or a `File` object in its constructors.
+
+**CharArrayReader and CharArrayWriter**:
+
+- **CharArrayReader**: Allows an application to create an input stream from a character array.
+- **CharArrayWriter**: Allows writing to a character array which can be used to create a string.
+
+### Object Serialization
+
+Serialization is the process of converting an object into a byte stream, and deserialization is the opposite process of converting a byte stream into an object.
+
+- **Serializable Interface**: A marker interface to allow objects of a class to be serialized.
+- **ObjectOutputStream**: A stream that can serialize objects.
+- **ObjectInputStream**: A stream that can deserialize objects.
+
+**Example of Serialization**:
+
+```java
+Employee emp = new Employee("John Doe", 1234);
+FileOutputStream fileOut = new FileOutputStream("employee.ser");
+ObjectOutputStream out = new ObjectOutputStream(fileOut);
+out.writeObject(emp); // Serializing object
+out.close();
+fileOut.close();
+
+```
+
+**Example of Deserialization**:
+
+```java
+FileInputStream fileIn = new FileInputStream("employee.ser");
+ObjectInputStream in = new ObjectInputStream(fileIn);
+Employee emp = (Employee) in.readObject(); // Deserializing object
+in.close();
+fileIn.close();
+
+```
+
+**transient Keyword**: Used to indicate that a field should not be serialized. For example, if you have sensitive information like a password or a temporary state that does not make sense to be persisted.
+
+```java
+public class Employee implements Serializable {
+    private String name;
+    private transient String password; // Will not be serialized
+    // ...
+}
+
+```
+
+Remember that when dealing with serialization, you need to handle the `ClassNotFoundException` and `IOException` that may be thrown during deserialization. Also, the serialVersionUID is a unique version ID that ensures the consistency of the class during deserialization. If a class changes after serialization and does not have a matching serialVersionUID, deserialization will fail.
+
+### JUnit Overview
+
+JUnit is a unit testing framework for the Java programming language. It plays a crucial role in the development of test-driven development and is one of the family of unit testing frameworks collectively known as xUnit.
+
+**Key Points:**
+
+- JUnit is open-source and can be integrated into the build process to run tests automatically.
+- It allows for the writing of code to test individual units of source code. A "unit" in JUnit could be a function, method, procedure, module, or object.
+- Tests in JUnit are written in Java, and they can be run automatically to ensure code that passes the tests meets the defined criteria of correctness.
+
+### Advantages of JUnit
+
+- **Ease of Use**: JUnit is straightforward to get started with and is supported by virtually all Java IDEs.
+- **Isolation**: JUnit can test individual classes or a group of classes together.
+- **Confidence**: Properly written tests can provide a high level of confidence in the correctness of the tested code.
+- **Interface Design**: Writing tests often leads to better-designed interfaces since it requires thinking from a user's perspective.
+- **Regression Testing**: JUnit tests can be rerun every time the code is changed to ensure that no previously fixed bugs have re-emerged.
+
+### Integration with Eclipse
+
+Eclipse provides features to write, run, and debug JUnit tests with minimal setup.
+
+**Steps to use JUnit in Eclipse:**
+
+1. **Create a Project**: Start by creating a new Java project in Eclipse.
+2. **Create a Package**: Within the project, create a package for your source files and tests. For example, `junit.first`.
+3. **Write the Class to be Tested**: Create a Java class that contains the logic you wish to test. For example, a `Calculator` class with methods `add` and `sub`.
+
+   ```java
+   package junit.first;
+
+   public class Calculator {
+       public int add(int x, int y) { return x + y; }
+       public int sub(int x, int y) { return x - y; }
+   }
+
+   ```
+
+4. **Generate Test Cases**: Right-click on the class file in Eclipse, select `New → JUnit Test Case`, and then choose the `JUnit 4` framework.
+5. **Select Methods to Test**: In the dialog that appears, select the methods you want to create tests for.
+6. **Implement the Test Methods**: Write test methods using assertions to validate the output of the methods being tested.
+
+   ```java
+   package junit.first;
+   import static org.junit.Assert.*;
+   import org.junit.Test;
+
+   public class CalculatorTest {
+       @Test
+       public void testAdd() {
+           Calculator c = new Calculator();
+           assertEquals(5, c.add(2, 3));
+       }
+
+       @Test
+       public void testSub() {
+           Calculator c = new Calculator();
+           assertEquals(20, c.sub(100, 80));
+       }
+   }
+
+   ```
+
+7. **Run the Tests**: Right-click on the test class file and select `Run As → JUnit Test`. The test results will appear in the JUnit view.
+
+### Writing JUnit Test Methods
+
+- **Annotations**: Test methods are annotated with `@Test`.
+- **Access Modifier**: Test methods must be `public`.
+- **Return Type**: Test methods should have a `void` return type.
+- **Assertions**: Use assertions like `assertEquals` to verify the expected results.
+
+**Example of a simple JUnit test method:**
+
+```java
+@Test
+public void testAdd() {
+    Calculator c = new Calculator();
+    assertEquals("Result should be 5", 5, c.add(2, 3));
+}
+
+```
+
+### Understanding Output and Errors
+
+- Green bar indicates all tests passed.
+- Red or brown bar indicates one or more tests failed.
+- `AssertionError` occurs when an assertion fails, indicating that the expected result does not match the actual result.
+
+### JUnit with Eclipse: Detailed Guide
+
+JUnit, within the Eclipse IDE, offers a comprehensive framework for conducting unit tests in Java. This approach enables developers to systematically test individual units of source code, ensuring they perform as expected.
+
+### Understanding Unit Tests
+
+Unit tests are essentially classes filled with test methods. These methods are not just any methods; they are special test cases designed to check specific parts of your code. Typically, a test method focuses on a single functionality of the target class it tests. However, flexibility exists:
+
+- A single test method might examine multiple functionalities if needed.
+- Complex methods under test might necessitate splitting the testing process into several test methods for thorough coverage.
+
+### Anatomy of a Unit Test Class
+
+A unit test class looks much like any other Java class but serves a specific testing purpose. Consider the following highlights:
+
+- **Test Methods**: These are annotated with `@Test` to indicate their role in testing. The JUnit framework recognizes these annotations and runs the annotated methods as tests. Any method without `@Test` is not treated as a test case.
+- **Creating Instances for Testing**: In our context, testing addition and subtraction functionalities involves creating a `Calculator` instance within the test methods, such as `testAdd()`.
+- **Assertion Mechanism**: The essence of testing lies in assertions. For example, `assertEquals()` compares the actual result from your code with an expected result. If they match, the test passes. If not, JUnit flags an error by throwing an exception, indicating a failed test.
+
+### Deep Dive into Assertions
+
+Assertions are the building blocks of testing, allowing you to verify that your code behaves as expected under various conditions.
+
+- **`assertArrayEquals()`**: Tests whether two arrays are identical in content. A mismatch triggers a test failure.
+- **`assertEquals()`**: A more general assertion that compares two objects or values, useful for checking the outcomes of operations or method returns against expected values.
+- **`assertTrue()` and `assertFalse()`**: These validate boolean conditions, such as whether a method's output or a condition evaluates to true or false, respectively.
+- **`assertNull()` and `assertNotNull()`**: These are used to verify if an object is `null` or has been instantiated, respectively.
+- **`assertSame()` and `assertNotSame()`**: Check if two object references point to the same or different objects, ensuring object uniqueness or identity as required.
+
+### The Power of Annotations
+
+Annotations in Java offer a way to include metadata - extra information - within your code. This metadata can influence how the code is run, tested, or handled by development tools.
+
+- **What Annotations Do**: They allow for a cleaner, more declarative style of programming. Instead of writing boilerplate code, you declare your intentions with annotations, and the Java compiler or runtime handles the rest.
+- **Examples of Annotations**:
+
+  - `@Override` signals that a method intends to override a method from its superclass.
+  - `@Deprecated` indicates that a method is old and should not be used, warning other developers of its impending obsolescence.
+
+  ```java
+  class test_deprecate {
+  	@Deprecated
+  	void test(){
+  			System.out.println("Testing  deprecation");
+  	}
+  }
+
+  class use_test_deprecate{
+  	public static void main(String ae[]) {
+  		test_deprecate t=new test_deprecate();
+  		t.test();
+  	}
+  }
+
+  ```
+
+  - `@SuppressWarnings` tells the compiler to ignore certain warnings that would otherwise be flagged in the annotated elements.
+
+### SuppressWarnings Annotation (_in detail_)
+
+The `@SuppressWarnings` annotation tells the Java compiler to ignore specific warnings that it would otherwise flag. Developers use this annotation to keep their code clean from warnings that they've deemed non-critical or already considered. For instance, when using deprecated methods that you're not ready to update yet, you can suppress the deprecation warning to avoid clutter in your compile-time output.
+
+### Example Use Case:
+
+```java
+class TestDeprecate {
+    @Deprecated
+    void test() {
+        System.out.println("Testing deprecation");
+    }
+}
+
+class UseTestSuppress {
+    @SuppressWarnings({"deprecation"})
+    public static void main(String[] ae) {
+        TestDeprecate t = new TestDeprecate();
+        t.test();
+    }
+}
+
+```
+
+In this scenario, the `@SuppressWarnings("deprecation")` prevents the compiler from showing warnings about using the deprecated `test()` method.
+
+### Practical Applications of Annotations
+
+Annotations aren't just theoretical; they have practical applications that can significantly improve your development workflow:
+
+- **Compiler Annotations** like `@Override`, `@Deprecated`, and `@SuppressWarnings` help catch errors early, streamline code maintenance, and ensure your code is using the latest and greatest APIs.
+- **Custom Annotations** can be defined to specify behavior or provide information at runtime, compile-time, or both.
+
+### Fixtures in JUnit
+
+Fixtures refer to the common setup and teardown tasks that need to be performed before and after each test case runs. These are essential for preparing the test environment and ensuring it's clean for each test, which helps prevent tests from affecting each other's outcomes.
+
+### Annotations for Fixtures:
+
+- `@Before`: Executes the annotated method before each test. It's typically used for setting up test objects.
+- `@After`: Runs after each test method, ideal for cleanup tasks.
+- `@BeforeClass`: Runs once before any of the test methods in the class, perfect for static initializations. The method must be static.
+- `@AfterClass`: Executes once after all tests have finished running in the class, suitable for cleaning up static resources. This method also needs to be static.
+
+### Example:
+
+```java
+public class CalculatorTest {
+    static Calculator c = null;
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("Before any tests run");
+        c = new Calculator();
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("After all tests are done");
+    }
+
+    @Before
+    public void before() {
+        System.out.println("Before Test");
+    }
+
+    @After
+    public void after() {
+        System.out.println("After Test");
+    }
+
+    @Test
+    public void testAdd() {
+        System.out.println("Add function");
+        assertEquals("Result", 5, c.add(2, 3));
+    }
+
+    @Test
+    public void testSub() {
+        System.out.println("Sub function");
+        assertEquals("Result", 20, c.sub(100, 80));
+    }
+}
+
+```
+
+### Ignoring Tests
+
+Sometimes, you might want to skip executing certain test methods, either because they're not ready or irrelevant at the moment. The `@Ignore` annotation allows you to do just that, optionally letting you provide a reason.
+
+### Example:
+
+```java
+@Ignore("Not Ready to Run")
+@Test
+public void testComputeTax() {
+    // This test will be skipped.
+}
+
+```
+
+### Test Annotation Parameters
+
+The `@Test` annotation supports optional parameters to further control test execution:
+
+- `expected`: Declares that a test method should throw a specific exception. If it throws a different exception or none at all, the test fails.
+- `timeout`: Sets a time limit for the test execution. If the test exceeds this limit, it fails.
+
+### Examples:
+
+```java
+@Test(expected = IndexOutOfBoundsException.class)
+public void checkOutOfBounds() {
+    new ArrayList<String>().get(1); // This test passes if IndexOutOfBoundsException is thrown.
+}
+
+@Test(timeout = 1000) // 1 second
+public void infinityCheck() {
+    // Test fails if this loop doesn't complete within 1 second.
+    while(true);
+}
+
+```
+
+### Test Suites
+
+Test suites in JUnit allow you to group and run related test cases together. This is particularly useful for organizing tests into categories or functionalities.
+
+### Annotations for Test Suites:
+
+- `@RunWith(Suite.class)`: Specifies that JUnit should use the Suite runner to execute the test classes listed in `@Suite.SuiteClasses`.
+- `@Suite.SuiteClasses`: Lists the test classes to be included in the suite.
+
+### Example Suite:
+
+```java
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+    Test1.class,
+    Test2.class
+})
+public class AllTests {
+    // This class remains empty. It's used only as a holder for the above annotations.
+}
+
+```
+
+## Object Cloning (Not in PPT but mentioned in syllabus)
+
+Object cloning in Java is a way to create an exact copy of an object. It’s a concept used when you need a duplicate of an object, ensuring that modifications to the new object don't affect the original object. Cloning is achieved through the `clone()` method of the `Object` class. Let's explore this concept in detail, including how to implement and use cloning, along with its nuances.
+
+### Basics of Object Cloning
+
+1. **What is Cloning?**
+
+   Cloning is the process of creating an exact copy of an existing object in memory. This includes copying the values of all fields of the class and, if necessary, the references to other objects.
+
+2. **`clone()` Method**:
+
+   The `clone()` method is protected in the `Object` class. To use it, a class must override it and make it public or protected. This method returns a copy of the object on which it is called.
+
+3. **Clonable Interface**:
+
+   For an object to be cloneable, its class must implement the `Cloneable` interface. This interface is a marker interface (i.e., it does not contain any methods) that indicates to the `Object.clone()` method that it is legal for that method to make a field-for-field copy of instances of that class. If `clone()` is called on an instance of a class that does not implement `Cloneable`, a `CloneNotSupportedException` is thrown.
+
+### Implementing Cloning
+
+To implement object cloning, follow these steps:
+
+1. **Implement the `Cloneable` interface** in your class to allow object cloning.
+2. **Override the `clone()` method** from the `Object` class. This method should call `super.clone()` to obtain the cloned object. You may need to cast the returned object to your class type.
+3. **Handle the `CloneNotSupportedException`**. Although you're implementing `Cloneable`, it's good practice to handle this exception, either by throwing it further or by surrounding `super.clone()` with a try-catch block.
+
+### Example Implementation
+
+```java
+public class Employee implements Cloneable {
+    private String name;
+    private int age;
+
+    // Constructor, getters, and setters
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+
+```
+
+### Deep vs. Shallow Cloning
+
+- **Shallow Cloning**: The default behavior of the `clone()` method. It copies the values of an object's fields to a new object. If the field is a primitive type, a direct copy of the value is made. If the field is an object, it copies the reference but not the referred object itself. Therefore, both the original and cloned object refer to the same object for their object fields.
+- **Deep Cloning**: Involves creating a clone of the original object and recursively cloning all objects it refers to. Deep cloning is manual and specific to the class's needs. You must override the `clone()` method and explicitly clone the objects that the original object references.
+
+### Implementing Deep Cloning
+
+To implement deep cloning, you must manually clone the composite objects within the `clone()` method:
+
+```java
+public class Employee implements Cloneable {
+    private String name;
+    private Address address; // Assume Address is a class with its own fields
+
+    // Constructor, getters, and setters
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Employee cloned = (Employee) super.clone();
+        cloned.address = (Address) address.clone(); // Explicitly clone the Address object
+        return cloned;
+    }
+}
+
+```
+
+### Conclusion
+
+Object cloning in Java allows for the creation of exact copies of objects, which can be crucial for operations that require object manipulation without affecting the original instance. The default `clone()` method provides a shallow copy, but deep cloning can be achieved with more detailed implementation. It's important to understand the implications of shallow vs. deep cloning to prevent unintended side effects, such as shared mutable state between the original and cloned objects.
