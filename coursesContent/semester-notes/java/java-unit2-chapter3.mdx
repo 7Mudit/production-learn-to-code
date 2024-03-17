@@ -1,0 +1,481 @@
+---
+title: Java Chapter 3 Unit 2
+description: Complete Chapter 3 Notes.
+date: 2024-03-20
+---
+
+# Unit 2
+
+## Chapter 3 - JDBC (Java Database Connectivity)
+
+### Introduction to JDBC and Databases
+
+Business applications frequently interact with databases to store and retrieve data. In many enterprise applications, Relational Database Management Systems (RDBMS) like Oracle, DB2, Sybase, Microsoft SQL Server, and MySQL Server are utilized. These systems store data in tables, with each record represented by a row and its attributes by columns. RDBMSs operate using the SQL language.
+
+### JDBC API
+
+The Java Database Connectivity (JDBC) API provides a universal Java interface for interacting with various databases. It abstracts the database-specific details behind a uniform set of classes and interfaces, allowing Java applications to connect to any database for which a JDBC driver is available, regardless of the underlying database system.
+
+### API (Application Programming Interface)
+
+An API is a specification that describes how software components should interact. It includes descriptions of classes, interfaces, and other structures that developers can use to build software applications. The JDBC API, specifically, enables Java programs to execute SQL queries and update data in databases securely and efficiently.
+
+### JDBC vs ODBC
+
+ODBC (Open Database Connectivity) is a widely-used API for accessing relational databases from various programming languages. However, JDBC is preferred for Java applications for several reasons:
+
+- ODBC uses a C interface, making it incompatible with Java's architecture. Java to C calls can compromise security, robustness, and portability.
+- ODBC employs pointers, which Java does not support, emphasizing safety and simplicity.
+- JDBC, designed specifically for Java, retains useful features from ODBC while simplifying the interface for ease of use.
+
+### JDBC Architecture
+
+JDBC architecture consists of three main components:
+
+1. **Application**: The Java program that executes SQL queries through JDBC.
+2. **JDBC Driver Manager**: Acts as a bridge between the application and the JDBC drivers, selecting the appropriate driver for the database connection.
+3. **Driver**: Interfaces directly with the database, executing SQL commands sent by the application.
+
+<img
+  src="/courseContent/java/unit2/pic3.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+### Working with Databases Using JDBC
+
+Interacting with a database via JDBC involves several key steps:
+
+1. **Importing Packages**: Essential for standard JDBC programs and supporting data types like Decimal and Integer.
+   - `java.sql.*` for JDBC core functionality.
+   - `java.math.*` for numerical support.
+2. **Loading JDBC Drivers**: Accomplished with `Class.forName()`, specifying the fully qualified name of the driver class. This step is crucial for registering the driver with the JDBC DriverManager.
+3. **Opening a Connection**: Utilize `DriverManager.getConnection(url, user, password)` to establish a connection to the database, returning a `Connection` object.
+4. **Creating a Statement Object**: Through the connection, create a `Statement`, `PreparedStatement`, or `CallableStatement` depending on the SQL query needs.
+5. **Executing a Query**: Execute SQL queries using the appropriate method from the Statement object (`executeQuery` for SELECT, `executeUpdate` for DML commands like INSERT, UPDATE, DELETE).
+6. **Processing the Result Set**: Iterate over the `ResultSet` returned from SELECT queries to process the data.
+7. **Closing Resources**: It's crucial to close the `ResultSet`, `Statement`, and `Connection` objects to free up database and JVM resources.
+
+### JDBC Driver Types and URLs
+
+JDBC Drivers vary based on the database and Java version. Examples include:
+
+- Oracle: `oracle.jdbc.driver.OracleDriver`
+- MySQL: `com.mysql.jdbc.Driver`
+
+JDBC URLs are structured based on the RDBMS being accessed, generally following the format: `jdbc:[subprotocol]:[node]/[databaseName]`
+
+### Summary
+
+JDBC offers a standardized, database-agnostic way to interact with relational databases from Java applications. By abstracting the complexities of database communication, JDBC allows developers to focus on the logic of their applications, making database interactions straightforward and secure.
+
+### JDBC Examples Explained
+
+### 1. Retrieving Data from an Oracle Database
+
+**Objective:** Connect to an Oracle database and retrieve data from a `student` table.
+
+**Steps:**
+
+1. **Install Oracle Database**: Ensure Oracle is installed and running. Use `sqlplus` to test the connection.
+2. **Create a Table**: Execute SQL commands to create a `student` table and insert data. Remember to commit the transaction.
+3. **Set Up Java Environment**: Include the Oracle JDBC driver (`ojdbc5.jar`) in your project's classpath.
+4. **Java Code to Retrieve Data**:
+
+   ```java
+   import java.sql.*;
+
+   class db2 {
+       public static void main(String args[]) {
+           try {
+               Class.forName("oracle.jdbc.driver.OracleDriver");
+               Connection con = DriverManager.getConnection(
+                   "jdbc:oracle:thin:@localhost:1521:xe", "system", "oracle");
+               Statement stmt = con.createStatement();
+               ResultSet rs = stmt.executeQuery("select * from student");
+               System.out.println("Values from student table are:");
+               while (rs.next())
+                   System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getDate(3) + " " + rs.getFloat(4));
+               con.close();
+           } catch (Exception e) {
+               System.out.println(e);
+           }
+       }
+   }
+
+   ```
+
+### 2. Login Application Using Java Swing and Oracle
+
+**Objective:** Create a GUI for user login, validating credentials against an Oracle database.
+
+**Steps:**
+
+1. **Design GUI**: Use Swing components (`JFrame`, `JTextField`, `JButton`) to design the login form.
+2. **Handle Action Event**: Implement `ActionListener` to respond to the login button click.
+3. **Validate Credentials**: Query the `login` table in the Oracle database to check for matching username and password.
+4. **Display Result**: Show a success message or prompt to retry on login failure.
+
+**Java Code for Login Application (_can ignore this , not mentioned in syllabus but included in ppt_ 🥹)**:
+
+```java
+// Login form and action handling code snippet (can ignore this )
+import javax.swing.*;
+import java.sql.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class LoginDemo extends JFrame implements ActionListener {
+    JButton submitButton;
+    JLabel usernameLabel, passwordLabel;
+    JTextField usernameTextField;
+    JPasswordField passwordField;
+
+    // Constructor to setup GUI components and event handling
+    public LoginDemo() {
+        setTitle("Login Form");
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
+        usernameLabel = new JLabel("Username:");
+        add(usernameLabel);
+        usernameTextField = new JTextField(15);
+        add(usernameTextField);
+        passwordLabel = new JLabel("Password:");
+        add(passwordLabel);
+        passwordField = new JPasswordField(15);
+        add(passwordField);
+        submitButton = new JButton("SUBMIT");
+        add(submitButton);
+
+        // Register listener
+        submitButton.addActionListener(this);
+
+        // Finalize the window
+        setSize(300, 220);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    // ActionPerformed method to handle login logic
+    public void actionPerformed(ActionEvent ae) {
+        String username = usernameTextField.getText();
+        String password = new String(passwordField.getPassword());
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@localhost:1521:xe", "system", "oracle");
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM login WHERE username='" + username + "' AND password='" + password + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "Login Successful");
+                // Proceed to next page or operation
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String args[]) {
+        new LoginDemo(); // Create and display the login form
+    }
+}
+
+```
+
+### 3. Modifying Database Structure
+
+**Creating, Inserting, and Dropping Tables via JDBC**
+
+1. **Insert Records**:
+
+   - Use `Statement.executeUpdate(sql)` to insert records into a table.
+
+     ```java
+     String sql = "INSERT INTO Student VALUES (100, 'Zara', '10-jul-14', 80)";
+     stmt.executeUpdate(sql);
+
+     ```
+
+2. **Drop Database**:
+
+   - Execute a SQL command to drop an entire database.
+
+     ```java
+     String sql = "DROP DATABASE STUDENTS";
+     stmt.executeUpdate(sql);
+
+     ```
+
+3. **Create Table**:
+
+   - Define and create a new table in the database.
+
+     ```java
+     String sql = "CREATE TABLE REGISTRATION (id INTEGER not NULL, first VARCHAR(255), last VARCHAR(255), age INTEGER, PRIMARY KEY ( id ))";
+     stmt.executeUpdate(sql);
+
+     ```
+
+4. **Drop Table**:
+
+   - Remove an existing table from the database.
+
+     ```java
+     String sql = "DROP TABLE REGISTRATION";
+     stmt.executeUpdate(sql);
+
+     ```
+
+### Summary
+
+These examples illustrate how JDBC can be used for a variety of database operations in Java applications, from simple data retrieval and user authentication to structural modifications like creating or dropping tables. By leveraging JDBC, Java developers can interact with databases in a standardized way, irrespective of the specific RDBMS in use. Remember, when working with databases, always manage resources carefully by closing connections, statements, and result sets after use to avoid resource leaks.
+
+### JDBC Architecture and Driver Types
+
+### JDBC Architecture Overview
+
+Java Database Connectivity (JDBC) is a standard Java API for database-independent connectivity between the Java programming language and a wide range of databases. The JDBC API provides a call-level API for SQL-based database access.
+
+### JDBC Driver Types
+
+JDBC drivers are the components that enable Java applications to interact with a database. There are four types of JDBC drivers:
+
+1. **Type 1: JDBC-ODBC Bridge Driver**
+
+   - Acts as a bridge between JDBC calls and ODBC (Open Database Connectivity).
+   - Requires setting up ODBC on every client machine.
+   - Typically used for development and testing, not suitable for production.
+
+<img
+  src="/courseContent/java/unit2/pic4.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+2. **Type 2: JDBC-Native API Driver**
+
+   - Converts JDBC calls into calls on the client API for specific databases like Oracle, Sybase, or Informix.
+   - Requires native libraries on each client machine, making it less ideal for large-scale deployments.
+
+<img
+  src="/courseContent/java/unit2/pic5.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+3. **Type 3: JDBC-Net Pure Java Driver**
+
+   - Uses a three-tier approach to database access, with JDBC clients communicating via standard network sockets to a middleware application server.
+   - The middleware then connects to various databases, offering flexibility and independence from direct database connectivity.
+
+<img
+  src="/courseContent/java/unit2/pic6.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+4. **Type 4: Native-Protocol Pure Java Driver**
+
+   - Directly converts JDBC calls into the network protocol used by the DBMS itself.
+   - Requires no client-side libraries, making it highly portable and efficient.
+   - Known as a "thin" driver, it's suitable for applets and applications where a lightweight driver is preferable.
+
+<img
+  src="/courseContent/java/unit2/pic7.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+### Choosing the Right Driver
+
+- **Type 4 drivers** are preferred for applications accessing a single type of database like Oracle or MySQL due to their efficiency and simplicity.
+- **Type 3 drivers** are suitable for applications that need to access multiple types of databases simultaneously.
+- **Type 2 drivers** may be necessary if Type 3 or 4 drivers are not available for a specific database.
+- **Type 1 drivers** are mainly used for development and testing purposes.
+
+### Model-View-Controller (MVC) Framework
+
+### MVC Overview
+
+The Model-View-Controller (MVC) is a design pattern that divides an application into three interconnected components: the model, the view, and the controller. This separation helps manage complex applications by separating the input logic, business logic, and UI logic, facilitating a modular and structured approach to application design.
+
+### Components of MVC
+
+1. **Model**: Represents the data and the business logic of the application. It can manipulate data, respond to user actions, and notify the view of changes.
+2. **View**: Displays the data (model) to the user and sends user actions (e.g., button clicks) to the controller. The view is responsible for rendering the user interface.
+3. **Controller**: Acts as an intermediary between the model and the view. It receives user input from the view, processes it (possibly updating the model), and returns the output display to the view.
+
+### MVC Flow Steps
+
+1. The client browser sends a request to the MVC application.
+2. The application's routing mechanism determines which controller to invoke based on the incoming request URL.
+3. The chosen controller processes the request, interacting with the model as necessary to perform any required operations or data manipulations.
+4. The controller selects the view to display and passes any required data model to it.
+5. The view renders the final UI, which is then sent back to the client browser.
+
+<img
+  src="/courseContent/java/unit2/pic8.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+The MVC pattern promotes clean separation of concerns, making web applications easier to maintain, test, and extend. It's widely used in web application frameworks and development projects to create scalable and extensible systems.
+
+### SQL Sequences
+
+Sequences are schema-bound objects that generate sequential numeric values. They are widely used to produce unique row identifiers in databases. The key properties of sequences include their ability to increment in either ascending or descending order, to cycle or not cycle upon reaching their maximum or minimum value, and to be set with specific start, increment, minimum, and maximum values.
+
+**Syntax for Creating a Sequence:**
+
+```sql
+CREATE SEQUENCE sequence_name
+START WITH initial_value
+INCREMENT BY increment_value
+MINVALUE min_value
+MAXVALUE max_value
+CYCLE | NOCYCLE;
+
+```
+
+- **sequence_name**: The name of the sequence.
+- **initial_value**: The starting point of the sequence.
+- **increment_value**: The step size for the sequence.
+- **min_value** and **max_value**: Define the bounds of the sequence.
+- **CYCLE**: Allows the sequence to restart once it hits its bounds.
+- **NOCYCLE**: Throws an error if the sequence exceeds its bounds.
+
+**Example: Ascending Sequence**
+
+```sql
+CREATE SEQUENCE sequence_1
+START WITH 1
+INCREMENT BY 1
+MINVALUE 0
+MAXVALUE 100
+CYCLE;
+
+```
+
+**Example: Descending Sequence**
+
+```sql
+CREATE SEQUENCE sequence_2
+START WITH 100
+INCREMENT BY -1
+MINVALUE 1
+MAXVALUE 100
+CYCLE;
+
+```
+
+### The DUAL Table
+
+The DUAL table is a special one-row, one-column table present in Oracle databases. It is owned by SYS and is accessible by every user. The DUAL table is particularly useful for selecting a pseudo column or performing calculations without referring to any physical table.
+
+**DUAL Table Usage Examples:**
+
+- **Display Structure:**
+
+  ```sql
+  DESC DUAL;
+
+  ```
+
+- **Select from DUAL:**
+
+  ```sql
+  SELECT * FROM DUAL;
+
+  ```
+
+- **Count Rows in DUAL:**
+
+  ```sql
+  SELECT COUNT(*) FROM DUAL;
+
+  ```
+
+- **Select a String Value:**
+
+  ```sql
+  SELECT 'ABCDEF12345' FROM DUAL;
+
+  ```
+
+- **Select a Numeric Value:**
+
+  ```sql
+  SELECT 123792.52 FROM DUAL;
+
+  ```
+
+- **Attempt to Delete/Truncate:**
+  Deleting or truncating the DUAL table is restricted and will result in errors.
+
+### JDBC and SQL Server Data Types
+
+When using the Microsoft JDBC Driver for SQL Server, it's important to understand how JDBC data types map to SQL Server data types and vice versa. This mapping ensures that data retrieved from or sent to the database is correctly interpreted.
+
+**Key Points:**
+
+- The JDBC driver supports JDBC 4.0 API, including `SQLXML` and National (Unicode) data types (`NCHAR`, `NVARCHAR`, `LONGNVARCHAR`, `NCLOB`).
+- There are specific considerations for using `java.sql.Time` with SQL Server's `time` type, and care must be taken with `java.sql.Timestamp` due to changes in how `datetime` is handled in SQL Server 2016 and beyond.
+
+<img
+  src="/courseContent/java/unit2/pic9.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+<img
+  src="/courseContent/java/unit2/pic10.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+<img
+  src="/courseContent/java/unit2/pic11.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+<img
+  src="/courseContent/java/unit2/pic12.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+**Data Retrieval and Update:**
+
+- **Retrieving Data:** You can retrieve data as a string or by specifying the exact data type to ensure accurate conversion and handling.
+- **Updating Data:** Updates can be performed directly by specifying the data type or through parameterized queries to enhance security and efficiency.
+- **Stored Procedures:** JDBC allows for both passing parameters to and retrieving parameters from stored procedures, facilitating complex database operations.
+
+**General Advice:**
+
+- Use the appropriate JDBC data type that corresponds to the column's SQL Server data type.
+- For operations involving time, date, and timestamp data, ensure compatibility with your SQL Server version and JDBC driver.
+- Utilize parameterized queries and prepared statements to prevent SQL injection and enhance performance.
