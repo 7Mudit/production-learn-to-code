@@ -6,15 +6,18 @@ import nptelNotes__quantumPhysics__quantumPhysics1Mdx from './nptel-notes__quant
 import nptelNotes__quantumPhysics__quantumPhysics2Mdx from './nptel-notes__quantumPhysics__quantum-physics2.mdx.json' assert { type: 'json' }
 import nptelNotes__quantumPhysics__quantumPhysics3Mdx from './nptel-notes__quantumPhysics__quantum-physics3.mdx.json' assert { type: 'json' }
 import nptelNotes__quantumPhysics__quantumPhysics4Mdx from './nptel-notes__quantumPhysics__quantum-physics4.mdx.json' assert { type: 'json' }
-import semesterNotes__mad__madUnit1Chapter1Mdx from './semester-notes__mad__mad-unit1-chapter1.mdx.json' assert { type: 'json' }
-import semesterNotes__mad__madUnit1Chapter2Mdx from './semester-notes__mad__mad-unit1-chapter2.mdx.json' assert { type: 'json' }
-import semesterNotes__mad__madUnit1Chapter3Mdx from './semester-notes__mad__mad-unit1-chapter3.mdx.json' assert { type: 'json' }
 import semesterNotes__java__javaUnit1Chapter1Mdx from './semester-notes__java__java-unit1-chapter1.mdx.json' assert { type: 'json' }
 import semesterNotes__java__javaUnit1Chapter2Mdx from './semester-notes__java__java-unit1-chapter2.mdx.json' assert { type: 'json' }
 import semesterNotes__java__javaUnit1Chapter3Mdx from './semester-notes__java__java-unit1-chapter3.mdx.json' assert { type: 'json' }
 import semesterNotes__java__javaUnit2Chapter1Mdx from './semester-notes__java__java-unit2-chapter1.mdx.json' assert { type: 'json' }
 import semesterNotes__java__javaUnit2Chapter2Mdx from './semester-notes__java__java-unit2-chapter2.mdx.json' assert { type: 'json' }
 import semesterNotes__java__javaUnit2Chapter3Mdx from './semester-notes__java__java-unit2-chapter3.mdx.json' assert { type: 'json' }
+import semesterNotes__mad__madUnit1Chapter1Mdx from './semester-notes__mad__mad-unit1-chapter1.mdx.json' assert { type: 'json' }
+import semesterNotes__mad__madUnit1Chapter2Mdx from './semester-notes__mad__mad-unit1-chapter2.mdx.json' assert { type: 'json' }
+import semesterNotes__mad__madUnit1Chapter3Mdx from './semester-notes__mad__mad-unit1-chapter3.mdx.json' assert { type: 'json' }
+import semesterNotes__mad__madUnit2Chapter1Mdx from './semester-notes__mad__mad-unit2-chapter1.mdx.json' assert { type: 'json' }
+import semesterNotes__mad__madUnit2Chapter2Mdx from './semester-notes__mad__mad-unit2-chapter2.mdx.json' assert { type: 'json' }
+import semesterNotes__mad__madUnit2Chapter3Mdx from './semester-notes__mad__mad-unit2-chapter3.mdx.json' assert { type: 'json' }
 import upsolving__codechef__anotherGoodStringMdx from './upsolving__codechef__Another-Good-String.mdx.json' assert { type: 'json' }
 import upsolving__codechef__cookieDayMdx from './upsolving__codechef__Cookie-Day.mdx.json' assert { type: 'json' }
 import upsolving__codechef__findPermutationMdx from './upsolving__codechef__Find-Permutation.mdx.json' assert { type: 'json' }
@@ -26,8 +29,6 @@ import upsolving__codechef__xorry1Mdx from './upsolving__codechef__Xorry1.mdx.js
 import upsolving__codechef__xorry2Mdx from './upsolving__codechef__Xorry2.mdx.json' assert { type: 'json' }
 import semesterNotes__cloudComputing__ccUnit1Chapter1Mdx from './semester-notes__cloud-computing__cc-unit1-chapter1.mdx.json' assert { type: 'json' }
 import semesterNotes__cloudComputing__ccUnit1Chapter2Mdx from './semester-notes__cloud-computing__cc-unit1-chapter2.mdx.json' assert { type: 'json' }
-import semesterNotes__mad__madUnit2Chapter3Mdx from './semester-notes__mad__mad-unit2-chapter3.mdx.json' assert { type: 'json' }
-import semesterNotes__mad__madUnit2Chapter1Mdx from './semester-notes__mad__mad-unit2-chapter1.mdx.json' assert { type: 'json' }
-import semesterNotes__mad__madUnit2Chapter2Mdx from './semester-notes__mad__mad-unit2-chapter2.mdx.json' assert { type: 'json' }
+import semesterNotes__cloudComputing__ccUnit2Chapter1Mdx from './semester-notes__cloud-computing__cc-unit2-chapter1.mdx.json' assert { type: 'json' }
 
-export const allPosts = [nptelNotes__quantumPhysics__quantumPhysicsAssignment1Mdx, nptelNotes__quantumPhysics__quantumPhysicsAssignment2Mdx, nptelNotes__quantumPhysics__quantumPhysics1Mdx, nptelNotes__quantumPhysics__quantumPhysics2Mdx, nptelNotes__quantumPhysics__quantumPhysics3Mdx, nptelNotes__quantumPhysics__quantumPhysics4Mdx, semesterNotes__mad__madUnit1Chapter1Mdx, semesterNotes__mad__madUnit1Chapter2Mdx, semesterNotes__mad__madUnit1Chapter3Mdx, semesterNotes__java__javaUnit1Chapter1Mdx, semesterNotes__java__javaUnit1Chapter2Mdx, semesterNotes__java__javaUnit1Chapter3Mdx, semesterNotes__java__javaUnit2Chapter1Mdx, semesterNotes__java__javaUnit2Chapter2Mdx, semesterNotes__java__javaUnit2Chapter3Mdx, upsolving__codechef__anotherGoodStringMdx, upsolving__codechef__cookieDayMdx, upsolving__codechef__findPermutationMdx, upsolving__codechef__joinStatesMdx, upsolving__codechef__judgedMdx, upsolving__codechef__literacyRateMdx, upsolving__codechef__subsetGcdMdx, upsolving__codechef__xorry1Mdx, upsolving__codechef__xorry2Mdx, semesterNotes__cloudComputing__ccUnit1Chapter1Mdx, semesterNotes__cloudComputing__ccUnit1Chapter2Mdx, semesterNotes__mad__madUnit2Chapter3Mdx, semesterNotes__mad__madUnit2Chapter1Mdx, semesterNotes__mad__madUnit2Chapter2Mdx]
+export const allPosts = [nptelNotes__quantumPhysics__quantumPhysicsAssignment1Mdx, nptelNotes__quantumPhysics__quantumPhysicsAssignment2Mdx, nptelNotes__quantumPhysics__quantumPhysics1Mdx, nptelNotes__quantumPhysics__quantumPhysics2Mdx, nptelNotes__quantumPhysics__quantumPhysics3Mdx, nptelNotes__quantumPhysics__quantumPhysics4Mdx, semesterNotes__java__javaUnit1Chapter1Mdx, semesterNotes__java__javaUnit1Chapter2Mdx, semesterNotes__java__javaUnit1Chapter3Mdx, semesterNotes__java__javaUnit2Chapter1Mdx, semesterNotes__java__javaUnit2Chapter2Mdx, semesterNotes__java__javaUnit2Chapter3Mdx, semesterNotes__mad__madUnit1Chapter1Mdx, semesterNotes__mad__madUnit1Chapter2Mdx, semesterNotes__mad__madUnit1Chapter3Mdx, semesterNotes__mad__madUnit2Chapter1Mdx, semesterNotes__mad__madUnit2Chapter2Mdx, semesterNotes__mad__madUnit2Chapter3Mdx, upsolving__codechef__anotherGoodStringMdx, upsolving__codechef__cookieDayMdx, upsolving__codechef__findPermutationMdx, upsolving__codechef__joinStatesMdx, upsolving__codechef__judgedMdx, upsolving__codechef__literacyRateMdx, upsolving__codechef__subsetGcdMdx, upsolving__codechef__xorry1Mdx, upsolving__codechef__xorry2Mdx, semesterNotes__cloudComputing__ccUnit1Chapter1Mdx, semesterNotes__cloudComputing__ccUnit1Chapter2Mdx, semesterNotes__cloudComputing__ccUnit2Chapter1Mdx]
