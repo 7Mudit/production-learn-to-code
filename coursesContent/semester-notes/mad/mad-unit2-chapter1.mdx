@@ -1,0 +1,241 @@
+---
+title: MAD Chapter 1 Unit 2
+description: Complete Chapter 1 Notes.
+date: 2024-03-19
+---
+
+## Chapter - 1 → Naive Data Handling
+
+### Naïve Data Handling in Mobile Application Development
+
+### Introduction
+
+Naïve data handling refers to straightforward approaches for managing and processing data within mobile applications. This concept is critical in native app development, where applications are created specifically for platforms like iOS or Android, ensuring high user engagement and performance.
+
+### Key Considerations for Data Handling in Mobile Apps
+
+1. **Data Storage**
+   - **Options:** Use SharedPreferences for small key-value pairs, SQLite for structured data, and external storage for large files.
+   - **Considerations:** Weigh the pros and cons of internal vs. external storage based on security, speed, and accessibility.
+2. **Networking and APIs**
+   - **Implementation:** Facilitate communication with remote servers and APIs.
+   - **Tools:** Use Retrofit for Android or URLSession for iOS to manage HTTP requests and responses efficiently.
+3. **Data Serialization**
+   - **Process:** Convert data to/from a format suitable for network transmission. Common formats include JSON and XML.
+   - **Libraries:** Employ built-in or third-party libraries for serialization/deserialization to ensure efficiency.
+4. **Caching**
+   - **Strategy:** Store frequently accessed data locally to minimize network requests.
+   - **Policy:** Establish a caching policy, such as time-based expiration or manual clearing, to optimize resource usage.
+5. **Background Tasks**
+   - **Functionality:** Execute data processing and updates in the background to enhance user experience.
+   - **Implementation:** Utilize background services or tasks for data synchronization or updates without disrupting the user interface.
+6. **User Input Handling**
+   - **Validation:** Ensure data integrity and security by validating user input.
+   - **Security:** Sanitize inputs to protect against potential security threats.
+7. **Local Databases**
+   - **Usage:** Store and retrieve data efficiently, especially for offline operation or handling large datasets.
+   - **Tools:** Leverage ORM frameworks like Room (Android) or Core Data (iOS) for simplified database management.
+8. **Error Handling**
+   - **Mechanisms:** Implement robust error handling to manage issues like network errors or data corruption gracefully.
+   - **User Communication:** Provide clear error messages to enhance user understanding and interaction.
+9. **Security**
+   - **Importance:** Prioritize data security, particularly for sensitive information.
+   - **Methods:** Utilize HTTPS and encryption for secure data transmission and storage.
+10. **Testing**
+    - **Approach:** Conduct comprehensive testing, including unit, integration, and UI tests, to ensure data handling reliability.
+    - **Scenarios:** Test under various conditions, such as poor network or corrupted data, to guarantee app robustness.
+11. **User Experience**
+    - **Focus:** Aim for responsive and low-latency data operations to improve the overall user experience.
+    - **Continuous Improvement:** Stay informed on best practices and emerging technologies to refine data handling strategies continually.
+
+Native data handling in mobile application development is integral to creating efficient, secure, and user-friendly mobile apps. By adhering to best practices in data storage, networking, serialization, and security, developers can ensure their applications meet the highest standards of performance and user satisfaction. Continuous learning and adaptation to new technologies and methodologies are crucial for staying ahead in the rapidly evolving mobile app development landscape.
+
+### Native Mobile App Development
+
+- **Definition:** Creating applications specifically for a given platform (iOS or Android), utilizing the platform's core programming language and APIs.
+- **Benefits:** Enhanced performance, security, interactivity, and user experience; full access to device features; reduced development bugs.
+
+### 5 Key Benefits of Native Mobile App Development
+
+### Overview
+
+Native mobile apps are specifically developed for a particular platform (iOS or Android) using the platform's core programming language and APIs. This approach to app development offers significant advantages over web and hybrid apps, including enhanced performance, security, and user experience.
+
+### Detailed Benefits
+
+1. **Optimal Performance**
+   - **Explanation:** Native apps are developed for their specific platform, allowing them to operate at an exceptionally high level of performance. They are fast, responsive, and efficient due to being built with the platform's core programming language and APIs.
+   - **Advantages:** Quick load times and smooth operation as the app can leverage the device's processing speed, with contents and visual elements pre-stored on the device.
+2. **Enhanced Security**
+   - **Explanation:** Unlike web apps that rely on various browsers and technologies (JavaScript, HTML5, CSS), native apps can provide more robust data protection.
+   - **Advantages:** A secure environment for users, minimizing the risk associated with data breaches or leaks.
+3. **Superior User Experience**
+   - **Explanation:** Native apps offer a more interactive and intuitive user experience. They inherit the device's OS interfaces, making them feel like an integrated part of the device.
+   - **Advantages:** Users enjoy a natural flow within the app, with minimal learning curve thanks to adherence to OS-specific guidelines and familiar gestures/actions.
+4. **Full Access to Device Features**
+   - **Explanation:** Being platform-specific, native apps can fully utilize the software and the operating system's features, directly accessing the hardware like GPS, camera, and microphone.
+   - **Advantages:** Enhanced app functionality and user experience, including the use of push notifications through platforms like APNS for iOS and GCM for Android.
+5. **Fewer Bugs During Development**
+   - **Explanation:** Native development tends to encounter fewer bugs compared to hybrid approaches, mainly because it doesn't rely on cross-platform tools like Xamarin or Cordova, which can introduce an additional layer of complexity.
+   - **Advantages:** Easier maintenance and a more reliable user experience, especially as native developers can immediately incorporate new SDK features upon their release, unlike hybrid app development which may face delays.
+
+Native mobile app development stands out for its ability to deliver a high-quality, secure, and efficient user experience. By taking full advantage of platform-specific features and operating within a more controlled development environment, native apps offer significant benefits, from performance and security to user satisfaction and reliability. Developers and companies looking to create powerful mobile applications should consider native development to leverage these advantages fully.
+
+### Android Data Storage Options
+
+Android offers several methods for storing data, each suited to different needs and scenarios. Understanding these options is crucial for effective data management in your app.
+
+### 1. Shared Preferences
+
+- **Description:** Stores private primitive data in key-value pairs.
+- **Use Case:** Ideal for saving user preferences or settings.
+
+### 2. Internal Storage
+
+- **Description:** Stores private data on the device's memory.
+- **Use Case:** Best for sensitive information accessible only by your app.
+- **Characteristics:**
+  - Always available.
+  - Files are removed upon app uninstallation.
+
+### 3. External Storage
+
+- **Description:** Stores public data on the device or an external storage medium like an SD card.
+- **Use Case:** Suitable for files that should be shared with other apps or accessible by the user outside the app.
+- **Characteristics:**
+  - Not always available (e.g., if SD card is removed).
+  - Files remain even after app uninstallation unless explicitly deleted.
+
+### 4. SQLite Databases
+
+- **Description:** Structured data storage in a private database.
+- **Use Case:** Complex data storage requiring structured query capabilities.
+
+### 5. Content Providers
+
+- **Description:** Store data privately and make it available to other apps publicly.
+- **Use Case:** Sharing data between different applications.
+
+### Storing Data Beyond Android's Internal Mechanisms
+
+### 1. Network Connection
+
+- **Description:** Store data on the web using your own server.
+- **Use Case:** When data needs to be accessible across multiple devices or platforms.
+
+### 2. Cloud Backup
+
+- **Description:** Back up app and user data in the cloud.
+- **Use Case:** For data that needs to be restored in the event of app reinstallation or device change.
+
+### 3. Firebase Realtime Database
+
+- **Description:** A NoSQL cloud database to store and sync data across clients in real-time.
+- **Use Case:** Real-time data updates and synchronization across user devices.
+
+### Android File System
+
+- **External Storage:** Public directories accessible by any app.
+- **Internal Storage:** Private directories accessible only by your app, with files automatically deleted upon app uninstallation.
+
+### When to Use Internal vs. External Storage
+
+- **Internal Storage:** When you want to ensure that neither the user nor other apps can access your files.
+- **External Storage:** For files that don't require access restrictions, need to be shared with other apps, or should be accessible to the user via a computer.
+
+### Saving Files in Shared Storage
+
+- **New Files:** Save new files that users acquire through your app to a public directory for easy access and sharing.
+- **Shared Storage Permissions:** Require permissions to write to external storage, implicitly granting read permissions.
+
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
+
+### Managing Storage Space
+
+- **Space Checks:** Use `getFreeSpace()` and `getTotalSpace()` to check available storage before saving files.
+- **Handling Insufficient Space:** Use a try/catch block for `IOException` to handle scenarios where there is not enough space.
+
+### SQLite Database
+
+- **Purpose:** Ideal for structured data such as contacts. Android offers an SQL-like database environment.
+- **Functionality:** Covered in-depth in subsequent chapters and practicals, including SQLite Primer, SQLite Data Storage Practical, and Searching an SQLite Database Practical.
+
+### Shared Preferences
+
+- **Use Case:** Best for reading and writing small amounts of primitive data as key/value pairs.
+- **Functionality:** Data is stored on device storage, enabling easy access to configuration settings or user preferences.
+
+### Other Storage Options
+
+- **Firebase:**
+  - **Purpose:** Store and sync data with the Firebase cloud database.
+  - **Features:** Real-time data syncing across all clients, with data availability maintained offline. Data is stored as JSON and synced in real-time.
+  - **Documentation:** [Firebase Database Documentation](https://firebase.google.com/docs/database/)
+- **Network Connection:**
+  - **Use:** Store and retrieve data using your own web-based services.
+  - **Relevant Classes:** Utilize classes from `java.net.*` and `android.net.*` packages.
+
+### Backing Up Data
+
+- **Auto Backup:**
+  - **Availability:** For Android 6.0 (API level 23) and higher.
+  - **Features:** Automatic cloud backup of app data with no additional code required. Free service with options to customize and configure auto backups.
+- **Backup API:**
+  - **Supported OS:** Android 5.1 (API level 22).
+  - **Implementation:** Register for Android Backup Service, configure the Manifest, extend the BackupAgentHelper class, and request backups upon data changes.
+
+### Practical Guidance on Storage Options
+
+- **Internal vs. External Storage:**
+  - **Internal Storage:** Private directories, always available, and secure from other apps and users. Suitable for sensitive data.
+  - **External Storage:** Public directories, not always available. Best for data that doesn't require strict access control or needs to be shared.
+- **Storage Directories:**
+  - **Internal Storage:** `getFilesDir()` for permanent storage, `getCacheDir()` for temporary storage.
+  - **External Storage:** Requires permissions set in Android Manifest.
+- **Checking Storage Capacity:**
+  - Use `getFreeSpace()` and `getTotalSpace()` to assess available storage. Employ try/catch blocks to handle `IOException` for situations where there may not be enough space.
+
+### Using SQLite Database in Android Development
+
+### Overview
+
+SQLite database is a versatile and straightforward tool for Android development, perfect for storing structured data that applications need to persistently access, search, and modify. It's commonly used for storing user or app data and caching data fetched from the cloud.
+
+### Key Components and Concepts
+
+1. **SQLiteOpenHelper and SQLiteDatabase**
+   - **SQLiteOpenHelper** is a helper class that manages database creation and version management. All interactions with the database are executed through this class, which represents the SQLite database as an **SQLiteDatabase** object.
+   - **Functions:** It executes database requests, manages the database, and abstracts database interactions from the app to keep complex applications manageable.
+2. **Cursors**
+   - **Definition:** Cursors are data types used for the results of database queries, acting as pointers to a row of structured data, effectively functioning like an array of rows.
+   - **Types:**
+     - **SQLiteCursor:** Exposes results from a query on an SQLiteDatabase.
+     - **MatrixCursor:** A mutable cursor implementation backed by an array of Objects, which expands as needed.
+   - **Common Operations:** `getCount()`, `getColumnNames()`, `getPosition()`, `getString(int column)`, `getInt(int column)`, `moveToFirst()`, `moveToNext()`, `close()`.
+3. **Content Values**
+   - **Usage:** An instance of `ContentValues` represents one table row, storing data as key-value pairs where the key is the column name and the value is the data to be stored in that column.
+   - **Application:** Used to pass row data between methods, facilitating data manipulation within the database.
+
+### Implementing SQLite in Your Application
+
+1. **Data Model Creation**
+   - Define your data structure, considering how to represent it as rows and columns within a table.
+2. **Subclassing SQLiteOpenHelper**
+   - Customize `SQLiteOpenHelper` by creating constants for your database tables and implementing the `onCreate()` method to create the database and tables.
+   - Implement `onUpgrade()` for handling database version upgrades and other optional methods as necessary.
+3. **Database Operations**
+   - Perform database interactions through methods like `query()`, `insert()`, `update()`, and `delete()`.
+   - These operations allow you to retrieve, add, modify, and remove data from your database, respectively.
+4. **Executing Queries**
+   - Implement the `query()` method in your SQLiteOpenHelper subclass to support the specific data retrieval needs of your application.
+   - Utilize database convenience methods for inserting, deleting, and updating records to streamline database manipulation.
+5. **Integration with MainActivity**
+   - In your application's main activity, create an instance of your `SQLiteOpenHelper` subclass.
+   - Use this instance to call the necessary methods to work with your database, performing operations like creating, querying, updating, and deleting data.
+
+### Conclusion
+
+Using SQLite databases in Android development allows for efficient, structured data storage and manipulation within applications. By following best practices for database creation, management, and operation through SQLiteOpenHelper and utilizing Cursors and ContentValues for data handling, developers can effectively implement robust data storage solutions in their Android apps.

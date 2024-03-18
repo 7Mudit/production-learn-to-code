@@ -1,0 +1,281 @@
+---
+title: MAD Chapter 2 Unit 2
+description: Complete Chapter 2 Notes.
+date: 2024-03-20
+---
+
+## Chapter - 2 → **Sprucing up and Testing Mobile Apps**
+
+### Animation in Android
+
+### Overview
+
+Animation in Android enriches the user interface by adding motion effects to views, images, or text, essentially transforming static UI elements into dynamic, engaging components.
+
+### Types of Animation
+
+1. **Property Animation**
+   - **Framework:** Robust and flexible, introduced in Android 3.0 (Honeycomb).
+   - **Functionality:** Allows the animation of properties of any object, including non-view objects.
+   - **Applications:** Ideal for animating widgets like CheckBoxes, RadioButtons, and any other UI elements.
+2. **View Animation**
+   - **Approach:** Adds animation to views using tweened animation which involves interpolating the size, position, rotation, etc.
+   - **Characteristics:** Slower, less flexible but straightforward to use.
+   - **Example:** Expanding a layout within an Expandable RecyclerView.
+3. **Drawable Animation**
+   - **Usage:** Best for animating a sequence of images, like a frame-by-frame animation.
+   - **Example:** Animating an app logo on the splash screen.
+
+### Important Animation Methods
+
+- **startAnimation()**: Begins the animation on a view.
+- **clearAnimation()**: Stops any ongoing animation on a view.
+
+### Audio Recording in Android
+
+### MediaRecorder Class
+
+Used for audio and video recording in Android, utilizing the device's microphone or camera.
+
+### Important Methods of MediaRecorder Class
+
+- **setAudioSource()**: Defines the audio source for recording.
+- **setAudioEncoder()**: Sets the audio encoder to be used for recording.
+- **setOutputFormat()**: Specifies the format of the output file.
+- **setOutputFile()**: Determines the file path where the recording will be stored.
+- **start()**: Initiates the recording process.
+- **stop()**: Halts the recording.
+- **release()**: Releases the resources associated with MediaRecorder.
+
+### Getting Current Location in Android
+
+### Location Retrieval Methods
+
+1. **Location Manager API**: Traditional Android API for location.
+2. **Fused Location Provider**: Part of Google Play Services Location APIs, known for optimizing battery usage.
+
+### Efficiency
+
+- **Fused Location Provider** is considered more efficient than Location Manager API due to its better battery optimization.
+
+### Building a Video Player in Android Studio
+
+### MediaPlayer Class
+
+Utilized for video playback in Android apps.
+
+### Steps to Build a Video Player
+
+1. **Frontend**
+   - Use VideoView for displaying videos.
+   - Media controls like play, rewind, and forward are default and temporary.
+2. **Backend**
+   - Implement media controls in Java: `vw.setMediaController(new MediaController(this));`
+   - Load videos from the raw folder into an ArrayList and initiate playback using `setVideo()`.
+
+### Uri and Video Playback
+
+- Construct a Uri to the video file, set it on the VideoView, and start playback.
+- Example:
+
+  ```java
+  String uriPath = "android.resource://" + getPackageName() + "/" + id;
+  Uri uri = Uri.parse(uriPath);
+  vw.setVideoURI(uri);
+  vw.start();
+
+  ```
+
+### Dialog Box on Video Completion
+
+- Create an AlertDialog in the `onCompletion()` method to handle user actions like replay or next.
+
+### Handling User Actions
+
+- Logic to handle Replay or Next actions within the dialog interface is based on incrementing the current video index and replaying or loading the next video accordingly.
+
+### Note
+
+- On app launch, the first video plays immediately because `setVideo()` is called within `onCreate()`, and it triggers `vw.start()`.
+
+### What is a Debug App in Android?
+
+Debugging is an essential aspect of Android application development. It's a systematic process where the developer inspects, traces, and rectifies any issues or bugs in the app's code. Android Studio, the official IDE for Android, provides a suite of debugging tools that enable developers to execute their app in a controlled environment, step through their code, and inspect variables and method calls.
+
+### Starting the Debugging Process
+
+To begin debugging in Android Studio, follow these steps:
+
+1. **Set Breakpoints**: Place breakpoints in your code where you want the execution to pause. Breakpoints can be added by clicking to the left of the line number in your code editor window.
+2. **Select Target Device**: Choose a device or emulator from the target device menu in the toolbar where you want to deploy your app for debugging.
+3. **Start Debugging Session**: Click the Debug icon in the toolbar, resembling a bug, to start the session. Alternatively, use the shortcut `Shift + F9`.
+4. **Use the Debug Window**: If the Debug window is not open, navigate to `View > Tool Windows > Debug` or click Debug in the tool window bar to open it. This window allows you to see the thread activity, step into methods, inspect variables, evaluate expressions, and view the call stack.
+
+### How to Debug Database in Android?
+
+Using the Android Debug Database library, you can gain insight into your app's databases and shared preferences directly in a browser on your development machine.
+
+To integrate and use this tool:
+
+1. **Integration**: Add the Android Debug Database library to your app's dependencies.
+2. **Launch Your App**: Start your application. You will see a Logcat entry with a URL, for example, `D/DebugDB: Open <http://XXX.XXX.X.XXX:8080> in your browser`.
+3. **Access Database**: Use the URL provided in your Logcat to access your app's database and shared preferences. You can view, query, and modify the data directly through the web interface.
+
+### Understanding Android Debug Database
+
+Android Debug Database (ADD) provides a user-friendly interface for developers to interact with databases and shared preferences. It's an efficient tool for examining data structures, performing CRUD operations, and understanding the stored data's state without needing device root access.
+
+### How an Android App Works
+
+The lifecycle of developing an Android app comprises several processes:
+
+- **Code Compilation**: This is the first step where the source files (Java or Kotlin) are compiled into bytecode (.class files) by their respective compilers.
+
+<img
+  src="/courseContent/mad/unit2/pic1.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+- **Conversion to Dalvik Bytecodes**: These bytecode files are then translated into Dalvik bytecode (.dex files) by the DEX compiler. The Android runtime uses Dalvik bytecode, which is optimized for minimal memory footprint and efficient process management.
+
+<img
+  src="/courseContent/mad/unit2/pic2.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+- **Building the APK File**: The APK file is assembled using compiled bytecode and resources. This includes images, XML files, and other raw materials. The Android Asset Packaging Tool (aapt) compiles these resources and packages them with the bytecode into a single .apk file.
+
+<img
+  src="/courseContent/mad/unit2/pic3.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+### Deployment and Running of an Android App
+
+1. **APK File Structure**: The APK file, equivalent to the .exe in Windows, is a compressed package containing all the necessary components of the app, including the AndroidManifest.xml, dex files, resources, and assets.
+2. **App Signing and Optimization**: Before deployment, the APK must be signed using a developer's certificate for authentication. The `zipalign` tool optimizes the APK, ensuring all uncompressed data starts with a particular byte alignment, facilitating faster access on the device.
+
+<img
+  src="/courseContent/mad/unit2/pic4.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+3. **App Deployment**: Deployment involves transferring the signed and aligned APK to an Android device for testing or live usage. The Android Debug Bridge (ADB) facilitates this transfer, allowing for installation, debugging, and management of apps on the device.
+
+### Final Steps in the App Development Process
+
+1. **Launching the App**: The app launch process begins with the Zygote, a daemon process that creates a new app process upon request using fork system calls. This process ensures that common app resources are loaded in memory efficiently, enabling quick app startup times.
+
+<img
+  src="/courseContent/mad/unit2/pic5.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+2. **Optimization with OAT**: After installation, Android compiles the .dex files to an Optimized Android file format (OAT) for better performance. This Ahead-Of-Time (AOT) compilation process is carried out by the `dex2oat` tool, producing native machine code that the app process loads, resulting in faster execution times.
+
+<img
+  src="/courseContent/mad/unit2/pic6.png"
+  width="718"
+  height="404"
+  alt="Image"
+  className="shadow-xl rounded-xl"
+/>
+
+### White Box Testing
+
+White Box Testing, also known as Clear Box, Transparent Box, or Code-Based Testing, is a detailed testing technique where the internal structure of the application is known to the tester. This method requires a thorough understanding of the code as testers will need to examine the software's internal workings, including:
+
+- Code structure
+- Paths within the code
+- Branches
+- Loops
+
+It is predominantly performed by developers at the unit level of the software testing life cycle. This testing ensures that the flow of inputs and outputs through the application is as expected, improves design and usability, and enhances both security and the code's quality.
+
+### Advantages of White Box Testing:
+
+- It can detect hidden errors within the code.
+- It allows for the optimization of code.
+- Offers early detection of defects within the development phase.
+
+### Tools and Techniques:
+
+- Path Testing
+- Loop Testing
+- Condition Testing
+
+### Black Box Testing
+
+Black Box Testing, also referred to as Functional Testing or Data-Driven Testing, is a technique where the tester does not have knowledge of the internal workings of the application. The testing focuses on:
+
+- Examining functionality against requirements
+- Providing input and examining output
+- Not requiring programming knowledge
+- Testing the application against business requirements
+
+It is usually carried out by software testers and is less time-consuming compared to White Box Testing. Test cases are designed based on specifications and functionalities described by the customer.
+
+### Advantages of Black Box Testing:
+
+- It's generally quicker and tests against user expectations.
+- It requires no knowledge of the underlying code.
+- It is useful for validating that the software meets its functional requirements.
+
+### Tools and Techniques:
+
+- Functional Testing
+- Non-Functional Testing
+- Regression Testing
+
+### Comparison between White Box Testing and Black Box Testing
+
+- **Knowledge of Code**: White Box requires knowledge of the internal structure, while Black Box does not.
+- **Testing Level**: White Box is done at unit and integration levels, while Black Box is done at higher levels, like system testing.
+- **Programming Knowledge**: Programming skills are a must for White Box, not for Black Box.
+- **Time Consumption**: White Box can be more time consuming due to the depth of testing each line of code and logical path, whereas Black Box is less time-consuming because it focuses on external behaviors.
+- **Testing Focus**: White Box focuses on code quality and internal security, while Black Box is aimed at functional requirements and user experience.
+- **Suitability for Algorithms**: White Box is suitable for algorithm testing due to its in-depth approach, while Black Box is not typically used for this purpose.
+- **Automation**: White Box testing is easier to automate since it deals with the code directly, while automation of Black Box testing can be more challenging due to its reliance on functional testing from a user perspective.
+- **Performed by**: Developers primarily perform White Box testing, whereas testers who do not necessarily need to understand the codebase typically perform Black Box testing.
+
+### Automation Tools for Testing Android Applications
+
+Automated testing is a crucial part of the Android development lifecycle. It ensures the quality and functionality of an app while saving time and resources. There are several tools available for automating Android app testing, each with its unique features and capabilities.
+
+1. **Appium**: A cross-platform automation tool that allows testing of native, hybrid, and mobile web apps. It supports various programming languages and integrates with WebDriver for test execution.
+2. **Robotium**: An open-source Android UI testing framework that makes it easy to write powerful and robust automated black-box UI tests for Android applications.
+3. **Kobiton**: Offers cloud-based testing on real devices and provides features for automated and manual testing. It also supports parallel test execution and comprehensive logs.
+4. **Squish for Android**: A professional tool for automated testing of Android applications that supports all Android widgets and allows testing on real devices as well as emulators.
+5. **Experitest**: A suite that enables continuous testing and provides access to over 1000+ real testing devices in the cloud.
+6. **KMAX**: Focuses on network behavior testing for mobile apps, allowing developers to understand how their app behaves under various network conditions.
+
+### Best Practices for Choosing Automation Tools
+
+When selecting an automation tool for Android testing, consider the following:
+
+- **Compatibility with Your App**: The tool should support the language your app is written in and be compatible with the version of Android you're targeting.
+- **Testing Needs**: Determine what aspects of your app need testing — UI, performance, usability, security, etc. — and ensure the tool can cover those areas.
+- **Ease of Use**: The learning curve and ease of setting up and maintaining the tool are essential, especially if your team is small or has limited automation experience.
+- **Community and Support**: A strong community and good support can be invaluable for troubleshooting and keeping up with best practices.
+- **Cost**: Balance the cost of the tool with the benefits it provides. Open-source tools can be great for smaller budgets, but premium tools might offer features that significantly boost productivity.
+- **Integration with Development Tools**: The tool should integrate seamlessly with your development environment, version control system, and CI/CD pipeline.
+- **Scalability**: Consider how well the tool will scale as your app grows in complexity and your testing needs expand.
+
+### Conclusion
+
+Both White Box and Black Box testing have their place in the software development cycle. White Box testing allows for a thorough examination of internal structures, while Black Box testing ensures that the application meets functional requirements and user expectations. Effective use of automated testing tools can accelerate the testing process, improve accuracy, and ultimately result in a higher-quality Android application. While it's impossible to achieve 100% test coverage, the goal is to maximize defect detection and address critical issues to enhance the application's overall quality and performance.
